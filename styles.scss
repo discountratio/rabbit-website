@@ -1,0 +1,391 @@
+//Fonts from Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+//font-family: 'Sacramento', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Sevillana&display=swap");
+//font-family: 'Sevillana', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+//font-family: 'Satisfy', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+//font-family: 'Macondo', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+//font-family: 'Rowdies', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+//font-family: 'Yeseva One', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+//font-family: 'Poppins', sans-serif; //weight 100-900
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+//font-family: 'Outfit', sans-serif; //weight 100-900
+@import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+//font-family: 'Allura', sans-serif; //weight 100-900
+
+
+$width-container: clamp(600px, 100vw, 1200px);
+$width-inner: clamp(400px, 80vw, 800px);
+
+//Color Variables
+$color-primary: #39b0df;
+$color-primary-dark: #2a8aa7;
+$color-primary-light: #6cd3ff;
+$color-secondary: #ecb709;
+$color-secondary-dark: #b98a05;
+$color-secondary-light: #ffda3a;
+$color-light: #fafafa;
+$color-dark: #333333;
+$white: rgb(255, 255, 255);
+$black: #000;
+
+//Cursive Fonts
+$font-fancy1: "Sacramento", cursive;
+$font-fancy2: "Sevillana", cursive;
+$font-fancy3: "Satisfy", cursive;
+$font-fancy4: "Macondo", cursive;
+$font-fancy5: "Rowdies", cursive;
+$font-fancy6: "Yeseva One", cursive;
+
+//Sans Serif Fonts
+$font-family-large: "Outfit", sans-serif;
+$font-family-medium: "Poppins", sans-serif;
+$font-family-small: "Poppins", sans-serif;
+
+//Font Sizes
+$font-size-icon: clamp(24px, 3.5vw, 48px);
+$font-size-large: clamp(2rem, 3vw, 48px);
+$font-size-medium: clamp(1.25rem, 1.75vw, 2.5rem);
+$font-size-small: clamp(1rem, 1.5vw, 1.5rem);
+
+//Font mixins
+@mixin font-icon {
+  font-family: $font-family-large;
+  font-size: $font-size-icon;
+  font-weight: 800;
+}
+@mixin font-huge {
+  font-family: $font-family-large;
+  font-size: clamp(64px, 5vw, 120px);
+  font-weight: 700;
+}
+@mixin font-large {
+  font-family: $font-family-large;
+  font-size: $font-size-large;
+  font-weight: 800;
+}
+
+@mixin font-medium {
+  font-family: $font-family-medium;
+  font-size: $font-size-medium;
+  text-shadow: 2px 2px 4px black;
+  font-weight: 500;
+}
+
+@mixin font-small {
+  font-family: $font-family-small;
+  font-size: $font-size-small;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+body {
+  background: $black;
+}
+#nav {
+  background: $color-dark;
+  color: $color-light;
+  padding: 0.25rem 1rem;
+  height: clamp(48px, 8vw, 72px);
+  line-height: clamp(48px, 8vw, 72px);
+  .nav-title {
+    @include font-large;
+  }
+
+
+  //title and inner container
+  .nav-title {
+    @include font-large;
+    text-shadow: 4px 4px 4px black;
+    transition: all 500ms ease-in-out;
+    color: white;
+    .nav-title-ai{
+      color: $color-primary;
+      transition: color 1000ms;
+    }
+    &:hover {
+      // transform: scale(1.02);
+      .nav-title-ai{
+        color:red;
+      }
+    }
+  }
+
+  //icons
+  .nav-item-icon,
+  .social-item-icon {
+    @include font-icon;
+  }
+
+
+  //nav and social lists
+  .nav-list,
+  .social-list {
+    @include font-medium;
+    @include flex-row;
+  }
+
+  //nav items and social items
+  .social-item,
+  .nav-item {
+    @include flex-row;
+    padding: 0rem 0.25rem;
+    transition: scale 200ms;
+    height: 100%;
+    &:hover {
+      color: $color-primary;
+      scale: 1.1;
+    }
+  }
+
+  //socials only
+  .social-item {
+    .social-item-name {
+      display: none;
+      width: 0ch;
+    }
+  }
+
+}
+
+section {
+  background: $white;
+  color: $black;
+  @include flex-column();
+  .section-header {
+    background: $black;
+    color: $white;
+  }
+  .section-header-title {
+  }
+
+  .section-content {
+  }
+  .section-content-text {
+  }
+}
+
+#home {
+  margin-top: 78px;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  background-color: black;
+  background-image: url("portrait-bg.png");
+  background-position-x: left 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: relative;
+  .home-text {
+    position: relative;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    position: relative;
+    right: 0;
+    background: $color-primary-light;
+    color: $white;
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px $color-primary-light;
+    @include font-medium;
+    @include flex-column;
+    justify-content: flex-start;
+    .home-text-image {
+      max-width: 0px;
+      transition: all 500ms;
+    }
+
+    max-height: 200px;
+    transition: all 500ms;
+    &:hover {
+      padding: 1rem 2rem;
+      max-height: 400px;
+      .home-text-image {
+        max-width: 200px;
+        display: block;
+      }
+    }
+  }
+
+  .home-signature {
+    @include font-huge;
+    font-family: "Allura", sans-serif; //weight 100-900
+    color: $color-primary-light;
+    position: absolute;
+    bottom: 100px;
+    left: 30%;
+  }
+}
+
+#about {
+  .about-cards{
+    
+  }
+  .about-content{
+    @include flex-row;
+    @include font-small;
+    border: 4px solid black;
+    margin: 2rem;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    .about-text{
+      // background: lightcoral;
+      padding: 1rem 2rem;
+      align-self: baseline;
+      &:first-line{
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+    }
+
+    figure{
+      @include flex-column();
+      padding: 1rem;
+      img{
+        transition: scale 200ms;
+        width: clamp(140px, 30vw, 320px);
+        padding: 1rem;
+      }
+      figcaption{
+        font-family: monospace;
+      }
+      transition: all 200ms;
+      &:active, &:focus{
+        scale: 1.3;
+        figcaption{
+          color: transparent;
+        }
+      }
+    }
+    box-shadow: 4px 4px black;
+    transition: all 200ms;
+    &:hover{
+      box-shadow: 12px 12px black;
+      top: -2px;
+      left: -2px;
+      figure img{
+        scale: 1.1;
+      }
+    }
+  }
+
+}
+
+#shop{
+  .shop-content{
+    @include flex-column;
+    .shop-item{
+      @include flex-row;
+    
+    }
+  }
+
+  
+
+}
+
+
+
+.rabbit-card--active{
+  position: fixed;
+  display: flex;
+
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+
+  .rabbit-card-image{
+    width: auto;
+    height: auto;
+    object-position: center;
+    object-fit: contain;
+
+    border: 2px solid red;
+    
+  }
+
+
+  .rabbit-info{
+    display: block;
+  }
+}
+
+
+// MEDIA QUEREIS
+//small screen
+@media screen and (max-width: 600px) {
+  #nav {
+    .nav-title-name {
+      display: none;
+    }
+    .nav-item {
+      .nav-item-name {
+        display: none;
+      }
+      .nav-item-icon,
+      .social-item-icon {
+        display: flex;
+      }
+    }
+  }
+
+  #home {
+    .home-background-image {
+      display: none;
+    }
+  }
+
+  #about{
+
+    .about-content{
+      @include flex-column();
+    }
+    figure{
+    background: red;
+        img{
+          background: green;
+          display: none;
+        }
+        figcaption{
+          background: blue;
+          display: none;
+        }
+    }
+  }
+}
+
+//medium screen
+@media screen and (min-width: 600px) {
+  #nav {
+    .nav-item {
+      .nav-item-name {
+        display: flex;
+      }
+      .nav-item-icon,
+      .social-item-icon {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+#mason-gallery {
+  display: grid;
+  gap: clamp(12px, 0.8rem + 0.5vw, 1rem + 1vw);
+  margin: clamp(20px, 1.2rem + 0.5vw, 1.5rem + 1vw);
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(10, 100px);
+  grid-template-areas: "a e i m" "a e j m " "a f j m" "a g j n" "b g j o" "b g k o" "c h k p" "d h k p" "d h l p" "d h l p";
+}
+#mason-gallery .mason-item-1 {
+  grid-area: a;
+}
+#mason-gallery .mason-item-2 {
+  grid-area: b;
+}
+#mason-gallery .mason-item-3 {
+  grid-area: c;
+}
+#mason-gallery .mason-item-4 {
+  grid-area: d;
+}
+#mason-gallery .mason-item-5 {
+  grid-area: e;
+}
+#mason-gallery .mason-item-6 {
+  grid-area: f;
+}
+#mason-gallery .mason-item-7 {
+  grid-area: g;
+}
+#mason-gallery .mason-item-8 {
+  grid-area: h;
+}
+#mason-gallery .mason-item-9 {
+  grid-area: i;
+}
+#mason-gallery .mason-item-10 {
+  grid-area: j;
+}
+#mason-gallery .mason-item-11 {
+  grid-area: k;
+}
+#mason-gallery .mason-item-12 {
+  grid-area: l;
+}
+#mason-gallery .mason-item-13 {
+  grid-area: m;
+}
+#mason-gallery .mason-item-14 {
+  grid-area: n;
+}
+#mason-gallery .mason-item-15 {
+  grid-area: o;
+}
+#mason-gallery .mason-item-16 {
+  grid-area: p;
+}
+
+.mason-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}/*# sourceMappingURL=mason-gallery.css.map */
