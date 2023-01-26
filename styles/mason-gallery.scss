@@ -1,21 +1,74 @@
 //Only grid layout here! Styling is styles.scss, using alternate classnames (rabbit)
 #mason-gallery {
   display: grid;
+  z-index: 2;
   gap: clamp(12px, 0.8rem + 0.5vw, 1rem + 1vw);
   margin: clamp(20px, 1.2rem + 0.5vw, 1.5rem + 1vw);
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(10, 100px);
+  grid-template-columns: repeat(4, clamp(160px, 160px + 2vw, 200px + 1vw));
+  grid-template-rows: repeat(10, 1fr);
   grid-template-areas:
     "a e i m"
-    "a e j m "
-    "a f j m"
-    "a g j n"
-    "b g j o"
-    "b g k o"
-    "c h k p"
-    "d h k p"
-    "d h l p"
+    "b e i m "
+    "b f i m"
+    "c f j m"
+    "c f j n"
+    "c g j o"
+    "d g j o"
+    "d g k p"
+    "d g l p"
     "d h l p";
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(1, clamp(200px, 200px + 2vw, 400px));
+    grid-template-rows: repeat(10, 1fr);
+    
+    grid-template-areas:
+      "a f l"
+      "a g l"
+      "b g m"
+      "b h m"
+      "c h n"
+      "c i n"
+      "d i o"
+      "d j o"
+      "e j p"
+      "e k p";
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(2, clamp(200px, 200px + 2vw, 300px));
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-areas:
+      "a f"
+      "b g"
+      "c h"
+      "d i"
+      "e j"
+      "k l"
+      "m n"
+      "o p";
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, clamp(200px, 200px + 3vw, 300px));
+    grid-template-areas:
+      "a"
+      "b"
+      "c"
+      "d"
+      "e"
+      "f"
+      "g"
+      "h"
+      "i"
+      "j"
+      "k"
+      "l"
+      "m"
+      "n"
+      "o"
+      "p";
+  }
 
   .mason-item-1 {
     grid-area: a;
@@ -77,10 +130,14 @@
   }
 }
 
-.mason-item img {
+.mason-image-container{
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  display: flex;
+  z-index: 2;
 }
 
+.mason-image-container .mason-image{
+  object-fit : cover;
+  object-position: center;
+}
