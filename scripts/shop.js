@@ -3,10 +3,10 @@ const masonGallery = document.getElementById("mason-gallery");
 
 function makeMasonItem(rabbit, index) {
   const masonItem = document.createElement("div");
-  masonItem.classList.add("mason-item", `mason-item-${index+1}`);
+  masonItem.classList.add("mason-item", `mason-item-${index + 1}`);
 
-const rabbitCard = document.createElement('div');
-rabbitCard.classList.add('rabbit-card');
+  const rabbitCard = document.createElement("div");
+  rabbitCard.classList.add("rabbit-card");
 
   // Create image element
   const masonItemImage = document.createElement("img");
@@ -16,7 +16,7 @@ rabbitCard.classList.add('rabbit-card');
 
   //Create header element
   const masonItemHeader = document.createElement("h3");
-  masonItemHeader.classList.add("rabbit-card-header");  
+  masonItemHeader.classList.add("rabbit-card-header");
   masonItemHeader.innerHTML = rabbit.name;
 
   // Create info element
@@ -27,22 +27,19 @@ rabbitCard.classList.add('rabbit-card');
       <p>${rabbit.inspiration}</p>
       <p>${rabbit.price}</p>
       <p>${rabbit.size}</p>
-    `
+    `;
 
   masonItem.appendChild(masonItemImage);
   masonItem.appendChild(masonItemHeader);
   masonItem.appendChild(masonItemInfo);
 
-
   rabbitCard.addEventListener("click", () => {
     rabbitCard.src = rabbit.hqSrc;
-    rabbitCard.classList.toggle('rabbit-card--active');
+    rabbitCard.classList.toggle("rabbit-card--active");
   });
-
 
   return masonItem;
 }
-
 
 function makeMasonGallery() {
   rabbits.forEach((rabbit, index) => {
@@ -50,6 +47,5 @@ function makeMasonGallery() {
   });
   return masonGallery;
 }
-
 
 makeMasonGallery();
