@@ -96,7 +96,7 @@ section .section-header {
 #home {
   margin-top: 78px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 600px;
   background-color: black;
   background-image: url("../assets/portrait-bg.png");

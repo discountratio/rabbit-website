@@ -44,13 +44,20 @@ section {
 
 section {
   width: $width-container;
-    
+position: relative;
   .section-header {
     width: 100%;
     padding: 0rem 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    background: white;
   }
   .section-header-title {
     width: fit-content;
+
+    
   }
 
   .section-content {
@@ -58,9 +65,7 @@ section {
   }
 
   .section-content-text {
-    
   }
-  
 }
 
 #nav {

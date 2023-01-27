@@ -42,10 +42,16 @@ section {
 
 section {
   width: clamp(600px, 100vw, 1200px);
+  position: relative;
 }
 section .section-header {
   width: 100%;
   padding: 0rem 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  background: white;
 }
 section .section-header-title {
   width: -webkit-fit-content;
