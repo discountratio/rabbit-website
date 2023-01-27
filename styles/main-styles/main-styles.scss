@@ -53,9 +53,10 @@ $font-family-small: "Poppins", sans-serif;
 
 //Font Sizes
 $font-size-icon: clamp(24px, 3.5vw, 48px);
-$font-size-large: clamp(2rem, 3vw, 48px);
-$font-size-medium: clamp(1.25rem, 1.75vw, 2.5rem);
-$font-size-small: clamp(1rem, 1.5vw, 1.5rem);
+$font-size-huge: clamp(64px, 5vw, 4rem);
+$font-size-large: clamp(2rem, 3vw, 3rem);
+$font-size-medium: clamp(1.25rem, 1.75vw, 2rem);
+$font-size-small: clamp(1rem, 1.5vw, 1.25rem);
 
 //Font mixins
 @mixin font-icon {
@@ -66,18 +67,18 @@ $font-size-small: clamp(1rem, 1.5vw, 1.5rem);
 @mixin font-huge {
   font-family: $font-family-large;
   font-size: clamp(64px, 5vw, 120px);
-  font-weight: 700;
+  font-weight: 800;
 }
 @mixin font-large {
   font-family: $font-family-large;
   font-size: $font-size-large;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 @mixin font-medium {
   font-family: $font-family-medium;
   font-size: $font-size-medium;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
 }
@@ -85,28 +86,102 @@ $font-size-small: clamp(1rem, 1.5vw, 1.5rem);
 @mixin font-small {
   font-family: $font-family-small;
   font-size: $font-size-small;
+  font-weight: 400;
 }
 
 @mixin flex-column {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 @mixin flex-row {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 @mixin image-large {
-  width: clamp(300px, 30vw, 600px);
+  width: 100%;
 }
 
 @mixin image-medium {
-  width: clamp(200px, 20vw, 400px);
+  width: clamp(160px, 30vw, 320px);
 }
 
 @mixin image-small {
-  width: clamp(100px, 10vw, 200px);
+  width: 100%;
+}
+
+.section-header {
+  background: black;
+  color: white;
+}
+
+.section-header-title {
+  @include font-medium;
+  padding-left: 2rem;
+}
+
+figure {
+  background: #f5f5f5;
+  padding: 0.5rem;
+  border: 4px solid black;
+  box-shadow: 4px 4px black;
+  width: 100%;
+  position: relative;
+  top: 4px;
+  left: 4px;
+
+  figcaption {
+    color: $color-primary-dark;
+    font-family: $font-fancy1;
+    width: 100%;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+  }
+  img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    border: 4px solid black;
+    vertical-align: center;
+    filter: grayscale(50%);
+    transition: filter $transition-slow;
+  }
+
+  transition: top $transition-fast, left $transition-fast,
+    box-shadow $transition-fast;
+
+  &:hover,
+  &:focus {
+    border: 4px solid $color-secondary;
+    img {
+      filter: grayscale(0%);
+    }
+  }
+  &:hover {
+    top: -4px;
+    left: -4px;
+    box-shadow: 16px 16px 8px black;
+  }
+
+  &:active {
+    img {
+      border: 4px solid $color-secondary;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 50vw;
+      width: 50vw;
+      max-width: 1000px;
+      z-index: 11;
+    }
+  }
 }
 
 #header {
@@ -118,17 +193,23 @@ $font-size-small: clamp(1rem, 1.5vw, 1.5rem);
     // justify-content: center;
     white-space: nowrap;
     flex-wrap: nowrap;
-    padding: 0 0.5rem;
   }
 
   .logo {
     width: 100%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
   }
   .header-name {
     transition: all 200ms;
     display: flex;
+  }
+
+  .nav-list,
+  .social-list,
+  a {
+    gap: 0.5rem;
+    padding: 0 0.25rem;
   }
 
   @media (max-width: 900px) {
@@ -153,58 +234,45 @@ $font-size-small: clamp(1rem, 1.5vw, 1.5rem);
   }
 }
 
-figcaption {
-  @include font-medium;
-}
-
 #home {
   .section-content {
-    @include flex-row;
+    padding: 3vw;
+    gap: 3vw;
+    @include flex-column;
+    min-height: 100vh;
 
-    figure {
+    .home-portrait {
+      figcaption {
+        @include font-huge;
+        font-family: $font-fancy1;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .home-cards {
+    @include flex-row;
+    gap: 1rem;
+
+    figcaption {
+      @include font-medium;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .section-content {
+      @include flex-row;
+      flex-direction: row-reverse;
     }
 
     .home-cards {
-      width: 50%;
-      text-align: left;
-
-      figure {
-        justify-content: center;
-        align-items: center;
-
-        img {
-          @include image-large;
-          width: 0px;
-          height: 0px;
-          padding: 1rem;
-          transition: all 200ms;
-        }
-        &:hover {
-          img {
-            width: clamp(200px, 100%, 30vw);
-
-            height: auto;
-          }
-        }
-      }
-    }
-
-    .home-portrait {
       @include flex-column();
-      width: 50%;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
 
       figure {
+        @include flex-column;
         img {
-          @include image-large;
-        }
-        figcaption {
-          @include font-large;
-          font-family: $font-fancy1;
-          font-weight: 800;
-          color: $color-primary-dark;
+          @include image-medium;
         }
       }
     }
@@ -212,60 +280,7 @@ figcaption {
 }
 
 #about {
-  .about-cards {
-  }
-  .about-content {
-    @include flex-row;
-    @include font-small;
-    border: 4px solid black;
-    margin: 2rem;
-    position: relative;
-    top: 2px;
-    left: 2px;
-    .about-text {
-      // background: lightcoral;
-      padding: 1rem 2rem;
-      align-self: baseline;
-      &:first-line {
-        font-size: 1.15rem;
-        font-weight: 700;
-      }
-    }
+  background: red;
+  @include flex-column;
 
-    figure {
-      @include flex-column();
-      padding: 1rem;
-      img {
-        transition: scale 200ms;
-        width: clamp(140px, 30vw, 320px);
-        padding: 1rem;
-      }
-      figcaption {
-      }
-      transition: all 200ms;
-      &:active,
-      &:focus {
-        scale: 1.3;
-        figcaption {
-          color: transparent;
-        }
-      }
-    }
-    box-shadow: 4px 4px black;
-    transition: all 200ms;
-    &:hover {
-      box-shadow: 12px 12px black;
-      top: -2px;
-      left: -2px;
-      figure img {
-        scale: 1.1;
-      }
-    }
-  }
-}
-
-#home {
-  .home-background-image {
-    display: none;
-  }
 }

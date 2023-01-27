@@ -4,7 +4,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   text-indent: none;
-  border: 1px solid lime;
 }
 
 li {
@@ -50,8 +49,10 @@ nav {
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  height: 30px;
-  line-height: 30px;
+  height: 32px;
+  max-height: 32px;
+  line-height: 32px;
+  padding: 0 1rem;
 }
 nav svg {
   font-size: 24px;
@@ -64,11 +65,18 @@ nav .social-list {
 }
 
 section {
-  width: clamp(600px, 100vw, 1200px);
+  width: 100vw;
   margin-top: 64px;
 }
 section .section-header {
   position: -webkit-sticky;
   position: sticky;
   top: 64px;
+  z-index: 7;
+}
+section .section-header-title {
+  height: 32px;
+  max-height: 32px;
+  line-height: 32px;
+  width: 100vw;
 }/*# sourceMappingURL=layout.css.map */

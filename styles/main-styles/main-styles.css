@@ -7,25 +7,100 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+.section-header {
+  background: black;
+  color: white;
+}
+
+.section-header-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  padding-left: 2rem;
+}
+
+figure {
+  background: #f5f5f5;
+  padding: 0.5rem;
+  border: 4px solid black;
+  box-shadow: 4px 4px black;
+  width: 100%;
+  position: relative;
+  top: 4px;
+  left: 4px;
+  transition: top 0.15s ease-in-out, left 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+figure figcaption {
+  color: #2a8aa7;
+  font-family: "Sacramento", cursive;
+  width: 100%;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+figure img {
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  border: 4px solid black;
+  vertical-align: center;
+  filter: grayscale(50%);
+  transition: filter 0.5s ease-in-out;
+}
+figure:hover, figure:focus {
+  border: 4px solid #ecb709;
+}
+figure:hover img, figure:focus img {
+  filter: grayscale(0%);
+}
+figure:hover {
+  top: -4px;
+  left: -4px;
+  box-shadow: 16px 16px 8px black;
+}
+figure:active img {
+  border: 4px solid #ecb709;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 50vw;
+  width: 50vw;
+  max-width: 1000px;
+  z-index: 11;
+}
+
 #header {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 400;
 }
 #header a {
   display: flex;
   flex-direction: row;
   white-space: nowrap;
   flex-wrap: nowrap;
-  padding: 0 0.5rem;
 }
 #header .logo {
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 #header .header-name {
   transition: all 200ms;
   display: flex;
+}
+#header .nav-list,
+#header .social-list,
+#header a {
+  gap: 0.5rem;
+  padding: 0 0.25rem;
 }
 @media (max-width: 900px) {
   #header ul a {
@@ -43,104 +118,66 @@
   }
 }
 
-figcaption {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2.5rem);
-  font-weight: 500;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-}
-
 #home .section-content {
-  display: flex;
-  flex-direction: row;
-}
-#home .section-content .home-cards {
-  width: 50%;
-  text-align: left;
-}
-#home .section-content .home-cards figure {
-  justify-content: center;
-  align-items: center;
-}
-#home .section-content .home-cards figure img {
-  width: clamp(300px, 30vw, 600px);
-  width: 0px;
-  height: 0px;
-  padding: 1rem;
-  transition: all 200ms;
-}
-#home .section-content .home-cards figure:hover img {
-  width: clamp(200px, 100%, 30vw);
-  height: auto;
-}
-#home .section-content .home-portrait {
+  padding: 3vw;
+  gap: 3vw;
   display: flex;
   flex-direction: column;
-  width: 50%;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
-#home .section-content .home-portrait figure img {
-  width: clamp(300px, 30vw, 600px);
-}
-#home .section-content .home-portrait figure figcaption {
+#home .section-content .home-portrait figcaption {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(2rem, 3vw, 48px);
+  font-size: clamp(64px, 5vw, 120px);
   font-weight: 800;
   font-family: "Sacramento", cursive;
   font-weight: 800;
-  color: #2a8aa7;
 }
-
-#about .about-content {
+#home .home-cards {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+}
+#home .home-cards figcaption {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
-  border: 4px solid black;
-  margin: 2rem;
-  position: relative;
-  top: 2px;
-  left: 2px;
-  box-shadow: 4px 4px black;
-  transition: all 200ms;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-align: left;
 }
-#about .about-content .about-text {
-  padding: 1rem 2rem;
-  align-self: baseline;
-}
-#about .about-content .about-text:first-line {
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-#about .about-content figure {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  transition: all 200ms;
-}
-#about .about-content figure img {
-  transition: scale 200ms;
-  width: clamp(140px, 30vw, 320px);
-  padding: 1rem;
-}
-#about .about-content figure:active, #about .about-content figure:focus {
-  scale: 1.3;
-}
-#about .about-content figure:active figcaption, #about .about-content figure:focus figcaption {
-  color: transparent;
-}
-#about .about-content:hover {
-  box-shadow: 12px 12px black;
-  top: -2px;
-  left: -2px;
-}
-#about .about-content:hover figure img {
-  scale: 1.1;
+@media (min-width: 900px) {
+  #home .section-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
+  #home .home-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  #home .home-cards figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  #home .home-cards figure img {
+    width: clamp(160px, 30vw, 320px);
+  }
 }
 
-#home .home-background-image {
-  display: none;
+#about {
+  background: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }/*# sourceMappingURL=main-styles.css.map */

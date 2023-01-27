@@ -1,23 +1,21 @@
 $header-height: 64px;
-
+$section-header-height: 32px;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   text-indent: none;
-  border: 1px solid lime;
+  // border: 1px solid lime;
 }
-
 
 li {
   list-style: none;
 }
 
-i{
+i {
   color: inherit;
   background: inherit;
-
 }
 a {
   text-decoration: none;
@@ -25,7 +23,7 @@ a {
 }
 
 html {
-  scroll-padding-top:$header-height;
+  scroll-padding-top: $header-height;
   scroll-behavior: smooth;
 }
 
@@ -53,12 +51,13 @@ nav {
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  height: 30px;
-  line-height: 30px;
-  svg{
+  height: $section-header-height;
+  max-height: $section-header-height;
+  line-height: $section-header-height;
+  padding: 0 1rem;
+  svg {
     font-size: 24px;
   }
-
 
   .nav-list {
     display: flex;
@@ -69,21 +68,21 @@ nav {
   }
 }
 
-$width-container: clamp(600px, 100vw, 1200px);
-$width-inner: clamp(400px, 80vw, 1000px);
-
-
 section {
-  width: $width-container;
+  width: 100vw;
   margin-top: $header-height;
 
   .section-header {
     position: sticky;
     top: $header-height;
+    z-index: 7;
   }
 
   .section-header-title {
-
+    height: $section-header-height;
+    max-height: $section-header-height;
+    line-height: $section-header-height;
+    width: 100vw;
   }
 
   .section-content {
