@@ -95,91 +95,56 @@ $font-size-small: clamp(1rem, 1.5vw, 1.5rem);
   align-items: center;
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
-  background: $black;
+  background: linear-gradient(
+    180deg,
+    $color-primary-light,
+    $color-secondary-dark
+  );
 }
-#nav {
-  background: $color-dark;
-  color: $color-light;
-  padding: 0.25rem 1rem;
-  height: clamp(48px, 8vw, 72px);
-  line-height: clamp(48px, 8vw, 72px);
-  .nav-title {
-    @include font-large;
+
+header {
+  .header-title-name {
+    background: red;
+  }
+  .header-title-ai {
+    background: yellow;
   }
 
-  //title and inner container
-  .nav-title {
-    @include font-large;
-    text-shadow: 4px 4px 4px black;
-    transition: all 500ms ease-in-out;
-    color: white;
-    .nav-title-ai {
-      color: $color-primary;
-      transition: color 1000ms;
+  .header-logo {
+    .header-logo-name {
     }
-    &:hover {
-      // transform: scale(1.02);
-      .nav-title-ai {
-        color: red;
-      }
+    .header-logo-ai {
+      color: $color-primary-dark;
+    }
+
+    .header-logo-ai {
     }
   }
 
-  //icons
-  .nav-item-icon,
-  .social-item-icon {
-    @include font-icon;
-  }
-
-  //nav and social lists
-  .nav-list,
-  .social-list {
-    @include font-medium;
-    @include flex-row;
-  }
-
-  //nav items and social items
-  .social-item,
-  .nav-item {
-    @include flex-row;
-    padding: 0rem 0.25rem;
-    transition: scale 200ms;
-    height: 100%;
-    &:hover {
-      color: $color-primary;
-      scale: 1.1;
-    }
-  }
-
-  //socials only
-  .social-item {
-    .social-item-name {
+  @media screen and (max-width: 768px) {
+    flex-direction: row;
+    .header-logo-name {
       display: none;
-      width: 0ch;
     }
   }
 }
 
-section {
-  background: $white;
-  color: $black;
-  @include flex-column();
-  .section-header {
-    background: $black;
-    color: $white;
-  }
-  .section-header-title {
+nav {
+  background: blue;
+  a {
   }
 
-  .section-content {
+  li {
   }
-  .section-content-text {
+
+  //target svg instead of 'i' for fontawesome icons
+  svg {
+  }
+
+  .nav-list {
+  }
+  .social-list {
   }
 }
 

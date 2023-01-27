@@ -11,10 +11,11 @@
       src="https://kit.fontawesome.com/582ae40cce.js"
       crossorigin="anonymous"></script>
     <!-- My Style Sheets -->
-    <link rel="stylesheet" href="styles/layout.css" />
-    <link rel="stylesheet" href="styles/mason-gallery.css" />
-    <link rel="stylesheet" href="styles/shop.css" />
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="./styles/layout/layout.css" />
+    <link rel="stylesheet" href="./styles/main-styles/main-styles.css">
+    <!-- <link rel="stylesheet" href="styles/shop.css" /> -->
+    <!-- <link rel="stylesheet" href="styles/mason-gallery.css" /> -->
+
     <!-- My Scripts -->
     <script src="scripts/mason-gallery.js" type="module" defer></script>
 
@@ -22,69 +23,79 @@
   </head>
 
   <body>
-    <!-- Navigation -->
-    <nav id="nav" class="nav">
-      <ul class="nav-list">
-        <li class="nav-title">
-          <span class="nav-title-name">portr</span
-          ><span class="nav-title-ai">Ai</span
-          ><span class="nav-title-name">ts.com</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-item-link" href="#home">
-            <i class="nav-item-icon fa-solid fa-house"></i>
-            <span class="nav-item-name">Home</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-item-link" href="#about">
-            <i class="nav-item-icon fa-solid fa-user"></i>
-            <span class="nav-item-name">About</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-item-link" href="#contact">
-            <i class="nav-item-icon fa-regular fa-address-card"></i>
-            <span class="nav-item-name">Contact</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-item-link" href="#shop">
-            <i class="nav-item-icon fa-regular fa-money"></i>
-            <span class="nav-item-name">Shop</span>
-          </a>
-        </li>
-
-        <!-- Socials Menu is also a list item -->
-        <li>
-          <div class="social-list">
-            <a class="social-item" href="#">
-              <i class="social-item-icon fa-brands fa-instagram"></i>
-              <p class="social-item-name">Instagram</p>
+    <!--Header  -->
+    <header>
+      <p class="header-logo">
+        <span class="header-logo-name">portr</span
+        ><span class="header-logo-ai">Ai</span
+        ><span class="header-logo-name">ts.com</span>
+      </p>
+      <!-- Navigation -->
+      <nav>
+        <ul class="nav-list">
+          <li>
+            <a href="#home">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
             </a>
-            <a class="social-item" href="#">
-              <i class="social-item-icon fa-brands fa-facebook"></i>
-              <p class="social-item-name">Facebook</p>
-            </a>
+          </li>
 
-            <a class="social-item" href="#">
-              <i class="social-item-icon fa-brands fa-github"></i>
-              <p class="social-item-name">GitHub</p>
+          <li>
+            <a href="#about">
+              <i class="fa-solid fa-user"></i>
+              <span>About</span>
             </a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    <!-- END Navigation -->
+          </li>
+
+          <li>
+            <a href="#contact">
+              <i class="fa-regular fa-address-card"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#shop">
+              <i class="fa-regular fa-money"></i>
+              <span>Shop</span>
+            </a>
+          </li>
+
+          <!-- Socials Menu is also a list item -->
+        </ul>
+
+        <ul class="social-list">
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-facebook"></i>
+              <span>Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- END Navigation -->
+    </header>
+    <!-- END Header -->
     <!-- ************************************************** -->
     <!-- Home -->
     <section id="home">
       <div class="section-header">
         <h2 class="section-header-title">Home</h2>
       </div>
+
       <div class="section-content home-content">
         <div class="home-text home-text-1 section-content-text">
           Porcelain Artmaker.

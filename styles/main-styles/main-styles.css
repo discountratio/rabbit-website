@@ -7,91 +7,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #000;
+  background: linear-gradient(180deg, #6cd3ff, #b98a05);
 }
 
-#nav {
-  background: #333333;
-  color: #fafafa;
-  padding: 0.25rem 1rem;
-  height: clamp(48px, 8vw, 72px);
-  line-height: clamp(48px, 8vw, 72px);
+header .header-title-name {
+  background: red;
 }
-#nav .nav-title {
-  font-family: "Outfit", sans-serif;
-  font-size: clamp(2rem, 3vw, 48px);
-  font-weight: 800;
+header .header-title-ai {
+  background: yellow;
 }
-#nav .nav-title {
-  font-family: "Outfit", sans-serif;
-  font-size: clamp(2rem, 3vw, 48px);
-  font-weight: 800;
-  text-shadow: 4px 4px 4px black;
-  transition: all 500ms ease-in-out;
-  color: white;
+header .header-logo .header-logo-ai {
+  color: #2a8aa7;
 }
-#nav .nav-title .nav-title-ai {
-  color: #39b0df;
-  transition: color 1000ms;
-}
-#nav .nav-title:hover .nav-title-ai {
-  color: red;
-}
-#nav .nav-item-icon,
-#nav .social-item-icon {
-  font-family: "Outfit", sans-serif;
-  font-size: clamp(24px, 3.5vw, 48px);
-  font-weight: 800;
-}
-#nav .nav-list,
-#nav .social-list {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2.5rem);
-  text-shadow: 2px 2px 4px black;
-  font-weight: 500;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-#nav .social-item,
-#nav .nav-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0rem 0.25rem;
-  transition: scale 200ms;
-  height: 100%;
-}
-#nav .social-item:hover,
-#nav .nav-item:hover {
-  color: #39b0df;
-  scale: 1.1;
-}
-#nav .social-item .social-item-name {
-  display: none;
-  width: 0ch;
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: row;
+  }
+  header .header-logo-name {
+    display: none;
+  }
 }
 
-section {
-  background: rgb(255, 255, 255);
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-section .section-header {
-  background: #000;
-  color: rgb(255, 255, 255);
+nav {
+  background: blue;
 }
 #home {
   margin-top: 78px;
@@ -247,4 +186,4 @@ section .section-header {
 #nav .nav-item .social-item-icon {
     display: none;
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=main-styles.css.map */
