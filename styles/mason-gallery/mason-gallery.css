@@ -3,27 +3,28 @@
   z-index: 2;
   gap: clamp(12px, 0.8rem + 0.5vw, 1rem + 1vw);
   margin: clamp(20px, 1.2rem + 0.5vw, 1.5rem + 1vw);
-  grid-template-columns: repeat(4, clamp(160px, 160px + 2vw, 200px + 1vw));
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(4, 5vh);
+  grid-template-rows: repeat(10, 5vw);
   grid-template-areas: "a e i m" "b e i m " "b f i m" "c f j m" "c f j n" "c g j o" "d g j o" "d g k p" "d g l p" "d h l p";
 }
 @media (max-width: 1000px) {
   #mason-gallery {
-    grid-template-columns: repeat(1, clamp(200px, 200px + 2vw, 400px));
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(3, 6.66vw);
+    grid-template-rows: repeat(10, 6.66vw);
     grid-template-areas: "a f l" "a g l" "b g m" "b h m" "c h n" "c i n" "d i o" "d j o" "e j p" "e k p";
   }
 }
 @media (max-width: 700px) {
   #mason-gallery {
-    grid-template-columns: repeat(2, clamp(200px, 200px + 2vw, 300px));
-    grid-template-rows: repeat(10, 1fr);
-    grid-template-areas: "a f" "b g" "c h" "d i" "e j" "k l" "m n" "o p";
+    grid-template-columns: repeat(2, 10vw);
+    grid-template-rows: repeat(10, 10vw);
+    grid-template-areas: "a i" "b i" "b j" "c j" "c k" "d k" "d l" "e l" "e m" "f m" "f n" "g n" "g o" "h o" "h p";
   }
 }
 @media (max-width: 400px) {
   #mason-gallery {
-    grid-template-columns: repeat(1, clamp(200px, 200px + 3vw, 300px));
+    grid-template-columns: repeat(1, 20vw);
+    grid-template-rows: repeat(1, 20vw);
     grid-template-areas: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p";
   }
 }
@@ -76,6 +77,46 @@
   grid-area: p;
 }
 
+.mason-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: scale 500ms;
+}
+.mason-item .mason-inner {
+  transition: opacity 200ms;
+}
+.mason-item:hover {
+  border: 10px solid white;
+  width: 50vw;
+  height: 50vw;
+  z-index: 11;
+}
+.mason-item:hover .mason-inner {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: block;
+  z-index: 12;
+  color: white;
+}
+.mason-item:hover:active, .mason-item:hover:focus {
+  scale: 1.2;
+}
+.mason-item:hover:active .mason-inner, .mason-item:hover:focus .mason-inner {
+  opacity: 0.2;
+}
+
+.mason-inner {
+  display: none;
+}
+
+.mason-close-button {
+  display: none;
+}
+
 .mason-image-container {
   width: 100%;
   height: 100%;
@@ -84,6 +125,8 @@
 }
 
 .mason-image-container .mason-image {
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
