@@ -7,6 +7,92 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-indent: none;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  color: inherit;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  width: 100vw;
+  z-index: 10;
+  background: lightblue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 64px;
+}
+
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  height: 32px;
+  max-height: 32px;
+  line-height: 32px;
+  padding: 0 1rem;
+}
+nav svg {
+  font-size: 24px;
+}
+nav .nav-list {
+  display: flex;
+}
+nav .social-list {
+  display: flex;
+}
+
+section {
+  width: 100vw;
+}
+section .section-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+}
+section .section-content {
+  max-width: 1000px;
+  margin: auto;
+}
+section .section-header-title {
+  height: 32px;
+  max-height: 32px;
+  line-height: 32px;
+  width: 100vw;
+}
+
 .section-header {
   background: black;
   color: white;
@@ -19,6 +105,13 @@
   text-transform: capitalize;
   letter-spacing: 2px;
   padding-left: 2rem;
+}
+
+section:nth-child(odd) {
+  background: #c05454;
+}
+section:nth-child(even) {
+  background: #ecb709;
 }
 
 figure {
@@ -76,11 +169,6 @@ figure:active img {
   z-index: 11;
 }
 
-#header {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  font-weight: 400;
-}
 #header a {
   display: flex;
   flex-direction: row;
@@ -118,6 +206,9 @@ figure:active img {
   }
 }
 
+#home {
+  margin-top: 64px;
+}
 #home .section-content {
   padding: 3vw;
   gap: 3vw;
@@ -125,7 +216,6 @@ figure:active img {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
 }
 #home .section-content .home-portrait figcaption {
   font-family: "Outfit", sans-serif;
@@ -149,7 +239,7 @@ figure:active img {
   letter-spacing: 2px;
   text-align: left;
 }
-@media (min-width: 900px) {
+@media (max-width: 900px) {
   #home .section-content {
     display: flex;
     flex-direction: row;
@@ -175,9 +265,70 @@ figure:active img {
 }
 
 #about {
-  background: red;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+}
+#about .about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+}
+#about .about-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+#about .about-section:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+#about .about-section:not(:last-child) {
+  margin-bottom: 2rem;
+  box-shadow: 0 4px black;
+}
+#about .about-section p {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-transform: none;
+  letter-spacing: 2px;
+  text-align: left;
+}
+#about .about-section p::first-line {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: "Satisfy", cursive;
+}
+#about .about-section p::first-letter {
+  font-size: 3rem;
+  font-weight: 800;
+}
+#about .about-section figure img {
+  width: clamp(160px, 30vw, 320px);
+}
+@media (max-width: 900px) {
+  #about .about-content .about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+  #about .about-content .about-section figure {
+    width: auto;
+  }
+  #about .about-content .about-section figure img {
+    min-width: 300px;
+  }
 }/*# sourceMappingURL=main-styles.css.map */

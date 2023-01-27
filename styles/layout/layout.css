@@ -66,13 +66,16 @@ nav .social-list {
 
 section {
   width: 100vw;
-  margin-top: 64px;
 }
 section .section-header {
   position: -webkit-sticky;
   position: sticky;
   top: 64px;
   z-index: 7;
+}
+section .section-content {
+  max-width: 1000px;
+  margin: auto;
 }
 section .section-header-title {
   height: 32px;

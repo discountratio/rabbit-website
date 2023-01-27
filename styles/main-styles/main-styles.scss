@@ -1,3 +1,5 @@
+@import "../layout/layout.scss";
+
 //Fonts from Google Fonts
 @import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
 //font-family: 'Sacramento', cursive;
@@ -33,6 +35,10 @@ $color-primary-light: #6cd3ff;
 $color-secondary: #ecb709;
 $color-secondary-dark: #b98a05;
 $color-secondary-light: #ffda3a;
+$color-tertiary: #c05454;
+$color-tertiary-dark: #8f3a3a;
+$color-tertiary-light: #e07a7a;
+
 $color-light: #fafafa;
 $color-dark: #333333;
 $white: rgb(255, 255, 255);
@@ -125,6 +131,18 @@ $font-size-small: clamp(1rem, 1.5vw, 1.25rem);
   padding-left: 2rem;
 }
 
+body {
+}
+
+section {
+  &:nth-child(odd) {
+    background: $color-tertiary;
+  }
+  &:nth-child(even) {
+    background: $color-secondary;
+  }
+}
+
 figure {
   background: #f5f5f5;
   padding: 0.5rem;
@@ -185,7 +203,7 @@ figure {
 }
 
 #header {
-  @include font-small;
+  // @include font-small;
   // Hide header and nav names on small screens
   a {
     display: flex;
@@ -235,11 +253,12 @@ figure {
 }
 
 #home {
+  margin-top: $header-height;
   .section-content {
     padding: 3vw;
     gap: 3vw;
     @include flex-column;
-    min-height: 100vh;
+    // min-height: 100vh;
 
     .home-portrait {
       figcaption {
@@ -260,7 +279,7 @@ figure {
     }
   }
 
-  @media (min-width: 900px) {
+  @media (max-width: 900px) {
     .section-content {
       @include flex-row;
       flex-direction: row-reverse;
@@ -280,7 +299,69 @@ figure {
 }
 
 #about {
-  background: red;
   @include flex-column;
 
+  .about-content {
+    @include flex-column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .about-section {
+    @include flex-row;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+      box-shadow: 0 4px black;
+    }
+
+    p {
+      @include font-medium();
+      text-transform: none;
+      letter-spacing: 2px;
+      text-align: left;
+
+      &::first-line {
+        font-size: 2rem;
+        font-weight: 800;
+        font-family: $font-fancy3;
+      }
+
+      &::first-letter {
+        font-size: 3rem;
+        font-weight: 800;
+      }
+    }
+    figure {
+      img {
+        @include image-medium;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .about-content {
+
+      .about-section {
+        @include flex-column;
+        display: flex;
+        flex-direction: column;
+        p {
+        }
+        figure {
+          width: auto;
+          img{
+            min-width: 300px;
+          }
+        }
+      }
+    }
+  }
 }

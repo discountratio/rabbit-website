@@ -10,14 +10,16 @@
     <script
       src="https://kit.fontawesome.com/582ae40cce.js"
       crossorigin="anonymous"></script>
+
+          <!-- My Scripts -->
+    <script src="scripts/mason-gallery.js" type="module" defer></script>
+
     <!-- My Style Sheets -->
     <link rel="stylesheet" href="./styles/layout/layout.css" />
     <link rel="stylesheet" href="./styles/main-styles/main-styles.css" />
-    <!-- <link rel="stylesheet" href="styles/shop.css" /> -->
-    <!-- <link rel="stylesheet" href="styles/mason-gallery.css" /> -->
+    <link rel="stylesheet" href="./styles/mason-gallery/mason-gallery.css">
+    <link rel="stylesheet" href="./styles/section-styles/gallery.css">
 
-    <!-- My Scripts -->
-    <script src="scripts/mason-gallery.js" type="module" defer></script>
 
     <title>Rabbits For Sale</title>
   </head>
@@ -135,35 +137,35 @@
         <h2 class="section-header-title">About</h2>
       </div>
 
-      <div class="about-cards section-content">
-        <div>
+      <div class="about-content section-content">
+        <div class="about-section">
           <p>
             Penelope Park is an artist whose work is inspired by the Korean
             tradition of porcelain painting. She has exhibited her work in
             galleries and museums around the world, and has been featured on
             television programs including National Geographic.
           </p>
-          <figure class="about-figure">
+          <figure>
             <img src="./assets/porcelain/low-quality/porcelain-2.jpg" alt="" />
             <figcaption></figcaption>
           </figure>
         </div>
 
-        <div>
+        <div class="about-section">
           <p>
-            Penelope Park was born in Montreal and grew up in Toronto. At 17,
+            Penelope was born in Montreal and grew up in Toronto. At 17,
             she went to Korea to live with her grandmother for three years,
             where she learned how to make art with porcelain. Upon returning to
             Canada and graduating high school, Penelope decided she wanted to
             make a career out of art.
           </p>
-          <figure class="section-content-figure">
+          <figure>
             <img src="./assets/shoes/low-quality/shoes-2.jpg" alt="" />
             <figcaption></figcaption>
           </figure>
         </div>
 
-        <div>
+        <div class="about-section">
           <p>
             She started out as a graphic designer, but soon found that she had
             an affinity for ceramic sculpture. She decided to pursue ceramics as
@@ -172,7 +174,7 @@
             Fine Arts degree (BFA), Penelope relocated back to Montreal where
             she currently lives with her husband, who works as an architect.
           </p>
-          <figure class="section-content-figure">
+          <figure>
             <img
               class="section-content-image"
               src="./assets/rabbits/low-quality/painting-2.jpg"
@@ -184,20 +186,7 @@
     </section>
     <!-- END About -->
     <!-- ************************************************** -->
-    <!--Contact  -->
-    <section id="contact">
-      <div class="section-header">
-        <h2 class="section-header-title z-3">Contact</h2>
-      </div>
-      <div class="section-content contact-content">
-        <div class="contact-text">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-          <p>Lorem, ipsum dolor.</p>
-        </div>
-      </div>
-    </section>
-    <!-- END Contact -->
+ 
     <!-- ************************************************** -->
     <!--  -->
     <section id="shop">
@@ -205,11 +194,24 @@
         <h2 class="section-header-title">Shop</h2>
       </div>
       <div class="section-content shop-content">
-        <!-- <div class="right-side">
-          store home-signature
-        </div> -->
+
         <div id="mason-gallery"></div>
       </div>
     </section>
+
+       <!--Contact  -->
+       <section id="contact">
+        <div class="section-header">
+          <h2 class="section-header-title z-3">Contact</h2>
+        </div>
+        <div class="section-content contact-content">
+          <div class="contact-text">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+        </div>
+      </section>
+      <!-- END Contact -->
   </body>
 </html>
