@@ -22,7 +22,7 @@ a {
 }
 
 html {
-  scroll-padding-top: clamp(60px, 5vw, 100px);
+  scroll-padding-top: 64px;
   scroll-behavior: smooth;
 }
 
@@ -43,31 +43,32 @@ header {
   top: 0;
   left: 0;
   text-align: center;
-  height: clamp(60px, 5vw, 100px);
+  height: 64px;
 }
 
 nav {
   width: 100vw;
-  background: rgb(29, 27, 27);
   display: flex;
   justify-content: space-between;
+  height: 30px;
+  line-height: 30px;
+}
+nav svg {
+  font-size: 24px;
 }
 nav .nav-list {
   display: flex;
-  background: lightyellow;
 }
 nav .social-list {
   display: flex;
-  background: lightgreen;
 }
 
 section {
   width: clamp(600px, 100vw, 1200px);
-  margin-top: clamp(60px, 5vw, 100px);
+  margin-top: 64px;
 }
 section .section-header {
-  background: lightseagreen;
   position: -webkit-sticky;
   position: sticky;
-  top: clamp(60px, 5vw, 100px);
+  top: 64px;
 }/*# sourceMappingURL=layout.css.map */

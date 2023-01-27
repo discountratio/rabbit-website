@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sevillana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
@@ -7,96 +7,96 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
-body {
-  background: linear-gradient(180deg, #6cd3ff, #b98a05);
+#header {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
-
-header .header-title-name {
-  background: red;
-}
-header .header-title-ai {
-  background: yellow;
-}
-header .header-logo .header-logo-ai {
-  color: #2a8aa7;
-}
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: row;
-  }
-  header .header-logo-name {
-    display: none;
-  }
-}
-
-nav {
-  background: blue;
-}
-#home {
-  margin-top: 78px;
+#header a {
   display: flex;
-  flex-direction: column;
-  min-height: 600px;
-  background-color: black;
-  background-image: url("../assets/portrait-bg.png");
-  background-position-x: left 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
+  flex-direction: row;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  padding: 0 0.5rem;
 }
-#home .home-text {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
-  position: relative;
-  right: 0;
-  background: #6cd3ff;
-  color: rgb(255, 255, 255);
-  border-radius: 4px;
-  box-shadow: 0px 0px 6px #6cd3ff;
+#header .logo {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+#header .header-name {
+  transition: all 200ms;
+  display: flex;
+}
+@media (max-width: 900px) {
+  #header ul a {
+    display: flex;
+    flex-direction: column;
+  }
+  #header .header-link:hover .header-name {
+    max-width: 100px;
+    width: 100%;
+    opacity: 1;
+  }
+  #header .header-name {
+    max-width: 0px;
+    opacity: 0;
+  }
+}
+
+figcaption {
   font-family: "Poppins", sans-serif;
   font-size: clamp(1.25rem, 1.75vw, 2.5rem);
-  text-shadow: 2px 2px 4px black;
   font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+#home .section-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+#home .section-content .home-cards {
+  width: 50%;
+  text-align: left;
+}
+#home .section-content .home-cards figure {
   justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  max-height: 200px;
-  transition: all 500ms;
 }
-#home .home-text .home-text-image {
-  max-width: 0px;
-  transition: all 500ms;
+#home .section-content .home-cards figure img {
+  width: clamp(300px, 30vw, 600px);
+  width: 0px;
+  height: 0px;
+  padding: 1rem;
+  transition: all 200ms;
 }
-#home .home-text:hover {
-  padding: 1rem 2rem;
-  max-height: 400px;
+#home .section-content .home-cards figure:hover img {
+  width: clamp(200px, 100%, 30vw);
+  height: auto;
 }
-#home .home-text:hover .home-text-image {
-  max-width: 200px;
-  display: block;
+#home .section-content .home-portrait {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-#home .home-signature {
+#home .section-content .home-portrait figure img {
+  width: clamp(300px, 30vw, 600px);
+}
+#home .section-content .home-portrait figure figcaption {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(64px, 5vw, 120px);
-  font-weight: 700;
-  font-family: "Allura", sans-serif;
-  color: #6cd3ff;
-  position: absolute;
-  bottom: 100px;
-  left: 30%;
+  font-size: clamp(2rem, 3vw, 48px);
+  font-weight: 800;
+  font-family: "Sacramento", cursive;
+  font-weight: 800;
+  color: #2a8aa7;
 }
 
 #about .about-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   font-family: "Poppins", sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   border: 4px solid black;
@@ -118,8 +118,6 @@ nav {
 #about .about-content figure {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 1rem;
   transition: all 200ms;
 }
@@ -127,9 +125,6 @@ nav {
   transition: scale 200ms;
   width: clamp(140px, 30vw, 320px);
   padding: 1rem;
-}
-#about .about-content figure figcaption {
-  font-family: monospace;
 }
 #about .about-content figure:active, #about .about-content figure:focus {
   scale: 1.3;
@@ -146,44 +141,6 @@ nav {
   scale: 1.1;
 }
 
-@media screen and (max-width: 600px) {
-  #nav .nav-title-name {
-    display: none;
-  }
-  #nav .nav-item .nav-item-name {
-    display: none;
-  }
-  #nav .nav-item .nav-item-icon,
-#nav .nav-item .social-item-icon {
-    display: flex;
-  }
-  #home .home-background-image {
-    display: none;
-  }
-  #about .about-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #about figure {
-    background: red;
-  }
-  #about figure img {
-    background: green;
-    display: none;
-  }
-  #about figure figcaption {
-    background: blue;
-    display: none;
-  }
-}
-@media screen and (min-width: 600px) {
-  #nav .nav-item .nav-item-name {
-    display: flex;
-  }
-  #nav .nav-item .nav-item-icon,
-#nav .nav-item .social-item-icon {
-    display: none;
-  }
+#home .home-background-image {
+  display: none;
 }/*# sourceMappingURL=main-styles.css.map */

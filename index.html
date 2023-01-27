@@ -12,7 +12,7 @@
       crossorigin="anonymous"></script>
     <!-- My Style Sheets -->
     <link rel="stylesheet" href="./styles/layout/layout.css" />
-    <link rel="stylesheet" href="./styles/main-styles/main-styles.css">
+    <link rel="stylesheet" href="./styles/main-styles/main-styles.css" />
     <!-- <link rel="stylesheet" href="styles/shop.css" /> -->
     <!-- <link rel="stylesheet" href="styles/mason-gallery.css" /> -->
 
@@ -24,40 +24,41 @@
 
   <body>
     <!--Header  -->
-    <header>
-      <p class="header-logo">
-        <span class="header-logo-name">portr</span
-        ><span class="header-logo-ai">Ai</span
-        ><span class="header-logo-name">ts.com</span>
-      </p>
+    <header id="header">
+      <a class="logo header-link" href="" class="logo">
+        <span class="header-name">portr</span>
+        <span class="logo-icon">Ai</span>
+        <span class="header-name">ts.com</span>
+        <!-- <span class="logo-icon">.com</span> -->
+      </a>
       <!-- Navigation -->
       <nav>
         <ul class="nav-list">
           <li>
-            <a href="#home">
-              <i class="fa-solid fa-house"></i>
-              <span>Home</span>
+            <a class="header-link" href="#home">
+              <i class="header-icon fa-solid fa-house"></i>
+              <span class="header-name">Home</span>
             </a>
           </li>
 
           <li>
-            <a href="#about">
-              <i class="fa-solid fa-user"></i>
-              <span>About</span>
+            <a class="header-link" href="#about">
+              <i class="header-icon fa-solid fa-user"></i>
+              <span class="header-name">About</span>
             </a>
           </li>
 
           <li>
-            <a href="#contact">
-              <i class="fa-regular fa-address-card"></i>
-              <span>Contact</span>
+            <a class="header-link" href="#contact">
+              <i class="header-icon fa-regular fa-address-card"></i>
+              <span class="header-name">Contact</span>
             </a>
           </li>
 
           <li>
-            <a href="#shop">
-              <i class="fa-regular fa-money"></i>
-              <span>Shop</span>
+            <a class="header-link" href="#shop">
+              <i class="header-icon fa-regular fa-money"></i>
+              <span class="header-name">Shop</span>
             </a>
           </li>
 
@@ -66,22 +67,22 @@
 
         <ul class="social-list">
           <li>
-            <a href="#">
-              <i class="fa-brands fa-instagram"></i>
-              <span>Instagram</span>
+            <a class="header-link" href="#">
+              <i class="header-icon fa-brands fa-instagram"></i>
+              <span class="header-name">Instagram</span>
             </a>
           </li>
 
           <li>
-            <a href="#">
-              <i class="fa-brands fa-facebook"></i>
-              <span>Facebook</span>
+            <a class="header-link" href="#">
+              <i class="header-icon fa-brands fa-facebook"></i>
+              <span class="header-name">Facebook</span>
             </a>
           </li>
           <li>
-            <a href="#">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
+            <a class="header-link" href="#">
+              <i class="header-icon fa-brands fa-github"></i>
+              <span class="header-name">GitHub</span>
             </a>
           </li>
         </ul>
@@ -97,32 +98,33 @@
       </div>
 
       <div class="section-content home-content">
-        <div class="home-text home-text-1 section-content-text">
-          Porcelain Artmaker.
-          <img
-            class="home-text-image"
-            src="./assets/rabbits/low-quality/painting-11.jpg"
-            alt="" />
+        <div class="home-cards">
+          <figure>
+            <figcaption>A cool cat</figcaption>
+            <img src="./assets/rabbits/low-quality/painting-11.jpg" alt="" />
+          </figure>
+
+          <figure>
+            <figcaption>A cool cat</figcaption>
+
+            <img src="./assets/rabbits/low-quality/painting-11.jpg" alt="" />
+          </figure>
+
+          <figure>
+            <figcaption>A cool cat</figcaption>
+            <img src="./assets/rabbits/low-quality/painting-11.jpg" alt="" />
+          </figure>
         </div>
 
-        <p class="home-text home-text-2 section-content-text">
-          Rabbit Painter.
-          <img
-            class="home-text-image"
-            src="./assets/rabbits/low-quality/painting-11.jpg"
-            alt="" />
-        </p>
-
-        <p class="home-text home-text-3 section-content-text">
-          Shoe Creator.
-          <img
-            class="home-text-image"
-            src="./assets/rabbits/low-quality/painting-11.jpg"
-            alt="" />
-        </p>
-
-        <p class="home-signature">Penelope Park</p>
+        <div class="home-portrait">
+          <figure>
+            <img src="./assets/portrait-1.png" alt="artists portrait" />
+            <figcaption>Penny Park</figcaption>
+          </figure>
+        </div>
+        <!-- END Home-cards -->
       </div>
+      <!-- END Section Content -->
     </section>
     <!-- END Home -->
     <!-- ************************************************** -->

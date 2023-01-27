@@ -1,3 +1,5 @@
+$header-height: 64px;
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +9,7 @@
   border: 1px solid lime;
 }
 
-$header-height: clamp(60px, 5vw, 100px);
+
 li {
   list-style: none;
 }
@@ -15,7 +17,7 @@ li {
 i{
   color: inherit;
   background: inherit;
-  
+
 }
 a {
   text-decoration: none;
@@ -49,18 +51,21 @@ header {
 
 nav {
   width: 100vw;
-  background: rgb(29, 27, 27);
   display: flex;
   justify-content: space-between;
+  height: 30px;
+  line-height: 30px;
+  svg{
+    font-size: 24px;
+  }
+
 
   .nav-list {
     display: flex;
-    background: lightyellow;
   }
 
   .social-list {
     display: flex;
-    background: lightgreen;
   }
 }
 
@@ -73,7 +78,6 @@ section {
   margin-top: $header-height;
 
   .section-header {
-    background: lightseagreen;
     position: sticky;
     top: $header-height;
   }

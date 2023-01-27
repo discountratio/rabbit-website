@@ -1,7 +1,7 @@
 //Fonts from Google Fonts
-@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
 //font-family: 'Sacramento', cursive;
-@import url("https://fonts.googleapis.com/css2?family=Sevillana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
 //font-family: 'Sevillana', cursive;
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 //font-family: 'Satisfy', cursive;
@@ -20,6 +20,11 @@
 
 $width-container: clamp(600px, 100vw, 1200px);
 $width-inner: clamp(400px, 80vw, 800px);
+
+//Transition Variables
+$transition-slow: 0.5s ease-in-out;
+$transition-regular: 0.3s ease-in-out;
+$transition-fast: 0.15s ease-in-out;
 
 //Color Variables
 $color-primary: #39b0df;
@@ -72,8 +77,9 @@ $font-size-small: clamp(1rem, 1.5vw, 1.5rem);
 @mixin font-medium {
   font-family: $font-family-medium;
   font-size: $font-size-medium;
-  text-shadow: 2px 2px 4px black;
   font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 2px;
 }
 
 @mixin font-small {
@@ -84,119 +90,124 @@ $font-size-small: clamp(1rem, 1.5vw, 1.5rem);
 @mixin flex-column {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 @mixin flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
-body {
-  background: linear-gradient(
-    180deg,
-    $color-primary-light,
-    $color-secondary-dark
-  );
+@mixin image-large {
+  width: clamp(300px, 30vw, 600px);
 }
 
-header {
-  .header-title-name {
-    background: red;
-  }
-  .header-title-ai {
-    background: yellow;
-  }
-
-  .header-logo {
-    .header-logo-name {
-    }
-    .header-logo-ai {
-      color: $color-primary-dark;
-    }
-
-    .header-logo-ai {
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    flex-direction: row;
-    .header-logo-name {
-      display: none;
-    }
-  }
+@mixin image-medium {
+  width: clamp(200px, 20vw, 400px);
 }
 
-nav {
-  background: blue;
+@mixin image-small {
+  width: clamp(100px, 10vw, 200px);
+}
+
+#header {
+  @include font-small;
+  // Hide header and nav names on small screens
   a {
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    padding: 0 0.5rem;
   }
 
-  li {
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+  }
+  .header-name {
+    transition: all 200ms;
+    display: flex;
   }
 
-  //target svg instead of 'i' for fontawesome icons
-  svg {
-  }
+  @media (max-width: 900px) {
+    ul a {
+      display: flex;
+      flex-direction: column;
+    }
 
-  .nav-list {
+    .header-link {
+      &:hover {
+        .header-name {
+          max-width: 100px;
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+    .header-name {
+      max-width: 0px;
+      opacity: 0;
+    }
   }
-  .social-list {
-  }
+}
+
+figcaption {
+  @include font-medium;
 }
 
 #home {
-  margin-top: 78px;
-  display: flex;
-  flex-direction: column;
-  min-height: 600px;
-  background-color: black;
-  background-image: url("../assets/portrait-bg.png");
-  background-position-x: left 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-  .home-text {
-    position: relative;
-    width: fit-content;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    position: relative;
-    right: 0;
-    background: $color-primary-light;
-    color: $white;
-    border-radius: 4px;
-    box-shadow: 0px 0px 6px $color-primary-light;
-    @include font-medium;
-    @include flex-column;
-    justify-content: flex-start;
-    .home-text-image {
-      max-width: 0px;
-      transition: all 500ms;
+  .section-content {
+    @include flex-row;
+
+    figure {
     }
 
-    max-height: 200px;
-    transition: all 500ms;
-    &:hover {
-      padding: 1rem 2rem;
-      max-height: 400px;
-      .home-text-image {
-        max-width: 200px;
-        display: block;
+    .home-cards {
+      width: 50%;
+      text-align: left;
+
+      figure {
+        justify-content: center;
+        align-items: center;
+
+        img {
+          @include image-large;
+          width: 0px;
+          height: 0px;
+          padding: 1rem;
+          transition: all 200ms;
+        }
+        &:hover {
+          img {
+            width: clamp(200px, 100%, 30vw);
+
+            height: auto;
+          }
+        }
       }
     }
-  }
 
-  .home-signature {
-    @include font-huge;
-    font-family: "Allura", sans-serif; //weight 100-900
-    color: $color-primary-light;
-    position: absolute;
-    bottom: 100px;
-    left: 30%;
+    .home-portrait {
+      @include flex-column();
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      figure {
+        img {
+          @include image-large;
+        }
+        figcaption {
+          @include font-large;
+          font-family: $font-fancy1;
+          font-weight: 800;
+          color: $color-primary-dark;
+        }
+      }
+    }
   }
 }
 
@@ -230,7 +241,6 @@ nav {
         padding: 1rem;
       }
       figcaption {
-        font-family: monospace;
       }
       transition: all 200ms;
       &:active,
@@ -254,59 +264,8 @@ nav {
   }
 }
 
-// MEDIA QUEREIS
-//small screen
-@media screen and (max-width: 600px) {
-  #nav {
-    .nav-title-name {
-      display: none;
-    }
-    .nav-item {
-      .nav-item-name {
-        display: none;
-      }
-      .nav-item-icon,
-      .social-item-icon {
-        display: flex;
-      }
-    }
-  }
-
-  #home {
-    .home-background-image {
-      display: none;
-    }
-  }
-
-  #about {
-    .about-content {
-      @include flex-column();
-    }
-    figure {
-      background: red;
-      img {
-        background: green;
-        display: none;
-      }
-      figcaption {
-        background: blue;
-        display: none;
-      }
-    }
-  }
-}
-
-//medium screen
-@media screen and (min-width: 600px) {
-  #nav {
-    .nav-item {
-      .nav-item-name {
-        display: flex;
-      }
-      .nav-item-icon,
-      .social-item-icon {
-        display: none;
-      }
-    }
+#home {
+  .home-background-image {
+    display: none;
   }
 }
