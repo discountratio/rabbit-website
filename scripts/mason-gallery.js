@@ -91,6 +91,9 @@ function makeMasonItem(
   masonInner.classList.add("mason-inner");
 
   masonImage.src = lqImage;
+  const masonItemLowQualityImage = lqImage;
+  const masonItemHighQualityImage = hqImage;
+  
   masonImage.srcset = `${lqImage} 400w, ${hqImage} 800w`;
   masonImage.alt = header;
   masonImage.classList.add("mason-image");
@@ -139,12 +142,34 @@ function makeMasonItem(
     addToCart(name, price, size, image);
   };
 
-  masonItem.addEventListener("click", () => {
-    addMasonItemToCart(masonItem);
-  });
+  
+
+  masonItem.addEventListener('click', () => {
+    masonItemActive(masonItem);
+  })
+
+ 
+  
 
   return masonItem;
 }
+
+function masonItemActive(masonItem) {
+  masonItem.classList.add("mason-item-active");
+  // console.log(masonItem.classList);
+  console.log(masonItem.masonImageContainer);
+  console.log(masonItem.querySelector(".mason-image").src);
+  masonItem.querySelector(".mason-image").src = masonItem.hqSrc;
+  console.log(masonItem.querySelector(".mason-image").src);
+
+  // console.log(masonItem.img.src);
+
+  console.log(masonItem);
+
+  
+}
+
+
 
 function makeMasonGalleryFromRabbits(rabbitArray) {
   masonGallery.classList.add("mason-gallery");

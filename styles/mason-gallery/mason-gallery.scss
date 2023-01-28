@@ -5,8 +5,10 @@
   width: 100%;
   gap: clamp(12px, 0.8rem + 0.5vw, 1rem + 1vw);
   margin: clamp(20px, 1.2rem + 0.5vw, 1.5rem + 1vw);
-  grid-template-columns: repeat(4, 5vh);
-  grid-template-rows: repeat(10, 5vw);
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+
   grid-template-areas:
     "a e i m"
     "b e i m"
@@ -21,8 +23,8 @@
 
   @media (max-width: 1000px) {
     // grid-template-columns: repeat(1, clamp(200px, 200px + 2vw, 400px));
-    grid-template-columns: repeat(3, 6.66vw);
-    grid-template-rows: repeat(10, 6.66vw);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 
     grid-template-areas:
       "a f l"
@@ -38,8 +40,8 @@
   }
 
   @media (max-width: 700px) {
-    grid-template-columns: repeat(2, 10vw);
-    grid-template-rows: repeat(10, 10vw);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(15, 1fr);
     grid-template-areas:
       "a i"
       "b i"
@@ -59,8 +61,7 @@
   }
 
   @media (max-width: 400px) {
-    grid-template-columns: repeat(1, 20vw);
-    grid-template-rows: repeat(1, 20vw);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-areas:
       "a"
       "b"
@@ -146,16 +147,16 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: scale 500ms;
+  transition: width 400ms, position 400ms;
+
 
   .mason-inner {
     transition: opacity 200ms;
   }
+
   &:hover {
     border: 10px solid white;
-    width: 50vw;
-    height: 50vw;
-    z-index: 11;
+
 
     .mason-inner {
       position: absolute;
