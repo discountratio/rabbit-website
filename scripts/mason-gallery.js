@@ -1,80 +1,168 @@
 import { rabbitArray } from "../scripts/rabbits.js";
 const masonGallery = document.getElementById("mason-gallery");
 
-function makeMasonItem(lqImage, hqImage, header, content, index) {
+const cart = document.getElementById("cart");
+
+function addToCart(name, price, size, image) {
+  const cartItem = document.createElement("div");
+  const cartItemName = document.createElement("h3");
+  const cartItemPrice = document.createElement("p");
+  const cartItemImage = document.createElement("img");
+  const cartItemSize = document.createElement("p");
+  const cartItemQuantity = document.createElement("p");
+  const cartItemQuantityUp = document.createElement("button");
+  const cartItemQuantityDown = document.createElement("button");
+  const cartItemRemove = document.createElement("button");
+
+  cartItemName.textContent = name;
+  cartItemPrice.textContent = price;
+  cartItemImage.src = image;
+  cartItemSize.textContent = size;
+  cartItemQuantity.textContent = 1;
+  cartItemQuantityUp.textContent = "+";
+  cartItemQuantityDown.textContent = "-";
+  cartItemRemove.textContent = "Remove";
+
+  cartItem.classList.add("cart-item");
+  cartItemName.classList.add("cart-item-name");
+  cartItemPrice.classList.add("cart-item-price");
+  cartItemImage.classList.add("cart-item-image");
+  cartItemSize.classList.add("cart-item-size");
+  cartItemQuantity.classList.add("cart-item-quantity");
+  cartItemQuantityUp.classList.add("cart-item-quantity-up");
+  cartItemQuantityDown.classList.add("cart-item-quantity-down");
+  cartItemRemove.classList.add("cart-item-remove");
+
+  cartItemQuantityUp.addEventListener("click", () => {
+    cartItemQuantity.textContent = parseInt(cartItemQuantity.textContent) + 1;
+  });
+
+  cartItemQuantityDown.addEventListener("click", () => {
+    if (parseInt(cartItemQuantity.textContent) > 1) {
+      cartItemQuantity.textContent = parseInt(cartItemQuantity.textContent) - 1;
+    }
+  });
+
+  cartItemRemove.addEventListener("click", () => {
+    cartItem.remove();
+  });
+
+  cartItem.appendChild(cartItemName);
+  cartItem.appendChild(cartItemPrice);
+  cartItem.appendChild(cartItemImage);
+  cartItem.appendChild(cartItemSize);
+
+  const cardQuantityButtonDiv = document.createElement("div");
+  cardQuantityButtonDiv.classList.add("cart-item-quantity-buttons");
+  cardQuantityButtonDiv.appendChild(cartItemQuantityDown);
+  cardQuantityButtonDiv.appendChild(cartItemQuantity);
+  cardQuantityButtonDiv.appendChild(cartItemQuantityUp);
+
+
+  cartItem.appendChild(cardQuantityButtonDiv);
+
+  cart.appendChild(cartItem);
+}
+
+function makeMasonItem(
+  lqImage,
+  hqImage,
+  header,
+  breed,
+  price,
+  inspiration,
+  started,
+  size,
+  index
+) {
   const masonItem = document.createElement("div");
-  const masonImageContainer = document.createElement("div");
   const masonImage = document.createElement("img");
   const masonHeader = document.createElement("h3");
+  const masonBreed = document.createElement("p");
+  const masonPrice = document.createElement("p");
+  const masonInspiration = document.createElement("p");
+  const masonStarted = document.createElement("p");
+  const masonSize = document.createElement("p");
+  const masonAddToCart = document.createElement("button");
+
+  const masonImageContainer = document.createElement("div");
+  masonImageContainer.classList.add("mason-image-container");
   const masonInner = document.createElement("div");
-
-  const masonCloseButton = document.createElement("div");
-  masonCloseButton.addEventListener("click", () => {  
-    masonItem.classList.remove("mason-item--active");
-    masonImage.src = lqImage;
-  });
-  masonCloseButton.classList.add("mason-close-button");
-  masonCloseButton.textContent = "X";
-  masonItem.appendChild(masonCloseButton);
-
-
+  masonInner.classList.add("mason-inner");
 
   masonImage.src = lqImage;
+  masonImage.srcset = `${lqImage} 400w, ${hqImage} 800w`;
   masonImage.alt = header;
-  masonHeader.textContent = header;
-  masonInner.innerHTML = content;
-
   masonImage.classList.add("mason-image");
+  masonHeader.textContent = header;
+
   masonHeader.classList.add("mason-header");
-  masonInner.classList.add("mason-inner");
-  masonImageContainer.classList.add("mason-image-container");
+  masonBreed.innherHTML = `<strong>Breed: </strong>${breed}`;
+  masonBreed.classList.add("mason-breed");
 
+  masonPrice.innerHTML = `<strong>Price: </strong>${price}`;
+  masonPrice.classList.add("mason-price");
+  masonInspiration.innerHTML = `<strong>Inspiration: </strong>${inspiration}`;
+  masonInspiration.classList.add("mason-inspiration");
+  masonStarted.innerHTML = `<strong>Started: </strong>${started}`;
+  masonStarted.classList.add("mason-started");
+  masonSize.innerHTML = `<strong>Size: </strong>${size}`;
+  masonSize.classList.add("mason-size");
+  masonAddToCart.textContent = "Add to Cart";
+  masonAddToCart.classList.add("mason-add-to-cart");
 
-  masonImageContainer.appendChild(masonImage);
-  masonInner.appendChild(masonHeader);
-  masonItem.appendChild(masonImageContainer);
-  masonItem.appendChild(masonInner);
-
-  masonItem.classList.add("mason-item", `mason-item-${index + 1}`);
-  masonItem.addEventListener("click", () => {
-    
-    console.log("click");
-    const allMasonItems = [...document.querySelectorAll(".mason-item")]
-    allMasonItems.forEach(item => item.classList.remove("mason-item--active"));
-    masonItem.classList.add("mason-item--active");
-    masonImage.src = hqImage;
-
-    
+  masonAddToCart.addEventListener("click", () => {
+    addMasonItemToCart(masonItem);
   });
 
+  masonItem.classList.add("mason-item");
+  masonItem.classList.add(`mason-item-${index}`);
 
+  masonInner.appendChild(masonHeader);
+  masonInner.appendChild(masonBreed);
+  masonInner.appendChild(masonPrice);
+  masonInner.appendChild(masonInspiration);
+  masonInner.appendChild(masonStarted);
+  masonInner.appendChild(masonSize);
+  masonInner.appendChild(masonAddToCart);
 
+  masonItem.appendChild(masonInner);
+  masonImageContainer.appendChild(masonImage);
+  masonItem.appendChild(masonImageContainer);
+
+  const addMasonItemToCart = (masonItem) => {
+    const name = masonItem.querySelector(".mason-header").textContent;
+    const price = masonItem.querySelector(".mason-price").textContent;
+    const size = masonItem.querySelector(".mason-size").textContent;
+    const image = masonItem.querySelector(".mason-image").src;
+
+    addToCart(name, price, size, image);
+  };
+
+  masonItem.addEventListener("click", () => {
+    addMasonItemToCart(masonItem);
+  });
 
   return masonItem;
 }
 
-function makeMasonGalleryFromArray(array) {
-  array.forEach((item, index) => {
-    const innerContent = `
-    <ul>
-    <li><strong>Started: </strong>${item.started}</li>
-    <li><strong>Breed: </strong>${item.breed}</li>
-    <li><strong>Inspiration: </strong>${item.inspiration}</li>
-    <li><strong>Price: </strong>$${item.price}</li>
-    <li><strong>Size: </strong>${item.size}</li>
-      </ul>
-    `;
-
+function makeMasonGalleryFromRabbits(rabbitArray) {
+  masonGallery.classList.add("mason-gallery");
+  rabbitArray.forEach((rabbit, index) => {
     const masonItem = makeMasonItem(
-      item.lqSrc,
-      item.hqSrc,
-      item.name,
-      innerContent,
-      index
+      rabbit.lqSrc,
+      rabbit.hqSrc,
+      rabbit.name,
+      rabbit.breed,
+      rabbit.price,
+      rabbit.inspiration,
+      rabbit.started,
+      rabbit.size,
+      index + 1
     );
-    console.log(masonItem.childNodes);
     masonGallery.appendChild(masonItem);
   });
+  return masonGallery;
 }
 
-makeMasonGalleryFromArray(rabbitArray);
+makeMasonGalleryFromRabbits(rabbitArray);
