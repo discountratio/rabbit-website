@@ -1,21 +1,23 @@
 #shop {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 #shop .section-content {
   display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
-  background: red;
 }
 
 #mason-gallery {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(8vw, 180px));
+  padding: 1rem;
   grid-auto-rows: 400px;
-  background: green;
   width: 100%;
+  max-width: 50%;
 }
 
 .mason-item {
@@ -27,7 +29,6 @@
   width: 100%;
   height: 100%;
   transition: width 200ms;
-  background: blue;
 }
 .mason-item:hover {
   border: 4px solid red;
@@ -132,17 +133,90 @@
 }
 
 #cart {
-  width: 200px;
-  height: 200px;
-  background: blue;
+  margin-left: 5vw;
   position: -webkit-sticky;
   position: sticky;
   top: 10vh;
+  align-self: flex-start;
 }
 
 .cart-item {
+  position: relative;
   display: grid;
-  grid-template-areas: "imgage title" "image print" "image quantity" "image total";
-  width: 500px;
-  height: 400px;
+  grid-template-areas: "image name" "image print" "image quantitybuttons" "image total";
+  grid-template-columns: 200px 300px;
+  border: 4px solid black;
+  margin: 10px;
+  padding: 10px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.cart-item .cart-item-title {
+  grid-area: name;
+}
+.cart-item .cart-item-image-container {
+  grid-area: image;
+  background: green;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cart-item .cart-item-image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cart-item .print-size-selector-container {
+  grid-area: print;
+  background: transparent;
+  border: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: red;
+}
+.cart-item .print-size-selector-container label {
+  display: inline-block;
+  margin-right: 2rem;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+.cart-item .print-size-selector {
+  border: none;
+}
+.cart-item .cart-item-remove {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.cart-item .cart-item-quantity-button-container {
+  grid-area: quantitybuttons;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.cart-item .cart-item-quantity-button-container button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px black;
+}
+.cart-item .cart-item-quantity-button-container button:hover {
+  color: black;
+}
+.cart-item .cart-item-total {
+  grid-area: total;
 }/*# sourceMappingURL=mason-gallery-2.css.map */

@@ -6,10 +6,6 @@ const cart = document.getElementById("cart");
 
 function addToCart(title, srcset) {
   // Containers ------------------------------------------------------------------------------------
-  
-
-
-
   // elements
   const cartItem = document.createElement("div");
   const cartItemQuantityButtons = document.createElement("div");
@@ -17,12 +13,15 @@ function addToCart(title, srcset) {
 
   // classes
   cartItem.classList.add("cart-item");
-  cartItemQuantityButtons.classList.add("cart-item-quantity-buttons");
+  cartItemQuantityButtons.classList.add("cart-item-quantity-button-container");
   cartItemImageContainer.classList.add("cart-item-image-container");
 
   //components  ------------------------------------------------------------------------------------
   const cartItemTitle = document.createElement("h3");
-  const cadrtItemImage = document.createElement("img");
+  const cartItemImage = document.createElement("img");
+  cartItemTitle.classList.add("cart-item-title");
+  cartItemImage.classList.add("cart-item-image");
+  cartItemTitle.textContent = "BLAHADFS";
 
   // Print Sizes ------------------------------------------------------------------------------------
   const printSizeOptions = [
@@ -38,13 +37,15 @@ function addToCart(title, srcset) {
   ];
 
   const printSizeSelector = document.createElement("select");
+  const printSizeSelectorLabel = document.createElement("label");
+  printSizeSelectorLabel.textContent = "Print size: ";
+  printSizeSelectorLabel.for = "print-size-selector";
   printSizeSelector.classList.add("print-size-selector");
   printSizeSelector.onchange = (e) => {
     console.log(e.target.value);
     console.log(e.target.options[e.target.selectedIndex].price);
     price = e.target.options[e.target.selectedIndex].price;
-    cartItemTotal.textContent = `Total: $${(price * quantity).toFixed(2)}`;
-
+    cartItemTotal.textContent = `Total: $${(price * quantity).toFixed(2)} x${quantity}`;
   };
 
   printSizeOptions.forEach((option) => {
@@ -55,22 +56,24 @@ function addToCart(title, srcset) {
     printSizeSelector.add(printSizeOption);
   });
 
+  printSizeSelectorLabel.appendChild(printSizeSelector);
+
   // ----------------------------------------------------------------------------------------------
   // Quantity ------------------------------------------------------------------------------------
 
-      //quantity variables
-      let quantity = 1;
-      // let price = 4.99;
-      let price = printSizeSelector.options[printSizeSelector.selectedIndex].price;
+  //quantity variables
+  let quantity = 1;
+  // let price = 4.99;
+  let price = printSizeSelector.options[printSizeSelector.selectedIndex].price;
 
   //displays
   const cartItemTotal = document.createElement("p");
   cartItemTotal.classList.add("cart-item-total");
-  cartItemTotal.textContent = `Total: $${price}`;
+  cartItemTotal.textContent = `Total: $${price}  x${quantity}`;
 
   const cartItemQuantity = document.createElement("p");
   cartItemQuantity.classList.add("cart-item-quantity");
-  cartItemQuantity.textContent = `Amount: ${quantity}`;
+  cartItemQuantity.textContent = `${quantity}`;
 
   //buttons
   const cartItemQuantityUp = document.createElement("button");
@@ -83,28 +86,26 @@ function addToCart(title, srcset) {
 
   const cartItemRemove = document.createElement("button");
   cartItemRemove.classList.add("cart-item-remove");
-  cartItemRemove.textContent = "Remove";
+  cartItemRemove.textContent = "X";
 
   //event listeners
   cartItemQuantityUp.addEventListener("click", () => {
     quantity++;
-    cartItemQuantity.textContent = `Amount: ${quantity}`;
-    cartItemTotal.textContent = `Total: $${(price * quantity).toFixed(2)}`;
+    cartItemQuantity.textContent = `${quantity}`;
+    cartItemTotal.textContent = `Total: $${(price * quantity).toFixed(2)}  x${quantity}`;
     console.log(`quantity up: ${quantity} @cartItemQuantityUp`);
   });
 
   cartItemQuantityDown.addEventListener("click", () => {
     if (quantity > 1) {
       quantity--;
-      cartItemQuantity.textContent = `Amount: ${quantity}`;
-      cartItemTotal.textContent = `Total: $${(price * quantity).toFixed(2)}`;
+      cartItemQuantity.textContent = `${quantity}`;
+      cartItemTotal.textContent = `Total: $${(price * quantity).toFixed(2)}  x${quantity}`;
       console.log(`quantity down: ${quantity} @cartItemQuantityDown`);
     } else {
       console.log(`quantity zero @cartItemQuantityDown`);
     }
   });
-
-
 
   cartItemRemove.addEventListener("click", function () {
     console.log("remove @cartItemRemove");
@@ -117,30 +118,26 @@ function addToCart(title, srcset) {
   cartItemRemove.classList.add("cart-item-remove");
 
   //attach
-  cartItemQuantityButtons.append(
-    cartItemQuantityUp,
-    cartItemQuantityDown,
-    cartItemRemove,
-    cartItemQuantity,
-    cartItemTotal
-  );
+  cartItemQuantityButtons.append(cartItemQuantityDown, cartItemQuantity, cartItemQuantityUp);
   // ----------------------------------------------------------------------------------------------
   // Image ------------------------------------------------------------------------------------
   cartItemTitle.classList.add("cart-item-title");
-  cadrtItemImage.classList.add("cart-item-image");
+  cartItemImage.classList.add("cart-item-image");
 
   cartItemTitle.textContent = title;
-  cadrtItemImage.srcset = srcset;
-  cadrtItemImage.src = srcset.split(",")[0].trim();
-  cadrtItemImage.alt = title;
+  cartItemImage.srcset = srcset;
+  cartItemImage.src = srcset.split(",")[0].trim();
+  cartItemImage.alt = title;
 
-  cartItemImageContainer.append(cadrtItemImage);
+  cartItemImageContainer.append(cartItemImage);
   // ----------------------------------------------------------------------------------------------
 
   cartItem.append(
     cartItemTitle,
     cartItemImageContainer,
-    printSizeSelector,
+    printSizeSelectorLabel,
+    cartItemTotal,
+    cartItemRemove,
     cartItemQuantityButtons
   );
 
@@ -233,7 +230,7 @@ function makeMasonItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
 
   //event listenrs
   masonItemAddToCardButton.addEventListener("click", (e) => {
-    // e.stopPropagation();
+    e.stopPropagation();
 
     const title = masonItemTitle.textContent;
     const srcset = masonItemImage.srcset;
