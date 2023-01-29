@@ -1,3 +1,15 @@
+#shop {
+  display: flex;
+  flex-direction: column;
+
+  .section-content {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+    background: red;
+  }
+}
 #mason-gallery {
   display: grid;
   gap: 10px;
@@ -29,24 +41,19 @@
     }
   }
 
-  .mason-hide {
+  .mason-item-text-container {
     display: none;
     opacity: 0;
     user-select: none;
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
+    color: transparent;
+    transition: opacity 200ms;
   }
 
-  .mason-item-button-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    &:hover {
-      background: rgba(0, 0, 0, 0.5);
-    }
+  .mason-item-description {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    display: none;
   }
 
   .mason-item-image-container {
@@ -60,19 +67,105 @@
       object-fit: cover;
     }
   }
+
+  .mason-item-add-to-cart-button,
+  .mason-item-close-button {
+    display: none;
+  }
 }
 
 .mason-item--active {
   width: 400px;
   z-index: 5;
   border: 4px solid gold;
-  .mason-hide {
+  .mason-item-text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
     opacity: 1;
+    user-select: text;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    color: mix-blend-mode(difference, black, white);
+
+    z-index: 8;
   }
-  &:active {
-    .mason-item-image {
-      transform: scale(1.2);
+
+  .mason-item-add-to-cart-button {
+    position: absolute;
+    display: block;
+    right: 0;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: white;
+    width: 100%;
+    border: none;
+    background: #00000050;
+
+    // mix-blend-mode: darken;
+    transition: color 200ms, background 200ms;
+    &:hover {
+      background: #000000;
     }
   }
+
+  .mason-item-close-button {
+    position: absolute;
+    display: block;
+    right: 0;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    text-shadow: 1px 1px 3px black;
+    // mix-blend-mode: darken;
+    transition: color 200ms, background 200ms, rotate 200ms;
+    &:hover {
+      rotate: 180deg;
+    }
+  }
+
+  .mason-item-add-to-cart-button {
+    bottom: 0;
+  }
+
+  .mason-item-close-button {
+    top: 0;
+  }
+
+  &:active {
+    .mason-item-text-container {
+    }
+    .mason-item-add-to-cart-button {
+    }
+
+    .mason-item-image-container {
+      // z-index: 99;
+      transform-origin: top left;
+      // transform: scale(1.5);
+    }
+  }
+}
+
+#cart {
+  width: 200px;
+  height: 200px;
+  background: blue;
+  position: sticky; 
+  top:10vh;;
+
+}
+
+.cart-item{
+    display: grid;
+    grid-template-areas:
+    "imgage title"
+    "image print"
+    "image quantity"
+    "image total";
+
+    width: 500px;
+    height: 400px;;
 }
