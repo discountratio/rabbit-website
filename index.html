@@ -11,15 +11,15 @@
       src="https://kit.fontawesome.com/582ae40cce.js"
       crossorigin="anonymous"></script>
 
-          <!-- My Scripts -->
+    <!-- My Scripts -->
     <script src="scripts/mason-gallery.js" type="module" defer></script>
+    <script src="scripts/gallery-items.js" type="module" defer></script>
 
     <!-- My Style Sheets -->
     <link rel="stylesheet" href="/styles/layout/layout.css" />
-    <link rel="stylesheet" href="/styles/main-styles/main-styles.css">
-    <link rel="stylesheet" href="/styles/mason-gallery/mason-gallery.css">
-
-
+    <link rel="stylesheet" href="/styles/main-styles/main-styles.css" />
+    <!-- <link rel="stylesheet" href="/styles/mason-gallery/mason-gallery.css" /> -->
+    <link rel="stylesheet" href="/styles/mason-gallery/mason-gallery-2.css">
 
     <title>Rabbits For Sale</title>
   </head>
@@ -102,7 +102,13 @@
       <div class="section-content home-content">
         <div class="home-portrait">
           <figure>
-            <img src="./assets/portrait-1.png" alt="artists portrait" />
+            <img
+              src="./assets/images/artist/portrait-lq-1.png"
+              srcset="
+                ./assets/images/artist/portrait-hq-1.png 2x,
+                ./assets/images/artist/portrait-hq-1.png 3x
+              "
+              alt="Portrait of Penny Park" />
             <figcaption>Penny Park</figcaption>
           </figure>
         </div>
@@ -110,18 +116,35 @@
         <div class="home-cards">
           <figure>
             <figcaption>Porcelain</figcaption>
-            <img src="./assets/porcelain/low-quality/porcelain-1.jpg" alt="" />
+            <img
+              src="./assets/images/porcelain/dragon/dragon-lq-1.png"
+              srcset="
+                ./assets/images/porcelain/dragon/dragon-hq-1.png 2x,
+                ./assets/images/porcelain/dragon/dragon-hq-1.png 3x
+              " />
           </figure>
 
           <figure>
             <figcaption>Shoes</figcaption>
 
-            <img src="./assets/shoes/low-quality/shoes-1.jpg" alt="" />
+            <img
+              src="./assets/images/shoes/shoes-lq-1.png"
+              srcset="
+                ./assets/images/shoes/shoes-hq-1.png 2x,
+                ./assets/images/shoes/shoes-hq-1.png 3x
+              "
+              alt="" />
           </figure>
 
           <figure>
             <figcaption>Rabbits</figcaption>
-            <img src="./assets/rabbits/low-quality/painting-1.jpg" alt="" />
+            <img
+              src="./assets/images/rabbit/rabbit-lq-1.png"
+              srcset="
+                ./assets/images/rabbit/rabbit-hq-1.png 2x,
+                ./assets/images/rabbit/rabbit-hq-1.png 3x
+              "
+              alt="" />
           </figure>
         </div>
 
@@ -146,21 +169,27 @@
             television programs including National Geographic.
           </p>
           <figure>
-            <img src="./assets/porcelain/low-quality/porcelain-2.jpg" alt="" />
+            <img src="./assets/images/porcelain/dragon/dragon-lq-2.png"
+              srcset="./assets/images/porcelain/dragon/dragon-hq-2.png 2x,
+              ./assets/images/porcelain/dragon/dragon-hq-2.png 3x"
+            alt="" />
             <figcaption></figcaption>
           </figure>
         </div>
 
         <div class="about-section">
           <p>
-            Penelope was born in Montreal and grew up in Toronto. At 17,
-            she went to Korea to live with her grandmother for three years,
-            where she learned how to make art with porcelain. Upon returning to
-            Canada and graduating high school, Penelope decided she wanted to
-            make a career out of art.
+            Penelope was born in Montreal and grew up in Toronto. At 17, she
+            went to Korea to live with her grandmother for three years, where
+            she learned how to make art with porcelain. Upon returning to Canada
+            and graduating high school, Penelope decided she wanted to make a
+            career out of art.
           </p>
           <figure>
-            <img src="./assets/shoes/low-quality/shoes-2.jpg" alt="" />
+            <img src="./assets/images/shoes/shoes-lq-2.png"
+              srcset="./assets/images/shoes/shoes-hq-2.png 2x,
+              ./assets/images/shoes/shoes-hq-2.png 3x"
+            alt="" />
             <figcaption></figcaption>
           </figure>
         </div>
@@ -177,7 +206,10 @@
           <figure>
             <img
               class="section-content-image"
-              src="./assets/rabbits/low-quality/painting-2.jpg"
+              src="./assets/images/rabbit/rabbit-lq-2.png"
+              srcset="./assets/images/rabbit/rabbit-hq-2.png 2x,
+              ./assets/images/rabbit/rabbit-hq-2.png 3x"
+                
               alt="" />
             <figcaption></figcaption>
           </figure>
@@ -186,7 +218,7 @@
     </section>
     <!-- END About -->
     <!-- ************************************************** -->
- 
+
     <!-- ************************************************** -->
     <!--  -->
     <section id="shop">
@@ -195,27 +227,24 @@
       </div>
 
       <div class="section-content shop-content">
-
         <div id="mason-gallery"></div>
-        <div id="cart">
-        
-        </div>
+        <div id="cart"></div>
       </div>
     </section>
 
-       <!--Contact  -->
-       <section id="contact">
-        <div class="section-header">
-          <h2 class="section-header-title z-3">Contact</h2>
+    <!--Contact  -->
+    <section id="contact">
+      <div class="section-header">
+        <h2 class="section-header-title z-3">Contact</h2>
+      </div>
+      <div class="section-content contact-content">
+        <div class="contact-text">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <p>Lorem, ipsum dolor.</p>
         </div>
-        <div class="section-content contact-content">
-          <div class="contact-text">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem, ipsum dolor.</p>
-          </div>
-        </div>
-      </section>
-      <!-- END Contact -->
+      </div>
+    </section>
+    <!-- END Contact -->
   </body>
 </html>

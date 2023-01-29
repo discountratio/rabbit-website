@@ -1,0 +1,75 @@
+#mason-gallery {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: 400px;
+  background: green;
+  width: 100%;
+}
+
+.mason-item {
+  position: relative;
+  border: 4px solid black;
+  margin: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: width 200ms;
+  background: blue;
+}
+.mason-item:hover {
+  border: 4px solid red;
+}
+.mason-item .mason-item-image {
+  transition: transform 200ms;
+}
+.mason-item .mason-item-image:hover {
+  transform: scale(1.05);
+}
+.mason-item .mason-hide {
+  display: none;
+  opacity: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mason-item .mason-item-button-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.mason-item .mason-item-button-container:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+.mason-item .mason-item-image-container {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+.mason-item .mason-item-image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.mason-item--active {
+  width: 400px;
+  z-index: 5;
+  border: 4px solid gold;
+}
+.mason-item--active .mason-hide {
+  display: block;
+  opacity: 1;
+}
+.mason-item--active:active .mason-item-image {
+  transform: scale(1.2);
+}/*# sourceMappingURL=mason-gallery-2.css.map */
