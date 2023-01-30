@@ -109,17 +109,27 @@ $font-size-small: clamp(1rem, 1.5vw, 1.25rem);
   justify-content: center;
 }
 
+$image-large-width: clamp(300px, 100%, 50vw);
+$image-medium-width: clamp(240px, 100%, 30vw);
+$image-small-width: clamp(160px, 100%, 12vw);
+$image-tiny-width: clamp(80px, 100%, 6vw);
 @mixin image-large {
-  width: 100%;
+  width: $image-large-width;
 }
 
 @mixin image-medium {
-  width: clamp(160px, 30vw, 320px);
+  width: $image-medium-width;
 }
 
 @mixin image-small {
-  width: 100%;
+  width: $image-small-width;
 }
+
+@mixin image-tiny {
+  width: $image-tiny-width;
+}
+
+
 
 .section-header {
   background: black;
