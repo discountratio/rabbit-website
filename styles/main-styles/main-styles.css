@@ -252,6 +252,8 @@ figure:active img {
   }
   #home .home-cards figure img {
     width: clamp(240px, 100%, 30vw);
+    overflow: hidden;
+    aspect-ratio: 1/1;
   }
 }
 
@@ -306,6 +308,8 @@ figure:active img {
 }
 #about .about-section figure img {
   width: clamp(240px, 100%, 30vw);
+  overflow: hidden;
+  aspect-ratio: 1/1;
 }
 @media (max-width: 900px) {
   #about .about-content .about-section {

@@ -32,19 +32,18 @@ export function addToCart(title, srcset) {
   const cartItemTitleContainer = document.createElement("div");
   const cartItemImageContainer = document.createElement("div");
   const cartItemTotalContainer = document.createElement("div");
-  const cartItemPrintSizeContainer = document.createElement("label");
+  const cartItemPrintSizeContainer = document.createElement("div");
   const cartItemRemoveContainer = document.createElement("button");
 
   // classes
   cartItem.classList.add("cart-item");
-  cartItemQuantityContainer.classList.add(
-    "cart-item-quantity-button-container"
-  );
-  cartItemTitleContainer.classList.add("cart-item-title-container");
+  cartItemQuantityContainer.classList.add("cart-item-quantity-button-container", "cart-item-container");
+  cartItemTitleContainer.classList.add("cart-item-title-container",);
   cartItemImageContainer.classList.add("cart-item-image-container");
-  cartItemTotalContainer.classList.add("cart-item-total-container");
-  cartItemPrintSizeContainer.classList.add("cart-item-print-size-container");
+  cartItemTotalContainer.classList.add("cart-item-total-container", "cart-item-container");
+  cartItemPrintSizeContainer.classList.add("cart-item-print-size-container", "cart-item-container");
   cartItemRemoveContainer.classList.add("cart-item-remove-container");
+  
 
   //   ************************************************************************************************
 
@@ -73,7 +72,7 @@ export function addToCart(title, srcset) {
   cartItemTitle.classList.add("cart-item-title");
 
   // content
-  cartItemTitle.textContent = "cart item title";
+  cartItemTitle.textContent = `${title}`;
 
   // append
   cartItemTitleContainer.appendChild(cartItemTitle);
@@ -82,13 +81,13 @@ export function addToCart(title, srcset) {
   //Print Size Selector
   // elements
   const printSizeSelector = document.createElement("select");
+  const printSizeSelectorLabel = document.createElement("span");
 
   // classes
   printSizeSelector.classList.add("print-size-selector");
-  cartItemPrintSizeContainer.for = "print-size-selector";
-
+  printSizeSelectorLabel.classList.add("print-size-selector-label", 'cart-item-label');
   // content
-  cartItemPrintSizeContainer.textContent = "Print size: ";
+  printSizeSelectorLabel.textContent = "Print size: ";
 
   // event listeners, update item price and total price
   printSizeSelector.onchange = (e) => {
@@ -107,8 +106,10 @@ export function addToCart(title, srcset) {
     printSizeSelector.append(printSizeOption);
   });
 
+console.log(printSizeSelector)
   //append
-  cartItemPrintSizeContainer.appendChild(printSizeSelector);
+  
+  cartItemPrintSizeContainer.append(printSizeSelectorLabel, printSizeSelector);
 
   // ----------------------------------------------------------------------------------------------
   // Quantity
@@ -123,7 +124,7 @@ export function addToCart(title, srcset) {
   const cartItemQuantityDown = document.createElement("button");
 
   // classes
-  cardItemQuantityLabel.classList.add("cart-item-quantity-label");
+  cardItemQuantityLabel.classList.add("cart-item-quantity-label", 'cart-item-label');
   cartItemQuantity.classList.add("cart-item-quantity");
   cartItemQuantityUp.classList.add("cart-item-quantity-up");
   cartItemQuantityDown.classList.add("cart-item-quantity-down");
@@ -206,7 +207,7 @@ export function addToCart(title, srcset) {
   const cartItemTotal = document.createElement("p");
 
   //classes
-  cardItemTotalLabel.classList.add("cart-item-total-label");
+  cardItemTotalLabel.classList.add("cart-item-total-label", 'cart-item-label');
   cartItemTotal.classList.add("cart-item-total");
 
   //content
