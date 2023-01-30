@@ -8,12 +8,12 @@ function addToCart(title, srcset) {
   // Containers ------------------------------------------------------------------------------------
   // elements
   const cartItem = document.createElement("div");
-  const cartItemQuantityButtons = document.createElement("div");
+  const cartItemQuantityContainer = document.createElement("div");
   const cartItemImageContainer = document.createElement("div");
 
   // classes
   cartItem.classList.add("cart-item");
-  cartItemQuantityButtons.classList.add("cart-item-quantity-button-container");
+  cartItemQuantityContainer.classList.add("cart-item-quantity-button-container");
   cartItemImageContainer.classList.add("cart-item-image-container");
 
   //components  ------------------------------------------------------------------------------------
@@ -37,9 +37,10 @@ function addToCart(title, srcset) {
   ];
 
   const printSizeSelector = document.createElement("select");
-  const printSizeSelectorLabel = document.createElement("label");
-  printSizeSelectorLabel.textContent = "Print size: ";
-  printSizeSelectorLabel.for = "print-size-selector";
+  const printSizeSelectorContainer = document.createElement("label");
+  printSizeSelectorContainer.classList.add("print-size-selector-container");
+  printSizeSelectorContainer.textContent = "Print size: ";
+  printSizeSelectorContainer.for = "print-size-selector";
   printSizeSelector.classList.add("print-size-selector");
   printSizeSelector.onchange = (e) => {
     console.log(e.target.value);
@@ -56,7 +57,7 @@ function addToCart(title, srcset) {
     printSizeSelector.add(printSizeOption);
   });
 
-  printSizeSelectorLabel.appendChild(printSizeSelector);
+  printSizeSelectorContainer.appendChild(printSizeSelector);
 
   // ----------------------------------------------------------------------------------------------
   // Quantity ------------------------------------------------------------------------------------
@@ -70,6 +71,7 @@ function addToCart(title, srcset) {
   const cartItemTotal = document.createElement("p");
   cartItemTotal.classList.add("cart-item-total");
   cartItemTotal.textContent = `Total: $${price}  x${quantity}`;
+
 
   const cartItemQuantity = document.createElement("p");
   cartItemQuantity.classList.add("cart-item-quantity");
@@ -117,8 +119,15 @@ function addToCart(title, srcset) {
   cartItemQuantityDown.classList.add("cart-item-quantity-down");
   cartItemRemove.classList.add("cart-item-remove");
 
+  const cardItemQuantityLabel = document.createElement("label");
+  cardItemQuantityLabel.classList.add("cart-item-quantity-label");
+  cardItemQuantityLabel.textContent = "Quantity: ";
+  
+  cardItemQuantityLabel.for = "cart-item-quantity";
+
+
   //attach
-  cartItemQuantityButtons.append(cartItemQuantityDown, cartItemQuantity, cartItemQuantityUp);
+  cartItemQuantityContainer.append(cardItemQuantityLabel, cartItemQuantityDown, cartItemQuantity, cartItemQuantityUp);
   // ----------------------------------------------------------------------------------------------
   // Image ------------------------------------------------------------------------------------
   cartItemTitle.classList.add("cart-item-title");
@@ -135,10 +144,10 @@ function addToCart(title, srcset) {
   cartItem.append(
     cartItemTitle,
     cartItemImageContainer,
-    printSizeSelectorLabel,
+    printSizeSelectorContainer,
     cartItemTotal,
     cartItemRemove,
-    cartItemQuantityButtons
+    cartItemQuantityContainer
   );
 
   cart.appendChild(cartItem);
