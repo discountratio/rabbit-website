@@ -73,6 +73,10 @@ section .section-header {
   top: 64px;
   z-index: 7;
 }
+section .section-content {
+  width: 100vw;
+  padding: 0 clamp(1rem, 10vw, 800px);
+}
 section .section-header-title {
   height: 32px;
   max-height: 32px;

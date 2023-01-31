@@ -10,7 +10,6 @@
       $color-secondary-dark 100%
     );
 
-    padding: 2vw;
 
     #mason-gallery {
       width: 100%;
@@ -31,19 +30,14 @@
         justify-content: left;
         grid-template-columns: repeat(4, 12vw);
         gap: 1vw;
-        padding: 1vw;
         height: 100%;
-            }
+      }
 
       #cart {
         width: 100%;
-        position :relative;
+        position: relative;
         margin-top: 0;
       }
     }
   }
-
 }
-
-
-
