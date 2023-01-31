@@ -1,5 +1,5 @@
 import { galleryItemArray } from "./gallery-items.js";
-import { addToCart } from "./cart.js";
+import { addToCart, updateCartTotal } from "./cart.js";
 const masonGallery = document.getElementById("mason-gallery");
 // Main purpose is to create and add mason items to the masongallery div in the index.html file.
 /* Mason Gallery
@@ -135,6 +135,7 @@ function makeMasonItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
     const title = masonItemTitle.textContent;
     const srcset = masonItemImage.srcset;
     addToCart(title, srcset);
+    updateCartTotal();
     console.log(`${title} added to cart`);
     removeActiveClass();
   };

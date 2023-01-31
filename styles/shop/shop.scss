@@ -2,13 +2,15 @@
 
 #shop {
   .shop-content {
-    @include flex-column;
+    @include flex-row;
     position: relative;
     background: linear-gradient(
       180deg,
       $color-primary-dark 0%,
       $color-secondary-dark 100%
     );
+
+    padding: 2vw;
 
     #mason-gallery {
       width: 100%;
@@ -18,10 +20,30 @@
       width: 100%;
     }
   }
+
+  @media (max-width: 900px) {
+    .shop-content {
+      @include flex-column;
+
+      background: red;
+      #mason-gallery {
+        width: 100%;
+        justify-content: left;
+        grid-template-columns: repeat(4, 12vw);
+        gap: 1vw;
+        padding: 1vw;
+        height: 100%;
+            }
+
+      #cart {
+        width: 100%;
+        position :relative;
+        margin-top: 0;
+      }
+    }
+  }
+
 }
 
-#mason-gallery {
-}
 
-#cart {
-}
+

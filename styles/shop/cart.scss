@@ -1,143 +1,128 @@
 @import "../main-styles/main-styles.scss";
+@import "../layout/layout.scss";
 
 #cart {
-  @include flex-column;
-  gap: 1rem;
+  position: sticky;
+  top: $header-height * 2;
+  margin-right: 2vw;
+
 }
 
-//grid settings / width, height / positions
 .cart-item {
+  display: flex;
+  flex-direction: row;
   position: relative;
-  display: grid;
-  grid-template-areas:
-    "name name"
-    "image printsize"
-    "image quantitybuttons"
-    "image total";
-
-  width: 100%;
-  height: auto;
-  grid-template-columns: 1fr 1fr;
-  aspect-ratio: 3/1;
-  padding: 5vw 10vw;
-
-  .cart-item-title-container {
-    grid-area: name;
-  }
+  overflow: hidden;
+  border: 4px solid black;
+  color: white;
+  @include font-medium;
+  text-shadow: 0 0 8px black;
 
   .cart-item-image-container {
-    grid-area: image;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .cart-item-image {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .cart-item-text-container {
+    width: 100%;
+    padding: 0.5vw 1vw;
+    background: #00000060;
+    z-index: 3;
   }
 
   .cart-item-print-size-container {
-    grid-area: printsize;
+    display: flex;
+    white-space: nowrap;
+    select {
+      border: none;
+      padding: 0 1rem;
+      @include font-medium;
+      text-align: center;
+      color: white;
+      background: transparent;
+      width: 100%;
+      cursor: pointer;
+
+      option {
+        color: black;
+      }
+    }
   }
 
-  .cart-item-quantity-container {
-    grid-area: quantitybuttons;
+  .cart-item-quantity-button-container {
+    display: flex;
+    @include font-medium;
+
+
+    .cart-item-quantity-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 1rem;
+      color: white;
+      text-shadow: 0 0 4px black;
+
+      button {
+        margin: 0 1rem;
+        padding: 0 0.5rem;
+        border: none;
+        color: white;
+        @include font-medium;
+        background: transparent;
+        cursor: pointer;
+        transition: border $transition-slow;
+      }
+    }
   }
+
 
   .cart-item-total-container {
-    grid-area: total;
+    display: flex;
+    white-space: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    @include font-medium;
+    padding: 0 1rem;
   }
-}
 
-//Styles
-.cart-item {
-  @include font-medium;
-  margin: auto;
-  padding: 0 10vw;
-  box-shadow: 0px 2px black;
-  background: #00000050;
-  align-items: center;
-  justify-content: center;
-
-  height: 300px;
-}
-
-.cart-item-title-container {
-  @include font-large;
-}
-
-.cart-item-image-container {
-  @include image-container-flex;
-  border-radius: 8px;
-
-  .cart-item-image {
-    @include image-inner-flex;
-    border-radius: 8px;
+  .cart-item-label{
+    min-width: 200px;
   }
-}
 
-.cart-item-remove-container {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  border: none;
-  width: fit-content;
-  @include font-medium;
-  background: transparent;
 
-  button {
+
+  .cart-item-remove-container {
+    position: absolute;
+    top: 0;
+    right: 0;
     background: transparent;
     border: none;
-    font-size: 1.5rem;
-    font-weight: 700;
-    cursor: pointer;
-    &:hover {
-      color: red;
+
+    button {
+      @include font-medium;
+      text-transform: uppercase;
+      color: white;
+      text-shadow: 0 0 4px black;
+
+      border: none;
+      cursor: pointer;
+      outline: none;
+      background: green;
+      background: transparent;
     }
   }
-}
-
-.cart-item-print-size-container {
-  border: none;
-  background: transparent;
-
-  select {
-    border: none;
-    background: transparent;
-    color: white;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 0 0.5rem;
-    cursor: pointer;
-    &:hover {
-      background: #00000050;
-    }
-  }
-  option {
-  }
-}
-
-.cart-item-quantity-button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  border: none;
-  background: transparent;
-  button {
-    border: none;
-
-    background: transparent;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    &:hover {
-      background: #00000050;
-    }
-  }
-}
-
-.cart-item-label {
-  font-weight: 600;
-}
-
-.cart-item-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  width: 100%;
-  padding: 0.2rem 0;
 }
