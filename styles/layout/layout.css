@@ -275,6 +275,48 @@ html {
   justify-content: flex-start;
 }
 
+#shop .section-content {
+  padding: 0;
+}
+#shop .shop-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2vw;
+  gap: clamp(1rem, 5vw, 3rem);
+}
+#shop .shop-content #mason-gallery {
+  justify-content: left;
+  grid-template-columns: repeat(6, 8vw);
+  gap: 1vw;
+  height: 100%;
+}
+#shop .shop-content #cart {
+  width: 100vw;
+  padding: 2vw;
+}
+@media (min-width: 900px) {
+  #shop .shop-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  #shop .shop-content #mason-gallery {
+    width: 50%;
+    justify-content: left;
+    grid-template-columns: repeat(4, 8vw);
+    gap: 1vw;
+    height: 100%;
+    padding: 0 5vw;
+  }
+  #shop .shop-content #cart {
+    width: 50%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
