@@ -151,6 +151,7 @@ function makeMasonItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
   //Makes item active on click
   masonItem.addEventListener("click", (e) => {
     e.stopPropagation();
+    scrollToTop();
     addActiveClass();
   });
 

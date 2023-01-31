@@ -22,9 +22,9 @@ $header-height: 64px;
 $section-header-height: 32px;
 
 //Transition Variables
-$transition-slow: 0.5s ease-in-out;
-$transition-regular: 0.3s ease-in-out;
-$transition-fast: 0.15s ease-in-out;
+$transition-slow: 500ms;
+$transition-medium: 300ms;
+$transition-fast: 120ms;
 
 //Color Variables
 $color-primary: #39b0df;
@@ -63,7 +63,7 @@ $font-size-icon: clamp(24px, 3.5vw, 48px);
 $font-size-huge: clamp(64px, 5vw, 4rem);
 $font-size-large: clamp(2rem, 3vw, 3rem);
 $font-size-medium: clamp(1.25rem, 1.75vw, 2rem);
-$font-size-small: clamp(1rem, 1.5vw, 1.25rem);
+$font-size-small: clamp(1rem, 1w, 1.5rem);
 
 //Font mixins
 @mixin font-icon {
@@ -110,19 +110,21 @@ $font-size-small: clamp(1rem, 1.5vw, 1.25rem);
   justify-content: center;
 }
 
-$image-large-width: clamp(300px, 100%, 4vw);
-$image-medium-width: clamp(240px, 100%, 4vw);
-$image-small-width: clamp(160px, 100%, 4vw);
-$image-tiny-width: clamp(80px, 100%, 4vw);
+$image-large-width: clamp(300px, 100%, 6vw);
+$image-medium-width: clamp(240px, 100%, 6vw);
+$image-small-width: clamp(160px, 100%, 6vw);
+$image-tiny-width: clamp(120px, 100%, 6vw);
 
-@mixin image-fill {
+@mixin image-fill-center {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 @mixin image-large-container {
   width: $image-large-width;
+
   overflow: hidden;
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -177,6 +179,44 @@ $image-tiny-width: clamp(80px, 100%, 4vw);
   object-fit: cover;
 }
 
+figure {
+  position: relative;
+  @include image-large-container();
+  background: $white;
+  margin: 1rem;
+  @include flex-column();
+  border: 4px solid white;
+
+  img {
+    @include image-fill-center();
+    transition: all $transition-medium ease-in-out;
+    filter: brightness(0.8);
+  }
+  figcaption {
+    @include font-small();
+    display: none;
+    transition: all $transition-slow ease-in-out;
+  }
+
+  &:hover {
+    img {
+      scale: 1.1;
+      filter: brightness(1);
+    }
+
+    figcaption {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      color: white;
+      background: #00000080;
+    }
+  }
+}
+
 li {
   list-style: none;
 }
@@ -206,24 +246,28 @@ html {
 }
 
 .section-background {
-  background: linear-gradient(
-    135deg,
-    $color-primary,
-    $color-quaternary,
-    $color-tertiary,
-    $color-secondary
-  );
-  animation: backgroundGradientMove 20s ease infinite;
-  background-size: 400% 400%;
-  content: "";
-  display: block;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
+  // background: linear-gradient($color-primary, $color-secondary);
+  // background-size: 400% 400%;
+  // animation: backgroundGradientMove 1s ease infinite;
+  // content: "";
+  // display: block;
+  // position: fixed;
+  // width: 100%;
+  // height: 100%;
+  // z-index: -1;
+  // top: 0;
+  // left: 0;
+
+
+  &:nth-child(even) {
+    background: red;
+  }
+  &:nth-child(odd){
+    background: green;
+  }
 }
+
+
 
 @keyframes backgroundGradientMove {
   0% {
@@ -234,16 +278,6 @@ html {
   }
   100% {
     background-position: 0% 50%;
-  }
-}
-
-figure {
-  img {
-  }
-
-  fig-caption {
-    background: red;
-    color: blue;
   }
 }
 
@@ -300,11 +334,54 @@ figure {
 #home {
   margin-top: $header-height; //prevents losing header under nav
 
-  .section-content {
-    .home-portrait {
-      figure {
+  .home-content {
+    @include flex-column;
+  }
+
+  .home-portrait-container {
+    @include flex-row;
+    width: clamp(300px, 40vw, 1000px);
+    aspect-ratio: 1/1.5;
+    border: 8px solid $white;
+    background: $white;
+    overflow: visible;
+
+    .home-portrait-signature {
+      @include font-large;
+      display: none;
+      width: 0px;
+      height: 0px;
+      max-width: 0px;
+      max-height: 0px;
+      writing-mode: vertical-rl;
+      color: $color-primary;
+      text-shadow: 2px 2px $black;
+      transition: all 2s ease-in-out;
+    }
+
+    img {
+      @include image-fill-center;
+      display: block;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      .home-portrait-signature {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
       }
     }
+  }
+
+  .home-cards {
+    @include flex-row;
+  }
+
+  .home-card {
   }
 }
 
@@ -316,10 +393,13 @@ figure {
   }
 
   .about-section {
-    @include flex-row;
+    position: relative;
+    display: inline;
 
     &:nth-child(odd) {
-      flex-direction: row-reverse;
+      figure {
+        float: inline-end;
+      }
     }
 
     &:not(:last-child) {
@@ -343,6 +423,11 @@ figure {
         font-size: 3rem;
         font-weight: 800;
       }
+    }
+
+    figure {
+      float: inline-start;
+      @include image-large-container();
     }
   }
 }

@@ -49,7 +49,6 @@ export function addToCart(title, srcset) {
   const cartItemTotalContainer = document.createElement("div");
   const cartItemPrintSizeContainer = document.createElement("div");
   const cartItemRemoveContainer = document.createElement("button");
-
   // classes
   cartItem.classList.add("cart-item");
   cartItemImageContainer.classList.add("cart-item-image-container");

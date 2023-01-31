@@ -1,42 +1,46 @@
 @import "../main-styles/main-styles.scss";
 
 #shop {
+  .section-content {
+    padding: 0;
+  }
+  //small - default
   .shop-content {
-    @include flex-row;
-    position: relative;
-    background: linear-gradient(
-      180deg,
-      $color-primary-dark 0%,
-      $color-secondary-dark 100%
-    );
-
-
+    width: 100%;
+    @include flex-column;
+    padding: 0 2vw;
+    gap: clamp(1rem, 5vw, 3rem);
     #mason-gallery {
-      width: 100%;
+      justify-content: left;
+      grid-template-columns: repeat(6, 8vw);
+      gap: 1vw;
+      height: 100%;
     }
 
     #cart {
-      width: 100%;
+      width: 100vw;
+      padding: 2vw;
     }
   }
 
-  @media (max-width: 900px) {
+  //large
+  @media (min-width: 900px) {
     .shop-content {
-      @include flex-column;
-
-      background: red;
+      @include flex-row;
       #mason-gallery {
-        width: 100%;
+        width: 50%;
         justify-content: left;
-        grid-template-columns: repeat(4, 12vw);
+        grid-template-columns: repeat(4, 8vw);
         gap: 1vw;
         height: 100%;
+        padding: 0 5vw;
       }
 
       #cart {
-        width: 100%;
-        position: relative;
-        margin-top: 0;
+        width: 50%;
+
+        .cart-item {
+        }
       }
     }
   }

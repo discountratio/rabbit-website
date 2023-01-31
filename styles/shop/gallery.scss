@@ -3,8 +3,7 @@
 
 #mason-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 10vw));
-  grid-auto-rows: minmax(6vw, 400px);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 

@@ -9,8 +9,6 @@
   // border: 1px solid lime;
 }
 
-
-
 body {
   overflow-x: hidden;
   scroll-snap-align: start;
@@ -55,23 +53,28 @@ nav {
 section {
   width: 100vw;
   max-width: 100%;
-@include flex-column;
+  position: relative;
+  @include flex-column;
+  flex-shrink: 0;
+
   .section-header {
     position: sticky;
     top: $header-height;
     z-index: 7;
   }
-  .section-content {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    padding: clamp(1rem, 3vw, 40px) clamp(1rem, 10vw, 800px);
-  }
-
   .section-header-title {
     height: $section-header-height;
     max-height: $section-header-height;
     line-height: $section-header-height;
     width: 100vw;
   }
+
+  .section-content {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: clamp(1rem, 3vw, 40px) clamp(1rem, 10vw, 800px);
+  }
+
 }

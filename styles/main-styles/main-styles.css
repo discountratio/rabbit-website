@@ -7,6 +7,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+figure {
+  position: relative;
+  width: clamp(300px, 100%, 6vw);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: rgb(255, 255, 255);
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 4px solid white;
+}
+figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: all 300ms ease-in-out;
+  filter: brightness(0.8);
+}
+figure figcaption {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1rem, 1w, 1.5rem);
+  font-weight: 400;
+  display: none;
+  transition: all 500ms ease-in-out;
+}
+figure:hover img {
+  scale: 1.1;
+  filter: brightness(1);
+}
+figure:hover figcaption {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  color: white;
+  background: rgba(0, 0, 0, 0.5019607843);
+}
+
 li {
   list-style: none;
 }
@@ -40,19 +87,11 @@ html {
   padding: 0 2vw;
 }
 
-.section-background {
-  background: linear-gradient(135deg, #39b0df, #0ee7c3, #c05454, #ecb709);
-  -webkit-animation: backgroundGradientMove 20s ease infinite;
-          animation: backgroundGradientMove 20s ease infinite;
-  background-size: 400% 400%;
-  content: "";
-  display: block;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
+.section-background:nth-child(even) {
+  background: red;
+}
+.section-background:nth-child(odd) {
+  background: green;
 }
 
 @-webkit-keyframes backgroundGradientMove {
@@ -78,11 +117,6 @@ html {
     background-position: 0% 50%;
   }
 }
-figure fig-caption {
-  background: red;
-  color: blue;
-}
-
 #header a {
   display: flex;
   flex-direction: row;
@@ -123,6 +157,60 @@ figure fig-caption {
 #home {
   margin-top: 64px;
 }
+#home .home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+#home .home-portrait-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: clamp(300px, 40vw, 1000px);
+  aspect-ratio: 1/1.5;
+  border: 8px solid rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+  overflow: visible;
+}
+#home .home-portrait-container .home-portrait-signature {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  display: none;
+  width: 0px;
+  height: 0px;
+  max-width: 0px;
+  max-height: 0px;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  color: #39b0df;
+  text-shadow: 2px 2px #000;
+  transition: all 2s ease-in-out;
+}
+#home .home-portrait-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  display: block;
+}
+#home .home-portrait-container:hover .home-portrait-signature, #home .home-portrait-container:focus .home-portrait-signature, #home .home-portrait-container:active .home-portrait-signature {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+#home .home-cards {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
 #about {
   display: flex;
   flex-direction: column;
@@ -136,13 +224,11 @@ figure fig-caption {
   justify-content: flex-start;
 }
 #about .about-section {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+  position: relative;
+  display: inline;
 }
-#about .about-section:nth-child(odd) {
-  flex-direction: row-reverse;
+#about .about-section:nth-child(odd) figure {
+  float: inline-end;
 }
 #about .about-section:not(:last-child) {
   margin-bottom: 2rem;
@@ -166,6 +252,14 @@ figure fig-caption {
 #about .about-section p::first-letter {
   font-size: 3rem;
   font-weight: 800;
+}
+#about .about-section figure {
+  float: inline-start;
+  width: clamp(300px, 100%, 6vw);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #contact {

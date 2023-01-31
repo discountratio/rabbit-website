@@ -18,10 +18,9 @@
     <!-- My Style Sheets -->
     <link rel="stylesheet" href="/styles/layout/layout.css" />
     <link rel="stylesheet" href="/styles/main-styles/main-styles.css" />
-    <!-- <link rel="stylesheet" href="/styles/shop/cart.css"> -->
-      <!-- <link rel="stylesheet" href="/styles/shop/gallery.css"> -->
-      <!-- <link rel="stylesheet" href="/styles/shop/shop.css"> -->
-    
+    <link rel="stylesheet" href="/styles/shop/cart.css">
+    <link rel="stylesheet" href="/styles/shop/gallery.css">
+    <link rel="stylesheet" href="/styles/shop/shop.css">
 
     <title>Rabbits For Sale</title>
   </head>
@@ -103,34 +102,32 @@
         <h2 class="section-header-title">Home</h2>
       </div>
 
-
       <div class="section-content home-content">
-        <div class="home-portrait">
-          <figure>
-            <img
-              src="./assets/images/artist/portrait-lq-1.png"
-              srcset="
-                ./assets/images/artist/portrait-hq-1.png 2x,
-                ./assets/images/artist/portrait-hq-1.png 3x
-              "
-              alt="Portrait of Penny Park" />
-            <figcaption>Penny Park</figcaption>
-          </figure>
+        <div class="home-portrait-container">
+          <img
+            class="home-portrait-img"
+            src="./assets/images/artist/portrait-lq-1.png"
+            srcset="
+              ./assets/images/artist/portrait-hq-1.png 2x,
+              ./assets/images/artist/portrait-hq-1.png 3x
+            "
+            alt="Portrait of Penny Park" />
+          <p class="home-portrait-signature">Penelope Park</p>
         </div>
 
         <div class="home-cards">
           <figure>
-            <figcaption>Porcelain</figcaption>
             <img
-              src="./assets/images/porcelain/dragon/dragon-lq-1.png"
+              src="./assets/images/porcelain/dragon/dragon-lq-2.png"
               srcset="
-                ./assets/images/porcelain/dragon/dragon-hq-1.png 2x,
-                ./assets/images/porcelain/dragon/dragon-hq-1.png 3x
+                ./assets/images/porcelain/dragon/dragon-hq-2.png 2x,
+                ./assets/images/porcelain/dragon/dragon-hq-2.png 3x
               " />
+            <figcaption>Porcelain</figcaption>
+
           </figure>
 
           <figure>
-            <figcaption>Shoes</figcaption>
 
             <img
               src="./assets/images/shoes/shoes-lq-1.png"
@@ -139,17 +136,20 @@
                 ./assets/images/shoes/shoes-hq-1.png 3x
               "
               alt="" />
+            <figcaption>Shoes</figcaption>
+
           </figure>
 
           <figure>
-            <figcaption>Rabbits</figcaption>
             <img
-              src="./assets/images/rabbit/rabbit-lq-1.png"
+              src="./assets/images/rabbit/rabbit-lq-3.png"
               srcset="
-                ./assets/images/rabbit/rabbit-hq-1.png 2x,
-                ./assets/images/rabbit/rabbit-hq-1.png 3x
+                ./assets/images/rabbit/rabbit-hq-3.png 2x,
+                ./assets/images/rabbit/rabbit-hq-3.png 3x
               "
               alt="" />
+            <figcaption>Rabbits</figcaption>
+
           </figure>
         </div>
 
@@ -161,30 +161,43 @@
     <!-- ************************************************** -->
     <!--  -->
     <section id="about">
+      <div class="section-background"></div>
+
       <div class="section-header">
         <h2 class="section-header-title">About</h2>
       </div>
-            <div class="section-background"></div>
 
-
-      <div class=" section-content about-content ">
+      <div class="section-content about-content">
         <div class="about-section">
+          <figure>
+            <img
+              src="./assets/images/porcelain/dragon/dragon-lq-2.png"
+              srcset="
+                ./assets/images/porcelain/dragon/dragon-hq-2.png 2x,
+                ./assets/images/porcelain/dragon/dragon-hq-2.png 3x
+              "
+              alt="" />
+            <figcaption>Dragon Tree</figcaption>
+          </figure>
           <p>
             Penelope Park is an artist whose work is inspired by the Korean
             tradition of porcelain painting. She has exhibited her work in
             galleries and museums around the world, and has been featured on
             television programs including National Geographic.
           </p>
-          <figure>
-            <img src="./assets/images/porcelain/dragon/dragon-lq-2.png"
-              srcset="./assets/images/porcelain/dragon/dragon-hq-2.png 2x,
-              ./assets/images/porcelain/dragon/dragon-hq-2.png 3x"
-            alt="" />
-            <figcaption></figcaption>
-          </figure>
         </div>
 
         <div class="about-section">
+          <figure>
+            <img
+              src="./assets/images/shoes/shoes-lq-2.png"
+              srcset="
+                ./assets/images/shoes/shoes-hq-2.png 2x,
+                ./assets/images/shoes/shoes-hq-2.png 3x
+              "
+              alt="" />
+            <figcaption>Porcelain Shoe</figcaption>
+          </figure>
           <p>
             Penelope was born in Montreal and grew up in Toronto. At 17, she
             went to Korea to live with her grandmother for three years, where
@@ -192,16 +205,20 @@
             and graduating high school, Penelope decided she wanted to make a
             career out of art.
           </p>
-          <figure>
-            <img src="./assets/images/shoes/shoes-lq-2.png"
-              srcset="./assets/images/shoes/shoes-hq-2.png 2x,
-              ./assets/images/shoes/shoes-hq-2.png 3x"
-            alt="" />
-            <figcaption></figcaption>
-          </figure>
         </div>
 
         <div class="about-section">
+          <figure>
+            <img
+              class="section-content-image"
+              src="./assets/images/rabbit/rabbit-lq-2.png"
+              srcset="
+                ./assets/images/rabbit/rabbit-hq-2.png 2x,
+                ./assets/images/rabbit/rabbit-hq-2.png 3x
+              "
+              alt="" />
+            <figcaption>Fancy Rabbit</figcaption>
+          </figure>
           <p>
             She started out as a graphic designer, but soon found that she had
             an affinity for ceramic sculpture. She decided to pursue ceramics as
@@ -210,19 +227,8 @@
             Fine Arts degree (BFA), Penelope relocated back to Montreal where
             she currently lives with her husband, who works as an architect.
           </p>
-          <figure>
-            <img
-              class="section-content-image"
-              src="./assets/images/rabbit/rabbit-lq-2.png"
-              srcset="./assets/images/rabbit/rabbit-hq-2.png 2x,
-              ./assets/images/rabbit/rabbit-hq-2.png 3x"
-                
-              alt="" />
-            <figcaption></figcaption>
-          </figure>
         </div>
       </div>
-
     </section>
     <!-- END About -->
     <!-- ************************************************** -->
@@ -230,13 +236,13 @@
     <!-- ************************************************** -->
     <!--  -->
     <section id="shop">
+      <div class="section-background"></div>
       <div class="section-header">
         <h2 class="section-header-title">Shop</h2>
       </div>
 
       <div class="section-content shop-content">
-        <div id="mason-gallery">
-        </div>
+        <div id="mason-gallery"></div>
         <div id="cart">
           <h3 id="cart-total">Cart Total: $0.00</h3>
         </div>
