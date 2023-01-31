@@ -7,14 +7,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  text-indent: none;
-}
-
 li {
   list-style: none;
 }
@@ -34,65 +26,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  overflow-x: hidden;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-header {
-  width: 100vw;
-  z-index: 10;
-  background: lightblue;
-  position: fixed;
-  top: 0;
-  left: 0;
-  text-align: center;
-  height: 64px;
-}
-
-nav {
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  height: 32px;
-  max-height: 32px;
-  line-height: 32px;
-  padding: 0 1rem;
-}
-nav svg {
-  font-size: 24px;
-}
-nav .nav-list {
-  display: flex;
-}
-nav .social-list {
-  display: flex;
-}
-
-section {
-  width: 100vw;
-}
-section .section-header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 64px;
-  z-index: 7;
-}
-section .section-content {
-  width: 100vw;
-  padding: 0 clamp(1rem, 10vw, 800px);
-}
-section .section-header-title {
-  height: 32px;
-  max-height: 32px;
-  line-height: 32px;
-  width: 100vw;
-}
-
 .section-header {
   background: black;
   color: white;
@@ -104,11 +37,11 @@ section .section-header-title {
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
-  padding-left: 2rem;
+  padding: 0 2vw;
 }
 
-section .section-background {
-  background: linear-gradient(135deg, #39b0df, #0ee7c3, #c05454, #ecb709, #39b0df);
+.section-background {
+  background: linear-gradient(135deg, #39b0df, #0ee7c3, #c05454, #ecb709);
   -webkit-animation: backgroundGradientMove 20s ease infinite;
           animation: backgroundGradientMove 20s ease infinite;
   background-size: 400% 400%;
@@ -145,58 +78,9 @@ section .section-background {
     background-position: 0% 50%;
   }
 }
-figure {
-  background: #f5f5f5;
-  padding: 0.5rem;
-  border: 4px solid black;
-  box-shadow: 4px 4px black;
-  position: relative;
-  top: 4px;
-  left: 4px;
-  transition: top 0.15s ease-in-out, left 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-figure figcaption {
-  color: #2a8aa7;
-  font-family: "Sacramento", cursive;
-  width: 100%;
-  text-align: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  cursor: pointer;
-}
-figure img {
-  position: relative;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  border: 4px solid black;
-  vertical-align: center;
-  filter: grayscale(50%);
-  transition: filter 0.5s ease-in-out;
-}
-figure:hover, figure:focus {
-  border: 4px solid #ecb709;
-}
-figure:hover img, figure:focus img {
-  filter: grayscale(0%);
-}
-figure:hover {
-  top: -4px;
-  left: -4px;
-  box-shadow: 16px 16px 8px black;
-}
-figure:active img {
-  border: 4px solid #ecb709;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 50vw;
-  width: 50vw;
-  max-width: 1000px;
-  z-index: 11;
+figure fig-caption {
+  background: red;
+  color: blue;
 }
 
 #header a {
@@ -239,66 +123,6 @@ figure:active img {
 #home {
   margin-top: 64px;
 }
-#home .section-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-#home .section-content .home-portrait img {
-  filter: grayscale(0%);
-}
-#home .section-content .home-portrait figcaption {
-  font-family: "Outfit", sans-serif;
-  font-size: clamp(64px, 5vw, 120px);
-  font-weight: 800;
-  font-family: "Sacramento", cursive;
-  font-weight: 800;
-}
-#home .home-cards {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1rem;
-}
-#home .home-cards figcaption {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
-  font-weight: 600;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  text-align: left;
-}
-@media (max-width: 900px) {
-  #home .section-content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: row-reverse;
-  }
-  #home .home-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  #home .home-cards figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  #home .home-cards figure img {
-    width: clamp(240px, 100%, 4vw);
-    overflow: hidden;
-    aspect-ratio: 1/1;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-}
-
 #about {
   display: flex;
   flex-direction: column;
@@ -342,29 +166,6 @@ figure:active img {
 #about .about-section p::first-letter {
   font-size: 3rem;
   font-weight: 800;
-}
-#about .about-section figure img {
-  width: clamp(240px, 100%, 4vw);
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-@media (max-width: 900px) {
-  #about .about-content .about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
-  }
-  #about .about-content .about-section figure {
-    width: auto;
-  }
-  #about .about-content .about-section figure img {
-    min-width: 300px;
-  }
 }
 
 #contact {

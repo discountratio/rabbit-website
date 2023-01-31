@@ -1,5 +1,4 @@
-$header-height: 64px;
-$section-header-height: 32px;
+@import "../main-styles/main-styles.scss";
 
 * {
   margin: 0;
@@ -10,23 +9,7 @@ $section-header-height: 32px;
   // border: 1px solid lime;
 }
 
-li {
-  list-style: none;
-}
 
-i {
-  color: inherit;
-  background: inherit;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-html {
-  scroll-padding-top: $header-height;
-  scroll-behavior: smooth;
-}
 
 body {
   overflow-x: hidden;
@@ -71,15 +54,18 @@ nav {
 
 section {
   width: 100vw;
-
+  max-width: 100%;
+@include flex-column;
   .section-header {
     position: sticky;
     top: $header-height;
     z-index: 7;
   }
   .section-content {
-    width: 100vw;
-    padding: 0 clamp(1rem, 10vw, 800px);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: clamp(1rem, 3vw, 40px) clamp(1rem, 10vw, 800px);
   }
 
   .section-header-title {
