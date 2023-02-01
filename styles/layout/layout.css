@@ -87,11 +87,11 @@ html {
   padding: 0 2vw;
 }
 
-.section-background:nth-child(even) {
-  background: red;
-}
-.section-background:nth-child(odd) {
-  background: green;
+section {
+  background: linear-gradient(#39b0df, #ecb709);
+  background-size: 400% 400%;
+  -webkit-animation: backgroundGradientMove 1s ease infinite;
+          animation: backgroundGradientMove 1s ease infinite;
 }
 
 @-webkit-keyframes backgroundGradientMove {
@@ -168,11 +168,6 @@ html {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  width: clamp(300px, 40vw, 1000px);
-  aspect-ratio: 1/1.5;
-  border: 8px solid rgb(255, 255, 255);
-  background: rgb(255, 255, 255);
-  overflow: visible;
 }
 #home .home-portrait-container .home-portrait-signature {
   font-family: "Outfit", sans-serif;
@@ -190,20 +185,7 @@ html {
   transition: all 2s ease-in-out;
 }
 #home .home-portrait-container img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  display: block;
-}
-#home .home-portrait-container:hover .home-portrait-signature, #home .home-portrait-container:focus .home-portrait-signature, #home .home-portrait-container:active .home-portrait-signature {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  width: 1000px;
 }
 #home .home-cards {
   display: flex;
@@ -262,19 +244,6 @@ html {
      object-fit: cover;
 }
 
-#contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-#contact .section-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 #shop .section-content {
   padding: 0;
 }
@@ -315,6 +284,268 @@ html {
   #shop .shop-content #cart {
     width: 50%;
   }
+}
+
+#mason-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+#mason-gallery .mason-item {
+  position: relative;
+  border: 4px solid black;
+  margin: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: width 200ms, height 200ms;
+}
+#mason-gallery .mason-item:hover, #mason-gallery .mason-item:focus, #mason-gallery .mason-item:active {
+  border: 4px solid #39b0df;
+}
+#mason-gallery .mason-item .mason-item-text-container {
+  display: none;
+  opacity: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: transparent;
+  transition: opacity 200ms;
+}
+#mason-gallery .mason-item .mason-item-text-container .mason-item-description {
+  display: none;
+}
+#mason-gallery .mason-item .mason-item-image-container {
+  width: 100%;
+  height: 100%;
+}
+#mason-gallery .mason-item .mason-item-image-container .mason-item-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#mason-gallery .mason-item .mason-item-add-to-cart-button,
+#mason-gallery .mason-item .mason-item-close-button {
+  display: none;
+}
+#mason-gallery .mason-item--active {
+  width: clamp(200px, 50vw, 600px);
+  aspect-ratio: 1/1;
+  z-index: 5;
+  border: 4px solid #39b0df;
+}
+#mason-gallery .mason-item--active .mason-item-text-container {
+  position: absolute;
+  top: 0;
+  display: block;
+  opacity: 1;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  padding: 0.25rem 0.5rem;
+  z-index: 8;
+}
+#mason-gallery .mason-item--active .mason-item-image-container {
+  overflow: hidden;
+}
+#mason-gallery .mason-item--active .mason-item-add-to-cart-button {
+  position: absolute;
+  display: block;
+  right: 0;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: white;
+  width: 100%;
+  border: none;
+  background: rgba(0, 0, 0, 0.5019607843);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  transition: color 200ms, background 400ms;
+}
+#mason-gallery .mason-item--active .mason-item-add-to-cart-button:hover {
+  background: #000000;
+}
+#mason-gallery .mason-item--active .mason-item-close-button {
+  position: absolute;
+  display: block;
+  right: 0;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px black;
+  transition: color 200ms, background 200ms, rotate 200ms;
+}
+#mason-gallery .mason-item--active .mason-item-close-button:hover {
+  rotate: 180deg;
+}
+#mason-gallery .mason-item--active .mason-item-add-to-cart-button {
+  bottom: 0;
+}
+#mason-gallery .mason-item--active .mason-item-close-button {
+  top: 0;
+}
+#mason-gallery .mason-item--active:active .mason-item-image-container {
+  transform-origin: top left;
+}
+
+#cart .cart-item {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px black;
+  width: 100%;
+}
+#cart .cart-item .cart-item-image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#cart .cart-item .cart-item-image-container .cart-item-image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#cart .cart-item .cart-item-text-container {
+  width: 100%;
+  padding: 0.5vw 1vw;
+  background: rgba(0, 0, 0, 0.3764705882);
+  z-index: 3;
+}
+#cart .cart-item .cart-item-print-size-container {
+  display: flex;
+  white-space: nowrap;
+}
+#cart .cart-item .cart-item-print-size-container select {
+  border: none;
+  padding: 0 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-align: center;
+  color: white;
+  background: transparent;
+  width: 100%;
+  cursor: pointer;
+}
+#cart .cart-item .cart-item-print-size-container select option {
+  color: black;
+}
+#cart .cart-item .cart-item-quantity-button-container {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+#cart .cart-item .cart-item-quantity-button-container .cart-item-quantity-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+  color: white;
+  text-shadow: 0 0 4px black;
+}
+#cart .cart-item .cart-item-quantity-button-container .cart-item-quantity-buttons button {
+  margin: 0 1rem;
+  padding: 0 0.5rem;
+  border: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  background: transparent;
+  cursor: pointer;
+  transition: border 500ms;
+}
+#cart .cart-item .cart-item-total-container {
+  display: flex;
+  white-space: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  padding: 0 1rem;
+}
+#cart .cart-item .cart-item-label {
+  min-width: 200px;
+}
+#cart .cart-item .cart-item-remove-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+}
+#cart .cart-item .cart-item-remove-container button {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 4px black;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: green;
+  background: transparent;
+}
+
+#contact {
+  background: blue;
+  padding: 1rem;
+}
+#contact .contact-content {
+  display: flex;
+  flex-direction: row;
+  background: green;
+  display: flex;
+  flex-direction: row;
+}
+#contact .contact-content > * {
+  display: block;
+  background: rgb(44, 37, 37);
+  width: 100px;
+  aspect-ratio: 1/2;
 }
 
 * {

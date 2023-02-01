@@ -14,16 +14,12 @@
     <!-- My Scripts -->
     <script src="scripts/mason-gallery.js" type="module" defer></script>
     <script src="scripts/gallery-items.js" type="module" defer></script>
-
+    <script src="scripts/UserInfo.js" type="module" defer></script>
     <!-- My Style Sheets -->
     <link rel="stylesheet" href="/styles/main-styles/main-styles.css" />
-    <link rel="stylesheet" href="/styles/layout/layout.css" />
+    <!-- <link rel="stylesheet" href="/styles/layout/layout.css" /> -->
 
-    <!-- <link rel="stylesheet" href="/styles/shop/cart.css">
-    <link rel="stylesheet" href="/styles/shop/gallery.css">
-    <link rel="stylesheet" href="/styles/shop/shop.css"> -->
-
-    <title>Rabbits For Sale</title>
+    <title>Penelope Park</title>
   </head>
 
   <body>
@@ -54,14 +50,14 @@
 
           <li>
             <a class="header-link" href="#contact">
-              <i class="header-icon fa-regular fa-address-card"></i>
+              <i class="header-icon fa-regular fa-envelope"></i>
               <span class="header-name">Contact</span>
             </a>
           </li>
 
           <li>
             <a class="header-link" href="#shop">
-              <i class="header-icon fa-regular fa-money"></i>
+              <i class="header-icon fa-solid fa-cart-shopping"></i>
               <span class="header-name">Shop</span>
             </a>
           </li>
@@ -125,11 +121,9 @@
                 ./assets/images/porcelain/dragon/dragon-hq-2.png 3x
               " />
             <figcaption>Porcelain</figcaption>
-
           </figure>
 
           <figure>
-
             <img
               src="./assets/images/shoes/shoes-lq-1.png"
               srcset="
@@ -138,7 +132,6 @@
               "
               alt="" />
             <figcaption>Shoes</figcaption>
-
           </figure>
 
           <figure>
@@ -150,7 +143,6 @@
               "
               alt="" />
             <figcaption>Rabbits</figcaption>
-
           </figure>
         </div>
 
@@ -256,12 +248,15 @@
         <h2 class="section-header-title z-3">Contact</h2>
       </div>
       <div class="section-content contact-content">
-        <div class="contact-text">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-          <p>Lorem, ipsum dolor.</p>
+        <div class="contact-div" id="user-contact"></div>
+        <div class="contact-div" id="user-education"></div>
+        <div class="contact-div" id="user-map">
+          <h2>Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d993.1814273971429!2d-122.40514929998191!3d37.78641512678537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858088632d582d%3A0x1ce46fa3c6d4efa0!2sSuper%20Duper%20Burgers!5e0!3m2!1sen!2sca!4v1675222719450!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         </div>
-      </div>
+
+
     </section>
     <!-- END Contact -->
   </body>
