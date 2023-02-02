@@ -110,10 +110,10 @@ $font-size-small: clamp(1rem, 1w, 1.5rem);
   justify-content: center;
 }
 
-$image-large-width: clamp(300px, 100%, 6vw);
-$image-medium-width: clamp(240px, 100%, 6vw);
-$image-small-width: clamp(160px, 100%, 6vw);
-$image-tiny-width: clamp(120px, 100%, 6vw);
+$image-large-width: clamp(300px, 100%, 30vw);
+$image-medium-width: clamp(120px, 100%, 20vw);
+$image-small-width: clamp(80px, 100%, 12vw);
+$image-tiny-width: clamp(600px, 100%, 8vw);
 
 @mixin image-fill-center {
   width: 100%;
@@ -128,6 +128,7 @@ $image-tiny-width: clamp(120px, 100%, 6vw);
   overflow: hidden;
   aspect-ratio: 1/1;
   object-fit: cover;
+  min-width: 300px;
 }
 
 @mixin image-medium-container {
@@ -135,6 +136,7 @@ $image-tiny-width: clamp(120px, 100%, 6vw);
   overflow: hidden;
   aspect-ratio: 1/1;
   object-fit: cover;
+  min-width: 120px;
 }
 
 @mixin image-small-container {
@@ -142,6 +144,7 @@ $image-tiny-width: clamp(120px, 100%, 6vw);
   overflow: hidden;
   aspect-ratio: 1/1;
   object-fit: cover;
+  min-width: 80px;
 }
 
 @mixin image-tiny-container {
@@ -149,6 +152,7 @@ $image-tiny-width: clamp(120px, 100%, 6vw);
   overflow: hidden;
   aspect-ratio: 1/1;
   object-fit: cover;
+  min-width: 60px;
 }
 
 @mixin image-large {
@@ -181,7 +185,7 @@ $image-tiny-width: clamp(120px, 100%, 6vw);
 
 figure {
   position: relative;
-  @include image-large-container();
+  @include image-medium-container();
   background: $white;
   margin: 1rem;
   @include flex-column();
@@ -286,6 +290,46 @@ nav {
   }
 }
 
+.section-background-1 {
+  background: linear-gradient(135deg, $color-tertiary, $color-primary);
+}
+
+.section-background-2 {
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+}
+
+.section-background-3 {
+  background: linear-gradient(135deg, $color-secondary, $color-tertiary);
+}
+
+.section-background-4 {
+  background: linear-gradient(135deg, $color-tertiary, $color-primary);
+}
+
+@keyframes animate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.section-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: 400% 400%;
+  background-position: 100% 50%;
+  animation: animate-gradient 20s ease infinite;
+}
+
 section {
   width: 100vw;
   max-width: 100%;
@@ -323,24 +367,6 @@ section {
 .section-header-title {
   @include font-medium;
   padding: 0 2vw;
-}
-
-section {
-  background: linear-gradient($color-primary, $color-secondary);
-  background-size: 400% 400%;
-  animation: backgroundGradientMove 1s ease infinite;
-}
-
-@keyframes backgroundGradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 #header {
@@ -402,8 +428,9 @@ section {
 
   .home-portrait-container {
     @include flex-row;
-    width: clamp(300px, 40vw, 1000px);
-    aspect-ratio: 1/2;
+    @include image-large-container();
+
+    aspect-ratio: 1/1.5;
     background: $white;
     border: 4px solid $white;
     background: $white;
@@ -411,8 +438,9 @@ section {
     position: relative;
     .home-portrait-img {
       @include image-fill-center();
-      transition: translate 200ms;
+      transition: translate 500ms;
     }
+
     .home-portrait-signature {
       @include font-huge;
       display: none;
@@ -598,10 +626,14 @@ section {
   }
 
   .mason-item--active {
-    width: clamp(200px, 50vw, 600px);
+    width: 50vw;
+    height: auto;
     aspect-ratio: 1/1;
     z-index: 5;
     border: 4px solid $color-primary;
+    position: fixed;
+    top: 20%;
+    right: 0%;
 
     .mason-item-text-container {
       position: absolute;
@@ -803,13 +835,10 @@ section {
   }
   .contact-div {
     width: 100%;
-    }
-
-    iframe{
-      width: 100%;
-      aspect-ratio: 1/1;
-
-    }
-  
-    
   }
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+}

@@ -21,6 +21,44 @@ const totalPrice = (price, quantity) => {
   return (price * quantity).toFixed(2);
 };
 
+
+/* LOCAL STORAGE FUNCTIONS
+function updateLocalStorage() {
+  const cartItems = document.querySelectorAll(".cart-item");
+  const cartItemsArray = [];
+  cartItems.forEach((item) => {
+    const itemObject = {
+      title: item.querySelector(".cart-item-title").textContent,
+      price: item.querySelector(".cart-item-price").textContent,
+      quantity: item.querySelector(".cart-item-quantity").textContent,
+      total: item.querySelector(".cart-item-total").textContent,
+      printSize: item.querySelector(".cart-item-print-size").textContent,
+      srcset: item.querySelector(".cart-item-image").srcset,
+    };
+    cartItemsArray.push(itemObject);
+  });
+
+  localStorage.setItem("cartItems", JSON.stringify(cartItemsArray));
+}
+
+function cartFromLocalStorage() {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  if (cartItems) {
+    cartItems.forEach((item) => {
+      addToCart(item.title, item.srcset, item.price, item.quantity, item.total, item.printSize);
+    });
+  }
+}
+
+function renderCart() {
+  cartFromLocalStorage();
+  updateCartTotal();
+}
+
+*/
+
+
+
 function getAllTotals () {
   const cartItems = document.querySelectorAll('.cart-item');
   let total = 0;
@@ -278,5 +316,7 @@ export function addToCart(title, srcset) {
 
   // Append item to cart
   cart.appendChild(cartItem);
+
+
 }
 
