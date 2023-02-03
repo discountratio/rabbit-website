@@ -60,10 +60,10 @@ $font-family-small: "Poppins", sans-serif;
 
 //Font Sizes
 $font-size-icon: clamp(24px, 3.5vw, 48px);
-$font-size-huge: clamp(64px, 5vw, 4rem);
-$font-size-large: clamp(2rem, 3vw, 3rem);
-$font-size-medium: clamp(1.25rem, 1.75vw, 2rem);
-$font-size-small: clamp(1rem, 1w, 1.5rem);
+$font-size-huge: clamp(48px, 5vw, 4rem);
+$font-size-large: clamp(36px, 3vw, 3rem);
+$font-size-medium: clamp(24px, 1rem + 0.5vw, 2rem);
+$font-size-small: clamp(12px, 1vw, 1.5rem);
 
 //Font mixins
 @mixin font-icon {
@@ -291,19 +291,19 @@ nav {
 }
 
 .section-background-1 {
-  background: linear-gradient(135deg, $color-tertiary, $color-primary);
+  background: linear-gradient(135deg, $color-light, $color-primary);
 }
 
 .section-background-2 {
-  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  background: linear-gradient(135deg, $color-primary, $color-quaternary);
 }
 
 .section-background-3 {
-  background: linear-gradient(135deg, $color-secondary, $color-tertiary);
+  background: linear-gradient(135deg, $color-quaternary, $color-secondary);
 }
 
 .section-background-4 {
-  background: linear-gradient(135deg, $color-tertiary, $color-primary);
+  background: linear-gradient(135deg, $color-secondary, $color-tertiary-light);
 }
 
 @keyframes animate-gradient {
@@ -327,16 +327,15 @@ nav {
   z-index: -1;
   background-size: 400% 400%;
   background-position: 100% 50%;
-  animation: animate-gradient 20s ease infinite;
+  animation: animate-gradient 5s ease infinite;
 }
 
 section {
+  min-width: 600px;
   width: 100vw;
   max-width: 100%;
   position: relative;
   @include flex-column;
-  flex-shrink: 0;
-
   .section-header {
     position: sticky;
     top: $header-height;
@@ -546,9 +545,11 @@ section {
     gap: clamp(1rem, 5vw, 3rem);
     #mason-gallery {
       justify-content: left;
-      grid-template-columns: repeat(6, 8vw);
+      grid-template-columns: repeat(5, 8vw);
       gap: 1vw;
-      height: 100%;
+      height: 90vh; 
+      width: 50vw;
+      
     }
 
     #cart {
@@ -584,6 +585,13 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  align-self: left;
+  justify-self: left;
+  justify-content: left;
+  align-content: left;
+
+  width: 100%;
+  margin: auto;
 
   .mason-item {
     position: relative;
@@ -717,7 +725,6 @@ section {
     overflow: hidden;
     border: 4px solid black;
     color: white;
-    @include font-medium;
     text-shadow: 0 0 8px black;
     width: 100%;
     .cart-item-image-container {
@@ -743,6 +750,7 @@ section {
       padding: 0.5vw 1vw;
       background: #00000060;
       z-index: 3;
+      @include font-medium;
     }
 
     .cart-item-print-size-container {
@@ -766,7 +774,6 @@ section {
 
     .cart-item-quantity-button-container {
       display: flex;
-      @include font-medium;
 
       .cart-item-quantity-buttons {
         display: flex;
