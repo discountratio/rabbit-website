@@ -39,7 +39,7 @@ const imagePath = "../assets/images/";
 
     The galleryItemArray is exported and used in the gallery.js file.
 */
-const galleryItemArray = [];
+export const galleryItemArray = [];
 
 const names = [
   "Jericho",
@@ -101,8 +101,7 @@ const subtitles = [
   "wednesday waker",
   "thursday thinker",
   "friday fighter",
-  "saturday sleeper",
-  
+  "saturday sleeper",  
 ];
 
 const types = [
@@ -188,4 +187,3 @@ const makeAllGalleryItems = () => {
 
 makeAllGalleryItems();
 
-export { galleryItemArray };

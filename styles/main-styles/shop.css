@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+li {
+  list-style: none;
+}
+
+i {
+  color: inherit;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: none;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #22222f;
+  color: #fafafa;
+}
+
+section {
+  margin-top: 64px;
+  padding: 0 10vw;
+  min-height: calc(100vh - 64px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+section .section-header {
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+  color: white;
+  background: #3b405f;
+  padding: 0 2rem;
+}
+section .section-header .section-header-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+section .section-content {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  min-height: calc(100vh - 64px - 40px);
+  align-items: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.button {
+  margin-top: 2rem;
+  background: #017ff0;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  color: #fafafa;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#shop-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#shop-categories {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#shop-categories .shop-category-button {
+  background: #3b405f;
+  font-weight: 600;
+  padding: 0.8rem calc(1rem + 2vw);
+  min-width: 200px;
+}
+#shop-categories .shop-category-button:hover {
+  background: #017ff0;
+}
+
+#shop-category-header {
+  font-family: "Rajdhani", sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(36px, 3vw, 3rem);
+  font-weight: 700;
+  padding: 0 2rem;
+  width: 100vw;
+  margin-top: 5vh;
+}
+
+#shop-item-container {
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.shop-item {
+  width: 100%;
+  font-family: "Rajdhani", sans-serif;
+}
+.shop-item .shop-item-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  aspect-ratio: 1/1;
+}
+.shop-item .shop-item-info {
+  margin-top: 0.5rem;
+}
+.shop-item .shop-item-info .shop-item-year {
+  margin-top: 0.5rem;
+}/*# sourceMappingURL=shop.css.map */

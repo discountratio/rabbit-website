@@ -1,6 +1,7 @@
 import { galleryItemArray } from "./gallery-items.js";
 import { addToCart, updateCartTotal } from "./cart.js";
 const masonGallery = document.getElementById("mason-gallery");
+
 // Main purpose is to create and add mason items to the masongallery div in the index.html file.
 /* Mason Gallery
   Takes in the array from the gallery-items.js file and creates a mason item for each item in the array.
