@@ -96,6 +96,13 @@ const subtitles = [
   "northern sniff",
   "armoured under",
   "holland dancer",
+  "tuesday moaner",
+  "sunday snoozer",
+  "wednesday waker",
+  "thursday thinker",
+  "friday fighter",
+  "saturday sleeper",
+  
 ];
 
 const types = [

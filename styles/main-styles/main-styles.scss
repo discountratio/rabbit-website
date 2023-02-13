@@ -163,6 +163,7 @@ section {
   min-height: calc(100vh - $header-height);
   position: relative;
   @include flex-column();
+
   .section-header {
     position: sticky;
     top: $header-height;
@@ -183,6 +184,8 @@ section {
     height: 100%;
     aspect-ratio: 1/1;
     min-height: calc(100vh - $header-height - $section-header-height);
+    align-items: center;
+    justify-items: center;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
@@ -234,10 +237,12 @@ section {
       grid-row: 2/10;
       overflow: hidden;
       position: relative;
+      box-shadow: 0px 0px 2px 1px $color-light;
+      width: 100%;
       .home-portrait {
         background: red;
-
         @include image-fill-center();
+        // @include image-fill-center();
       }
     }
 
@@ -246,22 +251,12 @@ section {
       font-family: $sans;
       font-weight: 600;
 
-      grid-column: 7 / 12;
-      grid-row: 3/11;
+      grid-column: 7 / 11;
+      grid-row: 2/9;
       padding: 0 3vw;
 
       span {
       }
-    }
-    button {
-      margin-top: 2rem;
-      background: #017ff0;
-      @include font-medium;
-      border-radius: 9999px;
-      padding: 0.5rem 3rem;
-      color: $color-light;
-      outline: none;
-      border: none;
     }
   }
 }
@@ -311,6 +306,9 @@ section {
     opacity: 0;
   }
 
+  .about-image {
+    box-shadow: 0px 0px 2px 1px $color-light;
+  }
   .about-image-1 {
     grid-column: 8/12;
     grid-row: 1/5;
@@ -319,7 +317,6 @@ section {
     grid-column: 2/8;
     grid-row: 2/4;
     text-align: right;
-    // background: lightgreen;
   }
 
   .about-image-2 {
@@ -329,7 +326,6 @@ section {
   .about-text-2 {
     grid-column: 6/12;
     grid-row: 5/7;
-    // background: lightblue;
   }
 
   .about-image-3 {
@@ -339,7 +335,6 @@ section {
   .about-text-3 {
     grid-column: 2/8;
     grid-row: 8/12;
-    // background: lightcoral;
     text-align: right;
   }
 }
@@ -352,20 +347,21 @@ section {
     margin-top: 10vh;
   }
   .contact-text-block {
-    grid-column: 3/10;
-    grid-row: 1/2;
+    grid-column: 4/10;
+    grid-row: 2/4;
     font-family: $sans;
     @include font-large;
     font-weight: 400;
   }
 
   .contact-form {
-    margin-top: 5vh;
-    grid-column: 3/10;
-    grid-row: 2/11;
     @include flex-column;
-    font-family: $sans;
     @include font-small;
+    margin-top: 5vh;
+    width: 100%;
+    grid-column: 4/10;
+    grid-row: 4/10;
+    font-family: $sans;
     gap: 0.5rem;
 
     .button {
@@ -390,265 +386,15 @@ section {
   }
 }
 
-#mason-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  align-self: left;
-  justify-self: left;
-  justify-content: left;
-  align-content: left;
-
-  width: 100%;
-  margin: auto;
-
-  .mason-item {
-    position: relative;
-    border: 4px solid black;
-    margin: 10px;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    transition: width 200ms, height 200ms;
-
-    &:hover,
-    &:focus,
-    &:active {
-    }
-
-    .mason-item-text-container {
-      display: none;
-      opacity: 0;
-      user-select: none;
-      color: transparent;
-      transition: opacity 200ms;
-      .mason-item-description {
-        display: none;
-      }
-    }
-
-    .mason-item-image-container {
-      width: 100%;
-      height: 100%;
-      .mason-item-image {
-        @include image-fill-center;
-      }
-    }
-
-    .mason-item-add-to-cart-button,
-    .mason-item-close-button {
-      display: none;
-    }
-  }
-
-  .mason-item--active {
-    width: 50vw;
-    height: auto;
-    aspect-ratio: 1/1;
-    z-index: 5;
-    position: fixed;
-    top: 20%;
-    right: 0%;
-
-    .mason-item-text-container {
-      position: absolute;
-      top: 0;
-      display: block;
-      opacity: 1;
-      user-select: text;
-      color: white;
-      text-shadow: 1px 1px 3px black;
-      padding: 0.25rem 0.5rem;
-      z-index: 8;
-    }
-
-    .mason-item-image-container {
-      overflow: hidden;
-    }
-
-    .mason-item-add-to-cart-button {
-      position: absolute;
-      display: block;
-      right: 0;
-      padding: 0.5rem 1rem;
-      background: transparent;
-      color: white;
-      width: 100%;
-      border: none;
-      background: #00000080;
-
-      @include font-medium;
-      transition: color 200ms, background 400ms;
-      &:hover {
-        background: #000000;
-      }
-    }
-
-    .mason-item-close-button {
-      position: absolute;
-      display: block;
-      right: 0;
-      padding: 0.5rem 1rem;
-      background: transparent;
-      color: white;
-      border: none;
-      font-size: 20px;
-      text-shadow: 1px 1px 3px black;
-      // mix-blend-mode: darken;
-      transition: color 200ms, background 200ms, rotate 200ms;
-      &:hover {
-        rotate: 180deg;
-      }
-    }
-
-    .mason-item-add-to-cart-button {
-      bottom: 0;
-    }
-
-    .mason-item-close-button {
-      top: 0;
-    }
-
-    &:active {
-      .mason-item-text-container {
-      }
-      .mason-item-add-to-cart-button {
-      }
-
-      .mason-item-image-container {
-        // z-index: 99;
-        transform-origin: top left;
-        // transform: scale(1.5);
-      }
-    }
-  }
-}
-
-#cart {
-  .cart-item {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    overflow: hidden;
-    border: 4px solid black;
-    color: white;
-    text-shadow: 0 0 8px black;
-    width: 100%;
-    .cart-item-image-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .cart-item-image {
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-    }
-
-    .cart-item-text-container {
-      width: 100%;
-      padding: 0.5vw 1vw;
-      background: #00000060;
-      z-index: 3;
-      @include font-medium;
-    }
-
-    .cart-item-print-size-container {
-      display: flex;
-      white-space: nowrap;
-      select {
-        border: none;
-        padding: 0 1rem;
-        @include font-medium;
-        text-align: center;
-        color: white;
-        background: transparent;
-        width: 100%;
-        cursor: pointer;
-
-        option {
-          color: black;
-        }
-      }
-    }
-
-    .cart-item-quantity-button-container {
-      display: flex;
-
-      .cart-item-quantity-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 0 1rem;
-        color: white;
-        text-shadow: 0 0 4px black;
-
-        button {
-          margin: 0 1rem;
-          padding: 0 0.5rem;
-          border: none;
-          color: white;
-          @include font-medium;
-          background: transparent;
-          cursor: pointer;
-          transition: border $transition-slow;
-        }
-      }
-    }
-
-    .cart-item-total-container {
-      display: flex;
-      white-space: nowrap;
-      justify-content: flex-end;
-      align-items: center;
-      @include font-medium;
-      padding: 0 1rem;
-    }
-
-    .cart-item-label {
-      min-width: 200px;
-    }
-
-    .cart-item-remove-container {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: transparent;
-      border: none;
-
-      button {
-        @include font-medium;
-        text-transform: uppercase;
-        color: white;
-        text-shadow: 0 0 4px black;
-
-        border: none;
-        cursor: pointer;
-        outline: none;
-        background: green;
-        background: transparent;
-      }
-    }
-  }
-}
-
 #main-shop {
   @include flex-column();
-  height: 600px;
+  height: fit-content;
   .shop-title {
     @include font-large();
     font-weight: 700;
     font-family: $sans;
     align-self: flex-start;
-    padding: 0 3rem;;
+    padding: 0 3rem;
     margin-top: 5vh;
   }
   .section-content {
@@ -656,23 +402,29 @@ section {
     width: 100%;
     padding: 0 10vw;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 320px);
-    grid-gap: 1rem;
+    grid-template-rows: auto;
   }
 
   figure {
-    background: red;
-    margin: 1rem;
-    display: flex;
+    @include flex-column();
     position: relative;
-    justify-content: center;
-    align-items: center;
-    text-justify: center;
     width: 200px;
     aspect-ratio: 1/1.5;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 1px $color-light;
+    transition: box-shadow 200ms, scale 200ms;
+    &:hover {
+      box-shadow: 0px 0px 4px 2px $color-light;
+    }
     img {
       @include image-fill-center();
+      transition: scale 360ms;
+      object-fit: cover;
+      &:hover {
+        scale: 1.1;
+      }
     }
+
     .button {
       @include font-small;
       white-space: nowrap;
@@ -685,6 +437,16 @@ section {
     figcaption {
       position: absolute;
       bottom: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #main-shop {
+    background: blue;
+    .section-content {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(auto, 320px);
     }
   }
 }
