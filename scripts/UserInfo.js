@@ -117,5 +117,5 @@ function attachUserInfo() {
 
 }
 
-attachEducation();
-attachUserInfo();
+// attachEducation();
+// attachUserInfo();

@@ -31,65 +31,43 @@
     <!--Header  -->
     <header id="header">
       <a class="logo header-link" href="" class="logo">
-        <span class="header-name">portr</span>
+        <!-- <span class="header-name">portr</span>
         <span class="logo-icon">Ai</span>
-        <span class="header-name">ts.com</span>
+        <span class="header-name">ts.com</span> -->
         <!-- <span class="logo-icon">.com</span> -->
+        logo
       </a>
       <!-- Navigation -->
       <nav>
         <ul class="nav-list">
           <li>
-            <a class="header-link" href="#home">
-              <i class="header-icon fa-solid fa-house"></i>
-              <span class="header-name">Home</span>
-            </a>
-          </li>
-
-          <li>
             <a class="header-link" href="#about">
-              <i class="header-icon fa-solid fa-user"></i>
+              <!-- <i class="header-icon fa-solid fa-user"></i> -->
               <span class="header-name">About</span>
             </a>
           </li>
 
           <li>
             <a class="header-link" href="#contact">
-              <i class="header-icon fa-regular fa-envelope"></i>
+              <!-- <i class="header-icon fa-regular fa-envelope"></i> -->
               <span class="header-name">Contact</span>
             </a>
           </li>
 
           <li>
             <a class="header-link" href="#shop">
-              <i class="header-icon fa-solid fa-cart-shopping"></i>
+              <i class="header-icon fa-solid fa-bag-shopping"></i>
               <span class="header-name">Shop</span>
+            </a>
+          </li>
+          <li>
+            <a class="header-link" href="#shop">
+              <i class="header-icon fa-solid fa-cart-shopping"></i>
+              <span class="header-name">Cart</span>
             </a>
           </li>
 
           <!-- Socials Menu is also a list item -->
-        </ul>
-
-        <ul class="social-list">
-          <li>
-            <a class="header-link" href="#">
-              <i class="header-icon fa-brands fa-instagram"></i>
-              <span class="header-name">Instagram</span>
-            </a>
-          </li>
-
-          <li>
-            <a class="header-link" href="#">
-              <i class="header-icon fa-brands fa-facebook"></i>
-              <span class="header-name">Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a class="header-link" href="#">
-              <i class="header-icon fa-brands fa-github"></i>
-              <span class="header-name">GitHub</span>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- END Navigation -->
@@ -99,55 +77,28 @@
     <!-- Home -->
     <section id="home">
       <div class="section-background section-background-1"></div>
-      <div class="section-header">
+      <!-- <div class="section-header">
         <h2 class="section-header-title">Home</h2>
-      </div>
+      </div> -->
 
-      <div class="section-content home-content">
+      <div class="section-content">
         <div class="home-portrait-container">
           <img
-            class="home-portrait-img"
+            class="home-portrait"
             src="./assets/images/artist/portrait-lq-1.png"
             srcset="
               ./assets/images/artist/portrait-hq-1.png 2x,
               ./assets/images/artist/portrait-hq-1.png 3x
             "
             alt="Portrait of Penny Park" />
-          <p class="home-portrait-signature">Penelope Park</p>
         </div>
 
-        <div class="home-cards">
-          <figure>
-            <img
-              src="./assets/images/porcelain/dragon/dragon-lq-2.png"
-              srcset="
-                ./assets/images/porcelain/dragon/dragon-hq-2.png 2x,
-                ./assets/images/porcelain/dragon/dragon-hq-2.png 3x
-              " />
-            <figcaption>Porcelain</figcaption>
-          </figure>
-
-          <figure>
-            <img
-              src="./assets/images/shoes/shoes-lq-1.png"
-              srcset="
-                ./assets/images/shoes/shoes-hq-1.png 2x,
-                ./assets/images/shoes/shoes-hq-1.png 3x
-              "
-              alt="" />
-            <figcaption>Shoes</figcaption>
-          </figure>
-
-          <figure>
-            <img
-              src="./assets/images/rabbit/rabbit-lq-3.png"
-              srcset="
-                ./assets/images/rabbit/rabbit-hq-3.png 2x,
-                ./assets/images/rabbit/rabbit-hq-3.png 3x
-              "
-              alt="" />
-            <figcaption>Rabbits</figcaption>
-          </figure>
+        <div class="home-text-container">
+          <p class="home-text">
+            <span class="home-text-name">Penelope Park</span> is a Korean
+            interdisciplinary artist that specializes in paintings of ceramics.
+          </p>
+          <button>Shop Now</button>
         </div>
 
         <!-- END Home-cards -->
@@ -158,72 +109,64 @@
     <!-- ************************************************** -->
     <!--  -->
     <section id="about">
-      <div class="section-background section-background-2"></div>
       <div class="section-header">
         <h2 class="section-header-title">About</h2>
       </div>
 
       <div class="section-content about-content">
-        <div class="about-section">
-          <figure>
-            <img
-              src="./assets/images/porcelain/dragon/dragon-lq-2.png"
-              srcset="
-                ./assets/images/porcelain/dragon/dragon-hq-2.png 2x,
-                ./assets/images/porcelain/dragon/dragon-hq-2.png 3x
-              "
-              alt="" />
-            <figcaption>Dragon Tree</figcaption>
-          </figure>
-          <p>
-            Penelope Park is an artist whose work is inspired by the Korean
-            tradition of porcelain painting. She has exhibited her work in
-            galleries and museums around the world, and has been featured on
-            television programs including National Geographic.
-          </p>
-        </div>
+        <figure class="about-image-1">
+          <img
+            src="./assets/images/porcelain/dragon/dragon-lq-2.png"
+            srcset="
+              ./assets/images/porcelain/dragon/dragon-hq-2.png 2x,
+              ./assets/images/porcelain/dragon/dragon-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption>Dragon Tree</figcaption>
+        </figure>
+        <p class="about-text about-text-1">
+          Penelope Park is an artist whose work is inspired by the Korean
+          tradition of porcelain painting. She has exhibited her work in
+          galleries and museums around the world, and has been featured on
+          television programs including National Geographic.
+        </p>
 
-        <div class="about-section">
-          <figure>
-            <img
-              src="./assets/images/shoes/shoes-lq-2.png"
-              srcset="
-                ./assets/images/shoes/shoes-hq-2.png 2x,
-                ./assets/images/shoes/shoes-hq-2.png 3x
-              "
-              alt="" />
-            <figcaption>Porcelain Shoe</figcaption>
-          </figure>
-          <p>
-            Penelope was born in Montreal and grew up in Toronto. At 17, she
-            went to Korea to live with her grandmother for three years, where
-            she learned how to make art with porcelain. Upon returning to Canada
-            and graduating high school, Penelope decided she wanted to make a
-            career out of art.
-          </p>
-        </div>
+        <figure class="about-image-2">
+          <img
+            src="./assets/images/shoes/shoes-lq-2.png"
+            srcset="
+              ./assets/images/shoes/shoes-hq-2.png 2x,
+              ./assets/images/shoes/shoes-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption>Porcelain Shoe</figcaption>
+        </figure>
+        <p class="about-text about-text-2">
+          Penelope was born in Montreal and grew up in Toronto. At 17, she went
+          to Korea to live with her grandmother for three years, where she
+          learned how to make art with porcelain. Upon returning to Canada and
+          graduating high school, she pursued a career in art.
+        </p>
 
-        <div class="about-section">
-          <figure>
-            <img
-              class="section-content-image"
-              src="./assets/images/rabbit/rabbit-lq-2.png"
-              srcset="
-                ./assets/images/rabbit/rabbit-hq-2.png 2x,
-                ./assets/images/rabbit/rabbit-hq-2.png 3x
-              "
-              alt="" />
-            <figcaption>Fancy Rabbit</figcaption>
-          </figure>
-          <p>
-            She started out as a graphic designer, but soon found that she had
-            an affinity for ceramic sculpture. She decided to pursue ceramics as
-            a full-time career and enrolled at Sheridan College's School of Art
-            & Design in Oakville, Ontario. After graduating with a Bachelor of
-            Fine Arts degree (BFA), Penelope relocated back to Montreal where
-            she currently lives with her husband, who works as an architect.
-          </p>
-        </div>
+        <figure class="about-image-3">
+          <img
+            class="section-content-image"
+            src="./assets/images/rabbit/rabbit-lq-2.png"
+            srcset="
+              ./assets/images/rabbit/rabbit-hq-2.png 2x,
+              ./assets/images/rabbit/rabbit-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption>Fancy Rabbit</figcaption>
+        </figure>
+        <p class="about-text about-text-3">
+          She started out as a graphic designer, but soon found that she had an
+          affinity for ceramic sculpture. She decided to pursue ceramics as a
+          full-time career and enrolled at Sheridan College's School of Art &
+          Design in Oakville, Ontario. After graduating with a Bachelor of Fine
+          Arts degree (BFA), Penelope relocated back to Montreal where she
+          currently lives with her husband, who works as an architect.
+        </p>
       </div>
     </section>
     <!-- END About -->
@@ -231,17 +174,71 @@
 
     <!-- ************************************************** -->
     <!--  -->
-    <section id="shop">
+    <section id="main-shop">
       <div class="section-background section-background-3"></div>
       <div class="section-header">
         <h2 class="section-header-title">Shop</h2>
       </div>
-
+      <h2 class="shop-title">Shop Categories</h2>
       <div class="section-content shop-content">
-        <div id="mason-gallery"></div>
-        <div id="cart">
-          <h3 id="cart-total">Cart Total: $0.00</h3>
-        </div>
+        <figure class="shop-image-container shop-image-3">
+          <img
+            src="./assets/images/rabbit-lq-2.png"
+            srcset="
+              ./assets/images/rabbit-hq-2.png 2x,
+              ./assets/images/rabbit-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption><button class="button">Shop Rabbits</button></figcaption>
+        </figure>
+
+        <figure class="shop-image-container shop-image-2">
+          <img
+            src="./assets/images/shoe-lq-2.png"
+            srcset="
+              ./assets/images/shoe-hq-2.png 2x,
+              ./assets/images/shoe-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption><button class="button">Shop Shoes</button></figcaption>
+        </figure>
+
+        <figure class="shop-image-container shop-image-4">
+          <img
+            src="./assets/images/camera-lq-2.png"
+            srcset="
+              ./assets/images/camera-hq-2.png 2x,
+              ./assets/images/camera-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption><button class="button">Shop Cameras</button></figcaption>
+        </figure>
+
+        <figure class="shop-image-container shop-image-5">
+          <img
+            src="./assets/images/portrait-lq-2.png"
+            srcset="
+              ./assets/images/portrait-hq-2.png 2x,
+              ./assets/images/portrait-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption>
+            <button class="button">Shop Portraits</button>
+          </figcaption>
+        </figure>
+
+        <figure class="shop-image-container shop-image-1">
+          <img
+            src="./assets/images/dragon-lq-2.png"
+            srcset="
+              ./assets/images/dragon-hq-2.png 2x,
+              ./assets/images/dragon-hq-2.png 3x
+            "
+            alt="" />
+          <figcaption>
+            <button class="button">Shop Dragons</button>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -249,22 +246,28 @@
     <section id="contact">
       <div class="section-background section-background-4"></div>
       <div class="section-header">
-        <h2 class="section-header-title z-3">Contact</h2>
+        <h2 class="section-header-title">Contact</h2>
       </div>
       <div class="section-content contact-content">
-        <div class="contact-div" id="user-contact"></div>
-        <div class="contact-div" id="user-education"></div>
-        <div class="contact-div" id="user-map">
-          <h2>Location</h2>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d993.1814273971429!2d-122.40514929998191!3d37.78641512678537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858088632d582d%3A0x1ce46fa3c6d4efa0!2sSuper%20Duper%20Burgers!5e0!3m2!1sen!2sca!4v1675222719450!5m2!1sen!2sca"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <p class="contact-text-block">
+          Would you like to work with Penelope or feature her work in your
+          gallery? Get in touch.
+        </p>
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/xnqoqzjy"
+          method="POST">
+          <input type="text" name="name" id="name" placeholder="Name" />
+
+          <input type="email" name="email" id="email" placeholder="Email" />
+
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Message"></textarea>
+
+          <button class="button" type="submit">Send</button>
+        </form>
       </div>
     </section>
     <!-- END Contact -->

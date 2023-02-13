@@ -9,11 +9,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 figure {
   position: relative;
-  width: clamp(300px, 100%, 6vw);
+  width: clamp(120px, 100%, 20vw);
   overflow: hidden;
   aspect-ratio: 1/1;
   -o-object-fit: cover;
      object-fit: cover;
+  min-width: 120px;
   background: rgb(255, 255, 255);
   margin: 1rem;
   display: flex;
@@ -34,7 +35,7 @@ figure img {
 }
 figure figcaption {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1rem, 1w, 1.5rem);
+  font-size: clamp(12px, 1vw, 1.5rem);
   font-weight: 400;
   display: none;
   transition: all 500ms ease-in-out;
@@ -120,7 +121,47 @@ nav .social-list {
   display: flex;
 }
 
+.section-background-1 {
+  background: linear-gradient(135deg, #fafafa, #39b0df);
+}
+
+.section-background-2 {
+  background: linear-gradient(135deg, #39b0df, #0ee7c3);
+}
+
+.section-background-3 {
+  background: linear-gradient(135deg, #0ee7c3, #ecb709);
+}
+
+.section-background-4 {
+  background: linear-gradient(135deg, #ecb709, #e07a7a);
+}
+
+@keyframes animate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.section-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: 400% 400%;
+  background-position: 100% 50%;
+  animation: animate-gradient 5s ease infinite;
+}
+
 section {
+  min-width: 600px;
   width: 100vw;
   max-width: 100%;
   position: relative;
@@ -128,10 +169,8 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  flex-shrink: 0;
 }
 section .section-header {
-  position: -webkit-sticky;
   position: sticky;
   top: 64px;
   z-index: 7;
@@ -157,43 +196,13 @@ section .section-content {
 
 .section-header-title {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
   padding: 0 2vw;
 }
 
-section {
-  background: linear-gradient(#39b0df, #ecb709);
-  background-size: 400% 400%;
-  -webkit-animation: backgroundGradientMove 1s ease infinite;
-          animation: backgroundGradientMove 1s ease infinite;
-}
-
-@-webkit-keyframes backgroundGradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes backgroundGradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 #header a {
   display: flex;
   flex-direction: row;
@@ -245,8 +254,13 @@ section {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  width: clamp(300px, 40vw, 1000px);
-  aspect-ratio: 1/2;
+  width: clamp(300px, 100%, 30vw);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-width: 300px;
+  aspect-ratio: 1/1.5;
   background: rgb(255, 255, 255);
   border: 4px solid rgb(255, 255, 255);
   background: rgb(255, 255, 255);
@@ -259,7 +273,7 @@ section {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  transition: translate 200ms;
+  transition: translate 500ms;
 }
 #home .home-portrait-container .home-portrait-signature {
   font-family: "Outfit", sans-serif;
@@ -270,8 +284,7 @@ section {
   height: 0px;
   max-width: 0px;
   max-height: 0px;
-  -ms-writing-mode: tb-rl;
-      writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
   color: #39b0df;
   text-shadow: 2px 2px #000;
   opacity: 0;
@@ -326,7 +339,7 @@ section {
 }
 #about .about-section p {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -345,11 +358,12 @@ section {
 }
 #about .about-section figure {
   float: inline-start;
-  width: clamp(300px, 100%, 6vw);
+  width: clamp(300px, 100%, 30vw);
   overflow: hidden;
   aspect-ratio: 1/1;
   -o-object-fit: cover;
      object-fit: cover;
+  min-width: 300px;
 }
 
 #shop .section-content {
@@ -366,9 +380,10 @@ section {
 }
 #shop .shop-content #mason-gallery {
   justify-content: left;
-  grid-template-columns: repeat(6, 8vw);
+  grid-template-columns: repeat(5, 8vw);
   gap: 1vw;
-  height: 100%;
+  height: 90vh;
+  width: 50vw;
 }
 #shop .shop-content #cart {
   width: 100vw;
@@ -398,6 +413,12 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  align-self: left;
+  justify-self: left;
+  justify-content: left;
+  align-content: left;
+  width: 100%;
+  margin: auto;
 }
 #mason-gallery .mason-item {
   position: relative;
@@ -417,7 +438,6 @@ section {
   opacity: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   color: transparent;
   transition: opacity 200ms;
@@ -442,10 +462,14 @@ section {
   display: none;
 }
 #mason-gallery .mason-item--active {
-  width: clamp(200px, 50vw, 600px);
+  width: 50vw;
+  height: auto;
   aspect-ratio: 1/1;
   z-index: 5;
   border: 4px solid #39b0df;
+  position: fixed;
+  top: 20%;
+  right: 0%;
 }
 #mason-gallery .mason-item--active .mason-item-text-container {
   position: absolute;
@@ -454,7 +478,6 @@ section {
   opacity: 1;
   -webkit-user-select: text;
      -moz-user-select: text;
-      -ms-user-select: text;
           user-select: text;
   color: white;
   text-shadow: 1px 1px 3px black;
@@ -475,7 +498,7 @@ section {
   border: none;
   background: rgba(0, 0, 0, 0.5019607843);
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -516,11 +539,6 @@ section {
   overflow: hidden;
   border: 4px solid black;
   color: white;
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
-  font-weight: 600;
-  text-transform: capitalize;
-  letter-spacing: 2px;
   text-shadow: 0 0 8px black;
   width: 100%;
 }
@@ -547,6 +565,11 @@ section {
   padding: 0.5vw 1vw;
   background: rgba(0, 0, 0, 0.3764705882);
   z-index: 3;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 2px;
 }
 #cart .cart-item .cart-item-print-size-container {
   display: flex;
@@ -556,7 +579,7 @@ section {
   border: none;
   padding: 0 1rem;
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -571,11 +594,6 @@ section {
 }
 #cart .cart-item .cart-item-quantity-button-container {
   display: flex;
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
-  font-weight: 600;
-  text-transform: capitalize;
-  letter-spacing: 2px;
 }
 #cart .cart-item .cart-item-quantity-button-container .cart-item-quantity-buttons {
   display: flex;
@@ -592,7 +610,7 @@ section {
   border: none;
   color: white;
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -606,7 +624,7 @@ section {
   justify-content: flex-end;
   align-items: center;
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -624,7 +642,7 @@ section {
 }
 #cart .cart-item .cart-item-remove-container button {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1.25rem, 1.75vw, 2rem);
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   letter-spacing: 2px;
@@ -710,7 +728,6 @@ section {
   flex-shrink: 0;
 }
 section .section-header {
-  position: -webkit-sticky;
   position: sticky;
   top: 64px;
   z-index: 7;
@@ -720,11 +737,4 @@ section .section-header-title {
   max-height: 32px;
   line-height: 32px;
   width: 100vw;
-}
-section .section-content {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  padding: clamp(1rem, 3vw, 40px) clamp(1rem, 10vw, 800px);
 }/*# sourceMappingURL=layout.css.map */

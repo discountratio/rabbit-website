@@ -17,33 +17,33 @@
 //font-family: 'Outfit', sans-serif; //weight 100-900
 @import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
 //font-family: 'Allura', sans-serif; //weight 100-900
-
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+//font-family: 'Lobster', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+//font-family: 'Rajdhani', sans-serif;
 $header-height: 64px;
-$section-header-height: 32px;
+$section-header-height: 40px;
+$header-padding: 2rem;
 
 //Transition Variables
 $transition-slow: 500ms;
 $transition-medium: 300ms;
 $transition-fast: 120ms;
 
-//Color Variables
-$color-primary: #39b0df;
-$color-primary-dark: #2a8aa7;
-$color-primary-light: #6cd3ff;
-$color-secondary: #ecb709;
-$color-secondary-dark: #b98a05;
-$color-secondary-light: #ffda3a;
-$color-tertiary: #c05454;
-$color-tertiary-dark: #8f3a3a;
-$color-tertiary-light: #e07a7a;
-$color-quaternary: #0ee7c3;
-$color-quaternary-dark: #0abf9b;
-$color-quaternary-light: #3fffe0;
+$cursive: "Satisfy", cursive;
+$sans: "Rajdhani", sans-serif;
+
+$bold: 700;
+$normal: 400;
+
+$color-primary-darker: #0c0d15;
+$color-primary-dark: #1e202d;
+$color-primary-light: #017ff0;
+$color-primary: #3b405f;
 
 $color-light: #fafafa;
 $color-dark: #333333;
-$white: rgb(255, 255, 255);
-$black: #000;
+$background: #22222f;
 
 //Cursive Fonts
 $font-fancy1: "Sacramento", cursive;
@@ -52,18 +52,19 @@ $font-fancy3: "Satisfy", cursive;
 $font-fancy4: "Macondo", cursive;
 $font-fancy5: "Rowdies", cursive;
 $font-fancy6: "Yeseva One", cursive;
+$font-fancy6: "Lobster", cursive;
 
 //Sans Serif Fonts
 $font-family-large: "Outfit", sans-serif;
-$font-family-medium: "Poppins", sans-serif;
-$font-family-small: "Poppins", sans-serif;
+$font-family-medium: $sans;
+$font-family-small: $sans;
 
 //Font Sizes
 $font-size-icon: clamp(24px, 3.5vw, 48px);
 $font-size-huge: clamp(48px, 5vw, 4rem);
 $font-size-large: clamp(36px, 3vw, 3rem);
 $font-size-medium: clamp(24px, 1rem + 0.5vw, 2rem);
-$font-size-small: clamp(12px, 1vw, 1.5rem);
+$font-size-small: clamp(16px, 1vw, 1.5rem);
 
 //Font mixins
 @mixin font-icon {
@@ -73,7 +74,7 @@ $font-size-small: clamp(12px, 1vw, 1.5rem);
 }
 @mixin font-huge {
   font-family: $font-family-large;
-  font-size: clamp(64px, 5vw, 120px);
+  font-size: $font-size-huge;
   font-weight: 800;
 }
 @mixin font-large {
@@ -85,9 +86,7 @@ $font-size-small: clamp(12px, 1vw, 1.5rem);
 @mixin font-medium {
   font-family: $font-family-medium;
   font-size: $font-size-medium;
-  font-weight: 600;
-  text-transform: capitalize;
-  letter-spacing: 2px;
+  font-weight: 400;
 }
 
 @mixin font-small {
@@ -122,109 +121,9 @@ $image-tiny-width: clamp(600px, 100%, 8vw);
   object-position: center;
 }
 
-@mixin image-large-container {
-  width: $image-large-width;
-
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  min-width: 300px;
-}
-
-@mixin image-medium-container {
-  width: $image-medium-width;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  min-width: 120px;
-}
-
-@mixin image-small-container {
-  width: $image-small-width;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  min-width: 80px;
-}
-
-@mixin image-tiny-container {
-  width: $image-tiny-width;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  min-width: 60px;
-}
-
-@mixin image-large {
-  width: $image-large-width;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-@mixin image-medium {
-  width: $image-medium-width;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-@mixin image-small {
-  width: $image-small-width;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-@mixin image-tiny {
-  width: $image-tiny-width;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-figure {
-  position: relative;
-  @include image-medium-container();
-  background: $white;
-  margin: 1rem;
-  @include flex-column();
-  border: 4px solid white;
-
-  img {
-    @include image-fill-center();
-    transition: all $transition-medium ease-in-out;
-    filter: brightness(0.8);
-  }
-  figcaption {
-    @include font-small();
-    display: none;
-    transition: all $transition-slow ease-in-out;
-  }
-
-  &:hover {
-    img {
-      scale: 1.1;
-      filter: brightness(1);
-    }
-
-    figcaption {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: auto;
-      color: white;
-      background: #00000080;
-    }
-  }
-}
-
 li {
   list-style: none;
 }
-
 i {
   color: inherit;
   background: inherit;
@@ -237,6 +136,7 @@ a {
 html {
   scroll-padding-top: $header-height;
   scroll-behavior: smooth;
+  scroll-snap-align: start;
 }
 
 // LAYOUT ------------------------------------------------------
@@ -244,340 +144,249 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
   text-indent: none;
   // border: 1px solid lime;
 }
 
 body {
   overflow-x: hidden;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-header {
-  width: 100vw;
-  z-index: 10;
-  background: lightblue;
-  position: fixed;
-  top: 0;
-  left: 0;
-  text-align: center;
-  height: $header-height;
-}
-
-nav {
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  height: $section-header-height;
-  max-height: $section-header-height;
-  line-height: $section-header-height;
-  padding: 0 1rem;
-  svg {
-    font-size: 24px;
-  }
-
-  .nav-list {
-    display: flex;
-  }
-
-  .social-list {
-    display: flex;
-  }
-}
-
-.section-background-1 {
-  background: linear-gradient(135deg, $color-light, $color-primary);
-}
-
-.section-background-2 {
-  background: linear-gradient(135deg, $color-primary, $color-quaternary);
-}
-
-.section-background-3 {
-  background: linear-gradient(135deg, $color-quaternary, $color-secondary);
-}
-
-.section-background-4 {
-  background: linear-gradient(135deg, $color-secondary, $color-tertiary-light);
-}
-
-@keyframes animate-gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.section-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-size: 400% 400%;
-  background-position: 100% 50%;
-  animation: animate-gradient 5s ease infinite;
+  background-color: $background;
+  color: $color-light;
 }
 
 section {
-  min-width: 600px;
-  width: 100vw;
-  max-width: 100%;
+  margin-top: $header-height; //prevents losing header under nav
+  padding: 0 10vw;
+  min-height: calc(100vh - $header-height);
   position: relative;
-  @include flex-column;
+  @include flex-column();
   .section-header {
     position: sticky;
     top: $header-height;
     z-index: 7;
-  }
-  .section-header-title {
     height: $section-header-height;
     max-height: $section-header-height;
     line-height: $section-header-height;
     width: 100vw;
+    color: white;
+    background: $color-primary;
+    padding: 0 $header-padding;
+    .section-header-title {
+      @include font-medium;
+    }
   }
-
   .section-content {
-    position: relative;
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    padding: clamp(1rem, 3vw, 40px) clamp(1rem, 10vw, 800px);
+    height: 100%;
+    aspect-ratio: 1/1;
+    min-height: calc(100vh - $header-height - $section-header-height);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+
+    // Grid rows are defined in individual sections
   }
 }
 
 //END LAYOUT--------------------------------------------------
-.section-header {
-  background: black;
-  color: white;
-}
-
-.section-header-title {
-  @include font-medium;
-  padding: 0 2vw;
-}
 
 #header {
-  // @include font-small;
   // Hide header and nav names on small screens
-  a {
+  width: 100vw;
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 0 $header-padding;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $color-primary-darker;
+
+  nav {
+    justify-content: space-between;
+    height: $section-header-height;
+    max-height: $section-header-height;
+    line-height: $section-header-height;
     display: flex;
     flex-direction: row;
-    // justify-content: center;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-  }
+    width: auto;
 
-  .logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .header-name {
-    transition: all 200ms;
-    display: flex;
-  }
-
-  .nav-list,
-  .social-list,
-  a {
-    gap: 0.5rem;
-    padding: 0 0.25rem;
-  }
-
-  @media (max-width: 900px) {
-    ul a {
+    .nav-list {
       display: flex;
-      flex-direction: column;
-    }
-
-    .header-link {
-      &:hover {
-        .header-name {
-          max-width: 100px;
-          width: 100%;
-          opacity: 1;
-        }
-      }
-    }
-    .header-name {
-      max-width: 0px;
-      opacity: 0;
+      font-weight: 600;
+      width: auto;
+      gap: 2rem;
+      margin: auto 1rem;
+      font-family: $sans;
     }
   }
 }
 
 #home {
-  margin-top: $header-height; //prevents losing header under nav
+  .section-content {
+    .home-portrait-container {
+      grid-column: 2 / 7;
+      grid-row: 2/10;
+      overflow: hidden;
+      position: relative;
+      .home-portrait {
+        background: red;
 
-  .home-content {
-    @include flex-column;
-  }
-
-  .home-portrait-container {
-    @include flex-row;
-    @include image-large-container();
-
-    aspect-ratio: 1/1.5;
-    background: $white;
-    border: 4px solid $white;
-    background: $white;
-
-    position: relative;
-    .home-portrait-img {
-      @include image-fill-center();
-      transition: translate 500ms;
-    }
-
-    .home-portrait-signature {
-      @include font-huge;
-      display: none;
-      width: 0px;
-      height: 0px;
-      max-width: 0px;
-      max-height: 0px;
-      writing-mode: vertical-rl;
-      color: $color-primary;
-      text-shadow: 2px 2px $black;
-      opacity: 0;
-      transition: opacity 300ms;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      border-left: 8px transparent;
-      overflow: visible;
-
-      .home-portrait-img {
-        translate: -5vw;
-        background: black;
-      }
-
-      .home-portrait-signature {
-        display: block;
-        width: auto;
-        height: auto;
-        max-height: 100%;
-        position: absolute;
-        top: 0;
-        right: -5vw;
-        opacity: 1;
+        @include image-fill-center();
       }
     }
-  }
 
-  .home-cards {
-    @include flex-row;
-  }
+    .home-text-container {
+      @include font-large;
+      font-family: $sans;
+      font-weight: 600;
 
-  .home-card {
+      grid-column: 7 / 12;
+      grid-row: 3/11;
+      padding: 0 3vw;
+
+      span {
+      }
+    }
+    button {
+      margin-top: 2rem;
+      background: #017ff0;
+      @include font-medium;
+      border-radius: 9999px;
+      padding: 0.5rem 3rem;
+      color: $color-light;
+      outline: none;
+      border: none;
+    }
   }
+}
+
+.button {
+  margin-top: 2rem;
+  background: #017ff0;
+  @include font-medium;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  color: $color-light;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 #about {
-  @include flex-column;
-
-  .about-content {
-    @include flex-column;
+  figure {
+  }
+  .section-content {
+    margin-top: 5vh;
+    justify-content: center;
+    height: auto;
+    figure {
+      img {
+        @include image-fill-center();
+      }
+    }
   }
 
-  .about-section {
-    position: relative;
-    display: inline;
-
-    &:nth-child(odd) {
-      figure {
-        float: inline-end;
-      }
+  .about-text {
+    @include font-small;
+    padding: 1rem 2rem;
+    display: block;
+    font-family: $sans;
+    font-size: 0.8rem;
+    &::first-letter {
     }
 
-    &:not(:last-child) {
-      margin-bottom: 2rem;
-      box-shadow: 0 4px black;
+    &::first-line {
+      font-size: 1.25rem;
+      font-family: $font-fancy6;
     }
+  }
 
-    p {
-      @include font-medium();
-      text-transform: none;
-      letter-spacing: 2px;
-      text-align: left;
+  figcaption {
+    opacity: 0;
+  }
 
-      &::first-line {
-        font-size: 2rem;
-        font-weight: 800;
-        font-family: $font-fancy3;
-      }
+  .about-image-1 {
+    grid-column: 8/12;
+    grid-row: 1/5;
+  }
+  .about-text-1 {
+    grid-column: 2/8;
+    grid-row: 2/4;
+    text-align: right;
+    // background: lightgreen;
+  }
 
-      &::first-letter {
-        font-size: 3rem;
-        font-weight: 800;
-      }
-    }
+  .about-image-2 {
+    grid-column: 2/6;
+    grid-row: 4/8;
+  }
+  .about-text-2 {
+    grid-column: 6/12;
+    grid-row: 5/7;
+    // background: lightblue;
+  }
 
-    figure {
-      float: inline-start;
-      @include image-large-container();
-    }
+  .about-image-3 {
+    grid-column: 8/12;
+    grid-row: 7/11;
+  }
+  .about-text-3 {
+    grid-column: 2/8;
+    grid-row: 8/12;
+    // background: lightcoral;
+    text-align: right;
   }
 }
 
-#shop {
+#contact {
   .section-content {
-    padding: 0;
-  }
-  //small - default
-  .shop-content {
+    gap: 1rem;
     width: 100%;
-    @include flex-column;
-    padding: 0 2vw;
-    gap: clamp(1rem, 5vw, 3rem);
-    #mason-gallery {
-      justify-content: left;
-      grid-template-columns: repeat(5, 8vw);
-      gap: 1vw;
-      height: 90vh; 
-      width: 50vw;
-      
-    }
+    font-family: $sans;
+    margin-top: 10vh;
+  }
+  .contact-text-block {
+    grid-column: 3/10;
+    grid-row: 1/2;
+    font-family: $sans;
+    @include font-large;
+    font-weight: 400;
+  }
 
-    #cart {
-      width: 100vw;
-      padding: 2vw;
+  .contact-form {
+    margin-top: 5vh;
+    grid-column: 3/10;
+    grid-row: 2/11;
+    @include flex-column;
+    font-family: $sans;
+    @include font-small;
+    gap: 0.5rem;
+
+    .button {
+      align-self: flex-end;
     }
   }
 
-  //large
-  @media (min-width: 900px) {
-    .shop-content {
-      @include flex-row;
-      #mason-gallery {
-        width: 50%;
-        justify-content: left;
-        grid-template-columns: repeat(4, 8vw);
-        gap: 1vw;
-        height: 100%;
-        padding: 0 5vw;
-      }
+  input,
+  textarea {
+    width: 100%;
+    height: 2rem;
+    @include font-medium;
+    color: $color-light;
+    background: $color-primary;
+    border: none;
+    font-family: $sans;
+  }
 
-      #cart {
-        width: 50%;
-
-        .cart-item {
-        }
-      }
-    }
+  textarea {
+    height: 10rem;
+    resize: none;
   }
 }
 
@@ -605,7 +414,6 @@ section {
     &:hover,
     &:focus,
     &:active {
-      border: 4px solid $color-primary;
     }
 
     .mason-item-text-container {
@@ -638,7 +446,6 @@ section {
     height: auto;
     aspect-ratio: 1/1;
     z-index: 5;
-    border: 4px solid $color-primary;
     position: fixed;
     top: 20%;
     right: 0%;
@@ -833,19 +640,51 @@ section {
   }
 }
 
-#contact {
-  .contact-content {
-    grid-template-columns: repeat(3, 1fr);
-    display: grid;
-    gap: 1rem;
-    width: 100%;
+#main-shop {
+  @include flex-column();
+  height: 600px;
+  .shop-title {
+    @include font-large();
+    font-weight: 700;
+    font-family: $sans;
+    align-self: flex-start;
+    padding: 0 3rem;;
+    margin-top: 5vh;
   }
-  .contact-div {
+  .section-content {
+    margin-top: 5vh;
     width: 100%;
+    padding: 0 10vw;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 320px);
+    grid-gap: 1rem;
   }
 
-  iframe {
-    width: 100%;
-    aspect-ratio: 1/1;
+  figure {
+    background: red;
+    margin: 1rem;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-justify: center;
+    width: 200px;
+    aspect-ratio: 1/1.5;
+    img {
+      @include image-fill-center();
+    }
+    .button {
+      @include font-small;
+      white-space: nowrap;
+      padding: 0.5rem 1rem;
+      background: $color-light;
+      color: $color-dark;
+      font-weight: 700;
+      box-shadow: 0 4px 4px 2px #44444450;
+    }
+    figcaption {
+      position: absolute;
+      bottom: 0.5rem;
+    }
   }
 }

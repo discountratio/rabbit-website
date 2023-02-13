@@ -62,6 +62,7 @@ section {
     top: $header-height;
     z-index: 7;
   }
+  
   .section-header-title {
     height: $section-header-height;
     max-height: $section-header-height;
@@ -69,12 +70,5 @@ section {
     width: 100vw;
   }
 
-  .section-content {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    padding: clamp(1rem, 3vw, 40px) clamp(1rem, 10vw, 800px);
-  }
 
 }
