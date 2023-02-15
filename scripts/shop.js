@@ -1,30 +1,49 @@
 import { galleryItemArray } from "./gallery-items.js";
+
+// Page elements -------------------------------------------------------------------
 const shopCategories = document.querySelector(".shop-categories");
 const shopItemContainer = document.getElementById("shop-item-container");
 const shopCategoryHeader = document.getElementById("shop-category-header");
-
-const modal = document.getElementById("modal");
-const cartModal = document.querySelector(".cart-modal");
 const categoryButtons = [...shopCategories.children];
-const modalTotalPrice = document.getElementById("modal-total-price");
-const modalQuantityMinus = document.getElementById("modal-quantity-minus");
-const modalQuantityPlus = document.getElementById("modal-quantity-plus");
-const modalQuantity = document.getElementById("modal-quantity");
-const modalCloseButton = document.getElementById("modal-close-button");
+
+const itemModal = document.getElementById("item-modal");
+const cartModal = document.querySelector(".cart-modal");
+
+// Item modal elements ------------------------------------------------------------
+const itemModalCloseButton = document.getElementById("modal-close-button");
+const itemSizeChange = document.getElementById("modal-print-size");
 const modalImage = document.getElementById("modal-image");
 const modalInfoTitle = document.getElementById("modal-info-title");
 const modalInfoType = document.getElementById("modal-info-type");
 const modalInfoYear = document.getElementById("modal-info-year");
-const modalPrintSize = document.getElementById("modal-print-size");
-const modalAddItemToCart = document.getElementById("modal-add-item-to-cart");
+const itemQuantitySubtract = document.getElementById("modal-quantity-minus");
+const itemQuantity = document.getElementById("modal-quantity");
+const itemQuantityAdd = document.getElementById("modal-quantity-plus");
+const modalTotalPrice = document.getElementById("modal-total-price");
+const itemAddToCartButton = document.getElementById("modal-add-item-to-cart");
+// --------------------------------------------------------------------------------
 
+// Cart modal elements ------------------------------------------------------------
+const cartList = document.getElementById("cart-modal-list");
+const cartItems = [...document.querySelectorAll(".cart-item")];
+const cartModalOpenButton = document.getElementById("open-cart-modal");
+const cartModalCloseButton = document.getElementById("cart-modal-close-button");
+const cartSubtotal = document.getElementById("cart-modal-total-subtotal");
+const cartTax = document.getElementById("cart-modal-total-tax");
+const cartTotal = document.getElementById("cart-modal-total-total");
+const cartModalTotalCheckout = document.getElementById(
+  "cart-modal-total-checkout"
+);
+// --------------------------------------------------------------------------------
+// Page variables -----------------------------------------------------------------
+
+//default values
 var currentTotal = 0.0;
 var currentQuantity = 0;
 var currentPrintPrice = 0.0;
 var currentPrintSize = null;
 let currentCagtegory = "rabbit";
-
-var cart = [];
+let cart = [];
 const categoryArray = ["rabbit", "shoe", "camera", "portrait", "dragon"];
 const printSizes = [
   {
@@ -61,12 +80,7 @@ const printSizes = [
   },
 ];
 
-function addShopItemToCart(item) {
-  cart.push(item);
-  saveCartToLocalStorage();
-  console.log(`@addShopItemToCart: ${item.title}`);
-}
-
+// Page functions -------------------------------------------------------------------
 function saveCartToLocalStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
   console.log(`@saveCartToLocalStorage: ${cart.length} items in cart`);
@@ -121,9 +135,8 @@ const handleCategoryButton = (e) => {
   renderAllShopItemsOfType(category);
 };
 
-const addItemToShop = (item) => {
-  modal.classList.add("open"); //change modal class to open, display block
-
+const addShopItemToShop = (item) => {
+  itemModal.classList.add("open");
   //set modal data from item
   modalImage.src = item.image;
   modalInfoTitle.innerHTML = item.title;
@@ -136,8 +149,8 @@ const addItemToShop = (item) => {
   currentQuantity = 1;
   currentTotal = currentPrintPrice * currentQuantity;
 
-  modalQuantity.innerHTML = currentQuantity;
-  modalPrintSize.innerHTML = "";
+  itemQuantity.innerHTML = currentQuantity;
+  itemSizeChange.innerHTML = "";
   modalTotalPrice.innerHTML = `$${currentTotal}`;
 
   //attach print sizes
@@ -145,7 +158,7 @@ const addItemToShop = (item) => {
     const option = document.createElement("option");
     option.value = size.size;
     option.innerHTML = `${size.size} - $${size.price}`;
-    modalPrintSize.appendChild(option);
+    itemSizeChange.appendChild(option);
   });
 };
 
@@ -168,13 +181,11 @@ function makeShopItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
     `;
 
   shopItem.addEventListener("click", (e) => {
-    handleShopItemClick(e);
+    handleShopItem(e);
   });
-
   return shopItem;
 }
-//runs on every shop item
-const handleShopItemClick = (e) => {
+const handleShopItem = (e) => {
   // get item data
   const shopItem = e.target.closest(".shop-item");
   const shopItemTitle = shopItem.querySelector(".shop-item-title").textContent;
@@ -189,79 +200,29 @@ const handleShopItemClick = (e) => {
     image: shopItemImage,
   };
 
-  console.log(`@handleShopItemClick: ${shopItemTitle}`);
+  console.log(`@handleShopItem: ${shopItemTitle}`);
   //open modal with item data
-  addItemToShop(item);
+  addShopItemToShop(item);
 };
 
-function pageStuff() {}
+const updateItemTotal = () => {
+  currentTotal = (currentQuantity * currentPrintPrice).toFixed(2);
+  modalTotalPrice.innerHTML = `$${currentTotal}`;
+  console.log(`@updateItemTotal: ${currentTotal}`);
+};
+// ------------------------------------------------------------------------------
 
 function itemModalStuff() {
-  const updateCurrentTotal = () => {
-    currentTotal = (currentQuantity * currentPrintPrice).toFixed(2);
-    modalTotalPrice.innerHTML = `$${currentTotal}`;
-    console.log(`@updateCurrentTotal: ${currentTotal}`);
-  };
+  // Event Listeners & handlers ---------------------------------------------------
 
-  // Event Listeners
-  modalAddItemToCart.addEventListener("click", (e) => {
+  //add item to cart
+  itemAddToCartButton.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
-    handleAddItemToCart(e);
+    handleItemAddToCart(e);
   });
 
-  // --------------------------------------------------
-
-  modalQuantityMinus.addEventListener("click", (e) => {
-    handleQuantityMinus(e);
-  });
-  const handleQuantityMinus = (e) => {
-    if (currentQuantity > 1) {
-      currentQuantity--;
-      modalQuantity.innerHTML = currentQuantity;
-    }
-    console.log(`@handleQuantityMinus: ${currentQuantity}`);
-    updateCurrentTotal();
-  };
-
-  modalQuantityPlus.addEventListener("click", (e) => {
-    handleQuantityPlus(e);
-  });
-  const handleQuantityPlus = (e) => {
-    currentQuantity++;
-    modalQuantity.innerHTML = currentQuantity;
-    console.log(`@handleQuantityPlus: ${currentQuantity}`);
-    updateCurrentTotal();
-  };
-
-  modalPrintSize.addEventListener("change", (e) => {
-    handlePrintSizeChange(e);
-  });
-
-  const handlePrintSizeChange = (e) => {
-    const size = e.target.value;
-    const sizeObject = printSizes.find(
-      (sizeObject) => sizeObject.size === size
-    );
-    currentPrintPrice = sizeObject.price;
-    console.log(
-      `@handlePrintSizeChange: ${e.target.value} x $${currentPrintPrice}`
-    );
-    updateCurrentTotal();
-  };
-
-  modalCloseButton.addEventListener("click", (e) => {
-    handleModalClose(e);
-  });
-
-  // Event Handlers
-  const handleModalClose = (e) => {
-    console.log("@handleModalClose");
-    modal.classList.remove("open");
-  };
-
-  //takes all modal data into object and adds to cart
-  const handleAddItemToCart = (e) => {
+  const handleItemAddToCart = (e) => {
     const modalData = {
       title: modalInfoTitle.textContent,
       type: modalInfoType.textContent,
@@ -273,34 +234,77 @@ function itemModalStuff() {
       totalPrice: currentTotal,
     };
 
-    addShopItemToCart(modalData);
-    console.log(`@handleAddItemToCart: ${cart.length} items in cart`);
-    handleModalClose(e);
+    itemAddToCart(modalData);
+    console.log(`@handleItemAddToCart: ${cart.length} items in cart`);
+    handleItemModalClose(e);
   };
 
+  //reduce item quantity
+  itemQuantitySubtract.addEventListener("click", (e) => {
+    handleItemQuantitySubtract(e);
+  });
+  const handleItemQuantitySubtract = (e) => {
+    if (currentQuantity > 1) {
+      currentQuantity--;
+      itemQuantity.innerHTML = currentQuantity;
+    }
+    console.log(`@handleItemQuantitySubtract: ${currentQuantity}`);
+    updateItemTotal();
+  };
+
+  //increase item quantity
+  itemQuantityAdd.addEventListener("click", (e) => {
+    handleQuantityAdd(e);
+  });
+  const handleQuantityAdd = (e) => {
+    currentQuantity++;
+    itemQuantity.innerHTML = currentQuantity;
+    console.log(`@handleQuantityAdd: ${currentQuantity}`);
+    updateItemTotal();
+  };
+
+  //change items print size
+  itemSizeChange.addEventListener("change", (e) => {
+    handleItemSizeChange(e);
+  });
+
+  const handleItemSizeChange = (e) => {
+    const size = e.target.value;
+    const sizeObject = printSizes.find(
+      (sizeObject) => sizeObject.size === size
+    );
+    currentPrintPrice = sizeObject.price;
+    console.log(
+      `@handleItemSizeChange: ${e.target.value} x $${currentPrintPrice}`
+    );
+    updateItemTotal();
+  };
+
+  itemModalCloseButton.addEventListener("click", (e) => {
+    handleItemModalClose(e);
+  });
+
+  const handleItemModalClose = (e) => {
+    console.log("@handleItemModalClose");
+    itemModal.classList.remove("open");
+  };
+  // Helper functions --------------------------------------------------
+  function itemAddToCart(item) {
+    cart.push(item);
+    saveCartToLocalStorage();
+    console.log(`@itemAddToCart: ${item.title}`);
+  }
   renderAllShopItemsOfType(currentCagtegory);
 }
 
 function cartModalStuff() {
-  const cartList = document.getElementById("cart-modal-list");
-  const cartItems = [...document.querySelectorAll(".cart-item")];
-  const openCartModal = document.getElementById("open-cart-modal");
-  const closeCartModalButton = document.getElementById(
-    "cart-modal-close-button"
-  );
-  const cartSubtotal = document.getElementById("cart-modal-total-subtotal");
-  const cartTax = document.getElementById("cart-modal-total-tax");
-  const cartTotal = document.getElementById("cart-modal-total-total");
-  const cartModalTotalCheckout = document.getElementById(
-    "cart-modal-total-checkout"
-  );
-
-  closeCartModalButton.addEventListener("click", (e) => {
+  // Event Listeners & handlers ---------------------------------------------------
+  cartModalCloseButton.addEventListener("click", (e) => {
     cartModal.classList.remove("open");
   });
 
-  openCartModal.addEventListener("click", (e) => {
-    console.log(`@openCartModal: ${cartItems.length} items in cart`);
+  cartModalOpenButton.addEventListener("click", (e) => {
+    console.log(`@cartModalOpenButton: ${cartItems.length} items in cart`);
     cartModal.classList.add("open");
     console.log(cartModal);
     renderCartItems();
@@ -346,7 +350,7 @@ function cartModalStuff() {
     return cartItem;
   };
 
-  const addRemoveToCartItems = () => {
+  const addRemoveButtonToCartItems = () => {
     const cartRemoveButtons = [
       ...document.querySelectorAll(".cart-modal-remove-button"),
     ];
@@ -378,7 +382,7 @@ function cartModalStuff() {
     cart.forEach((item) => {
       cartList.appendChild(makeCartItem(item));
     });
-    addRemoveToCartItems();
+    addRemoveButtonToCartItems();
   };
 
   const updateCartTotals = () => {
@@ -395,6 +399,8 @@ function cartModalStuff() {
     cartTotal.innerHTML = `$${total}`;
   };
 
+  cartModalTotalCheckout.addEventListener("click", handleCartCheckout);
+
   const handleCartCheckout = () => {
     console.log("@handleCartCheckout");
     cart = [];
@@ -404,10 +410,9 @@ function cartModalStuff() {
     renderCartItems();
   };
 
-  cartModalTotalCheckout.addEventListener("click", handleCartCheckout);
-
   renderCartItems();
 }
+
 // Initialize
 const init = () => {
   loadCartFromLocalStorage ? loadCartFromLocalStorage() : null;

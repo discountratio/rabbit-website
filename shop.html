@@ -49,13 +49,12 @@
         </button>
       </div>
 
-     <div> <h2 id="shop-category-header">Shop Rabbit Prints</h2></div>
+      <div><h2 id="shop-category-header">Shop Rabbit Prints</h2></div>
       <section id="shop-item-container" class="section-content">
         <!-- Shop items created in shop.js -->
       </section>
 
-
-      <div id="modal" class="modal">
+      <div id="item-modal" class="item-modal modal">
         <div class="modal-content" id="modal-content">
           <div class="modal-left">
             <div class="modal-image-container">
@@ -116,7 +115,7 @@
 
       <button id="open-cart-modal">Open Cart</button>
 
-      <div id="cart-modal" class="cart-modal">
+      <div id="cart-modal" class="cart-modal modal">
         <h2>Shopping Cart</h2>
         <button id="cart-modal-close-button">close cart</button>
 
@@ -125,7 +124,7 @@
             <!-- Cart items created in shop.js -->
           </ul>
           <div id="cart-modal-total">
-            <h3 id="cart-modal-total-header" >Order Summary</h3>
+            <h3 id="cart-modal-total-header">Order Summary</h3>
             <div id="cart-modal-summary">
               <p>Subtotal: <span id="cart-modal-total-subtotal">$0.00</span></p>
               <p>Tax: <span id="cart-modal-total-tax">$0.00</span></p>
@@ -138,9 +137,6 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
   </body>
 </html>
