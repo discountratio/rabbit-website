@@ -8,7 +8,7 @@ const modal = document.getElementById("modal");
 const categoryButtons = [...shopCategories.children];
 const modalTotalPrice = document.getElementById("modal-total-price");
 
-const cart = [];
+var cart = [];
 const printSizes = [
   {
     size: "8x10",
@@ -46,7 +46,10 @@ const printSizes = [
 
 function addItemToCart(item) {
   cart.push(item);
+  saveCartToLocalStorage();
   console.log(`@addItemToCart: ${item.title}`);
+
+
 }
 
 function itemModalStuff() {
@@ -99,8 +102,6 @@ function itemModalStuff() {
       option.innerHTML = `${size.size} - $${size.price}`;
       modalPrintSize.appendChild(option);
     });
-
-  
   };
 
   function makeShopItem(
@@ -163,7 +164,6 @@ function itemModalStuff() {
     handleAddItemToCart(e);
   });
 
-  
   // --------------------------------------------------
   categoryButtons.forEach((categoryButton) => {
     categoryButton.addEventListener("click", (e) => {
@@ -276,8 +276,22 @@ function itemModalStuff() {
   makeAllItemsOfCatergory(currentCagtegory);
 }
 
+function saveCartToLocalStorage() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(`@saveCartToLocalStorage: ${cart.length} items in cart`);
+}
+
+function loadCartFromLocalStorage() {
+  const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart"));
+  if (cartFromLocalStorage) {
+    cart = cartFromLocalStorage;
+  }
+  console.log(`@loadCartFromLocalStorage: ${cart.length} items in cart`);
+}
+
 // Initialize
 const init = () => {
+  loadCartFromLocalStorage ? loadCartFromLocalStorage() : null;
   itemModalStuff();
 };
 
