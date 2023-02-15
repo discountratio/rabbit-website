@@ -45,6 +45,37 @@ body {
   color: #fafafa;
 }
 
+#header {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0c0d15;
+}
+#header nav {
+  justify-content: space-between;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+#header nav .nav-list {
+  display: flex;
+  font-weight: 600;
+  width: auto;
+  gap: 2rem;
+  margin: auto 1rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
 section {
   margin-top: 64px;
   padding: 0 10vw;

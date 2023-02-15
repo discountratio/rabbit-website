@@ -45,6 +45,37 @@ body {
   color: #fafafa;
 }
 
+#header {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0c0d15;
+}
+#header nav {
+  justify-content: space-between;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+#header nav .nav-list {
+  display: flex;
+  font-weight: 600;
+  width: auto;
+  gap: 2rem;
+  margin: auto 1rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
 section {
   margin-top: 64px;
   padding: 0 10vw;
@@ -142,9 +173,10 @@ section .section-content {
 #shop-item-container {
   margin-top: 5vh;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
+  align-items: flex-start;
+  padding-top: 1rem;
 }
 
 .shop-item {
@@ -176,8 +208,7 @@ section .section-content {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .modal .modal-content {
   display: flex;
@@ -193,43 +224,7 @@ section .section-content {
   border-radius: 16px;
   background-color: #3b405f;
 }
-
-.modal-image-container {
-  width: 240px;
-  aspect-ratio: 1/1;
-}
-.modal-image-container .modal-image {
-  width: 200px;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-
-#modal-close-button {
-  outline: none;
-  border: none;
-  font-size: 20px;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  border-radius: 999px;
-  font-weight: 600;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  content: "X";
-  cursor: pointer;
-}
-
-/* The Close Button */
-.open {
-  display: block;
-}
-
-.modal-left {
+.modal .modal-left {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,7 +235,7 @@ section .section-content {
   font-size: 1.25rem;
   position: relative;
 }
-.modal-left .modal-image-container {
+.modal .modal-left .modal-image-container {
   width: clamp(180px, 100%, 300px);
   box-shadow: 2px 8px 8px 0px #111;
   aspect-ratio: 1/1;
@@ -249,18 +244,18 @@ section .section-content {
   position: relative;
   transition: all 200ms;
 }
-.modal-left .modal-image-container:active, .modal-left .modal-image-container:focus {
+.modal .modal-left .modal-image-container:active, .modal .modal-left .modal-image-container:focus {
   position: fixed;
   z-index: 1;
   left: 50%;
-  top: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
   width: 80vh;
   height: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
-.modal-left .modal-image-container .modal-image {
+.modal .modal-left .modal-image-container .modal-image {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -268,7 +263,7 @@ section .section-content {
   -o-object-position: center;
      object-position: center;
 }
-.modal-left .modal-info-container {
+.modal .modal-left .modal-info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -278,15 +273,14 @@ section .section-content {
   width: 100%;
   padding: 0.4rem;
 }
-.modal-left .modal-info-container .modal-info-title {
+.modal .modal-left .modal-info-container .modal-info-title {
   font-weight: 600;
   font-size: 1.25rem;
 }
-.modal-left .modal-info-container .modal-info-year {
+.modal .modal-left .modal-info-container .modal-info-year {
   font-size: 1rem;
 }
-
-.modal-right {
+.modal .modal-right {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -298,7 +292,7 @@ section .section-content {
   padding: 1rem;
   margin-top: 1rem;
 }
-.modal-right .button {
+.modal .modal-right .button {
   background: #017ff0;
   border: none;
   outline: none;
@@ -309,7 +303,7 @@ section .section-content {
   justify-self: flex-end;
   align-self: flex-end;
 }
-.modal-right .modal-selection-container {
+.modal .modal-right .modal-selection-container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -321,13 +315,13 @@ section .section-content {
   white-space: nowrap;
   gap: 1rem;
 }
-.modal-right .modal-selection-container .modal-selection-label {
+.modal .modal-right .modal-selection-container .modal-selection-label {
   width: 120px;
 }
-.modal-right .modal-selection-container #modal-total-price {
+.modal .modal-right .modal-selection-container #modal-total-price {
   width: 200px;
 }
-.modal-right .modal-selection-container .modal-selection-input {
+.modal .modal-right .modal-selection-container .modal-selection-input {
   background: #fafafa;
   color: #333333;
   width: 200px;
@@ -345,7 +339,7 @@ section .section-content {
   outline: none;
   padding: 0.25rem;
 }
-.modal-right .modal-selection-container .modal-selection-button {
+.modal .modal-right .modal-selection-container .modal-selection-button {
   background: transparent;
   outline: none;
   border: none;
@@ -353,4 +347,179 @@ section .section-content {
   font-size: 1.5rem;
   cursor: pointer;
   width: 2rem;
+}
+.modal #modal-close-button {
+  outline: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  content: "X";
+  cursor: pointer;
+}
+
+.cart-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 50%;
+  width: 80%;
+  transform: translate(50%, 0);
+  height: 100vh;
+  max-height: 100vh;
+  background: #444444;
+  font-family: "Rajdhani", sans-serif;
+}
+
+#cart-modal-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#cart-modal-list {
+  width: 80%;
+  padding: 0 1rem;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-color: #017ff0 #3b405f;
+  scrollbar-width: 2px;
+}
+
+.cart-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  background: #3b405f;
+}
+.cart-item .cart-item-left {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.cart-item .cart-item-middle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.cart-item .cart-item-right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 100%;
+  width: 100%;
+}
+
+.cart-item-image-container {
+  width: 140px;
+  aspect-ratio: 1/1;
+}
+.cart-item-image-container .cart-item-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.cart-item-info-container {
+  width: 100%;
+}
+
+.cart-item-selection-container {
+  width: 100%;
+}
+
+.cart-modal-remove-button {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 999px;
+  padding: 0.2rem 1rem;
+  font-family: "Rajdhani", sans-serif;
+  cursor: pointer;
+}
+
+#cart-modal-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 40%;
+  padding: 0 1rem;
+  margin-left: 2rem;
+  background: #3b405f;
+  position: sticky;
+  top: 2rem;
+  right: 0;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+#cart-modal-total #cart-modal-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+#cart-modal-total #cart-modal-summary #cart-modal-total-header {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+#cart-modal-total #cart-modal-summary p,
+#cart-modal-total #cart-modal-summary h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  justify-content: space-between;
+}
+#cart-modal-total #cart-modal-summary .big-total {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  font-weight: 600;
+}
+#cart-modal-total #cart-modal-total-checkout {
+  background: #017ff0;
+  border: none;
+  outline: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  border-radius: 16px;
+  padding: 0.2rem 1rem;
+  cursor: pointer;
+}
+
+.open {
+  display: block;
 }/*# sourceMappingURL=shop.css.map */

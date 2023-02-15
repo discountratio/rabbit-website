@@ -10,9 +10,11 @@
       type="text/css" />
     <script src="./scripts/gallery-items.js" type="module" defer></script>
     <script src="./scripts/shop.js" type="module" defer></script>
+    <script src="./scripts/navbar.js" defer></script>
     <title>Penelope Shop</title>
   </head>
   <body>
+    <header id="header"></header>
     <div id="shop-page">
       <div id="shop-categories" class="shop-categories">
         <button
@@ -47,10 +49,11 @@
         </button>
       </div>
 
-      <h2 id="shop-category-header">Shop Rabbit Prints</h2>
+     <div> <h2 id="shop-category-header">Shop Rabbit Prints</h2></div>
       <section id="shop-item-container" class="section-content">
         <!-- Shop items created in shop.js -->
       </section>
+
 
       <div id="modal" class="modal">
         <div class="modal-content" id="modal-content">
@@ -111,10 +114,32 @@
         </div>
       </div>
 
+      <button id="open-cart-modal">Open Cart</button>
 
-      <div id="cart-modal">
-          <button id="open-cart-modal">Open Cart</button>
+      <div id="cart-modal" class="cart-modal">
+        <h2>Shopping Cart</h2>
+        <button id="cart-modal-close-button">close cart</button>
+
+        <div id="cart-modal-content">
+          <ul id="cart-modal-list">
+            <!-- Cart items created in shop.js -->
+          </ul>
+          <div id="cart-modal-total">
+            <h3 id="cart-modal-total-header" >Order Summary</h3>
+            <div id="cart-modal-summary">
+              <p>Subtotal: <span id="cart-modal-total-subtotal">$0.00</span></p>
+              <p>Tax: <span id="cart-modal-total-tax">$0.00</span></p>
+              <p>Shipping: <span id="cart-modal-total-shipping">$0.00</span></p>
+              <h3 class="big-total">
+                Total: <span id="cart-modal-total-total"> $0.00</span>
+              </h3>
+            </div>
+            <button id="cart-modal-total-checkout">Checkout</button>
+          </div>
+        </div>
       </div>
+
+
 
     </div>
   </body>
