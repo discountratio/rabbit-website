@@ -86,7 +86,6 @@ section .section-content {
 
 .button {
   margin-top: 2rem;
-  background: #017ff0;
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
@@ -106,7 +105,7 @@ section .section-content {
   width: 100%;
 }
 
-#shop-categories {
+.shop-categories {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -115,14 +114,18 @@ section .section-content {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-#shop-categories .shop-category-button {
-  background: #3b405f;
+.shop-categories .shop-category-button {
+  background-color: #3b405f;
   font-weight: 600;
   padding: 0.8rem calc(1rem + 2vw);
   min-width: 200px;
 }
-#shop-categories .shop-category-button:hover {
-  background: #017ff0;
+.shop-categories .shop-category-button:hover {
+  background-color: blue;
+}
+.shop-categories .active {
+  background-color: #017ff0;
+  color: white;
 }
 
 #shop-category-header {
@@ -133,6 +136,7 @@ section .section-content {
   padding: 0 2rem;
   width: 100vw;
   margin-top: 5vh;
+  text-transform: capitalize;
 }
 
 #shop-item-container {
@@ -161,4 +165,199 @@ section .section-content {
 }
 .shop-item .shop-item-info .shop-item-year {
   margin-top: 0.5rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal .modal-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  width: clamp(400px, 80%, 800px);
+  margin: 10% auto;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  background-color: #3b405f;
+}
+
+.modal-image-container {
+  width: 240px;
+  aspect-ratio: 1/1;
+}
+.modal-image-container .modal-image {
+  width: 200px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.close-modal-button {
+  outline: none;
+  border: none;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  content: "X";
+  cursor: pointer;
+}
+
+/* The Close Button */
+.open {
+  display: block;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  position: relative;
+}
+.modal-left .modal-image-container {
+  width: clamp(180px, 100%, 300px);
+  box-shadow: 2px 8px 8px 0px #111;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: all 200ms;
+}
+.modal-left .modal-image-container:active, .modal-left .modal-image-container:focus {
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vh;
+  height: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-left .modal-image-container .modal-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.modal-left .modal-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  width: 100%;
+  padding: 0.4rem;
+}
+.modal-left .modal-info-container .modal-info-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.modal-left .modal-info-container .modal-info-year {
+  font-size: 1rem;
+}
+
+.modal-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.modal-right .button {
+  background: #017ff0;
+  border: none;
+  outline: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  width: 100%;
+  cursor: pointer;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+.modal-right .modal-selection-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  gap: 1rem;
+}
+.modal-right .modal-selection-container .modal-selection-label {
+  width: 120px;
+}
+.modal-right .modal-selection-container #modal-total-price {
+  width: 200px;
+}
+.modal-right .modal-selection-container .modal-selection-input {
+  background: #fafafa;
+  color: #333333;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  border-radius: 999px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+}
+.modal-right .modal-selection-container .modal-selection-button {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-weight: 800;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 2rem;
 }/*# sourceMappingURL=shop.css.map */

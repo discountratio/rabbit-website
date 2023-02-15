@@ -86,7 +86,6 @@ section .section-content {
 
 .button {
   margin-top: 2rem;
-  background: #017ff0;
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(24px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
