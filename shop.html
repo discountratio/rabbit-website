@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="./styles/main-styles/shop.css"
       type="text/css" />
-      <script src="./scripts/gallery-items.js" type="module" defer></script>
+    <script src="./scripts/gallery-items.js" type="module" defer></script>
     <script src="./scripts/shop.js" type="module" defer></script>
     <title>Penelope Shop</title>
   </head>
@@ -24,65 +24,93 @@
         <button
           class="shop-category-button button"
           id="shop-category-button-shoe"
-          data-type="shoe"
-          >
+          data-type="shoe">
           Shoes
         </button>
         <button
           class="shop-category-button button"
           id="shop-category-button-camera"
-          data-type="camera"
-          >
+          data-type="camera">
           Cameras
         </button>
         <button
           class="shop-category-button button"
           id="shop-category-button-portrait"
-          data-type="portrait"
-          >
+          data-type="portrait">
           Portraits
         </button>
         <button
           class="shop-category-button button"
           id="shop-category-button-dragon"
-          data-type="dragon"
-          >
+          data-type="dragon">
           Dragons
         </button>
       </div>
 
       <h2 id="shop-category-header">Shop Rabbit Prints</h2>
       <section id="shop-item-container" class="section-content">
-        <!-- <div class="shop-item">
-          <div class="shop-item-image-container">
-            <img
-              class="shop-item-image"
-              src="./assets/images/rabbit-hq-1.png"
-              alt="rabbit-1" />
-          </div>
-          <div class="shop-item-info">
-            <h3 class="shop-item-title">Bartholamew</h3>
-            <p class="shop-item-type">Rabbit</p>
-            <p class="shop-item-year">2020</p>
-          </div>
-        </div> end shop-item -->
-
-  
-
+        <!-- Shop items created in shop.js -->
       </section>
 
       <button id="modal-btn">Open Modal</button>
       <div id="modal" class="modal">
-
         <div class="modal-content" id="modal-content">
+          <div class="modal-left">
+            <div class="modal-image-container">
+              <img class="modal-image" id="modal-image" src="" alt="" />
+            </div>
+
+            <div class="modal-info-container">
+              <h3 id="modal-info-title"></h3>
+              <p id="modal-info-type"></p>
+              <p id="modal-info-year"></p>
+            </div>
+          </div>
+
+          <div class="modal-right">
+            <div class="modal-selection-container">
+              <label for="print-size" class="modal-selection-label"
+                >Print Size:
+              </label>
+              <select
+                name="modal-print-size"
+                id="modal-print-size"
+                class="modal-selection-input">
+                <option
+                  class="modal-selection-input"
+                  value="${size.price}"></option>
+              </select>
+            </div>
+
+            <div class="modal-selection-container">
+              <label for="print-quantity" class="modal-selection-label"
+                >Quantity:
+              </label>
+              <div class="modal-selection-input">
+                <button
+                  class="modal-selection-button"
+                  id="modal-quantity-minus">
+                  -
+                </button>
+                <span id="modal-quantity"></span>
+                <button class="modal-selection-button" id="modal-quantity-plus">
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="modal-selection-container">
+              <p class="modal-selection-label">Total:</p>
+              <p id="modal-total-price"></p>
+            </div>
+            <button class="add-item-to-cart button" id="modal-add-item-to-cart">
+              Add to cart
+            </button>
+            <button class="close-modal-button" id="modal-close-button">
+              &times;
+            </button>
+          </div>
         </div>
       </div>
-
-
-
-
     </div>
-
-    
   </body>
 </html>

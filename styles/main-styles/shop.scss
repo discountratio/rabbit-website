@@ -96,7 +96,7 @@
   }
 }
 
-.close-modal-button {
+#modal-close-button {
   outline: none;
   border: none;
   font-size: 20px;
@@ -117,13 +117,6 @@
 .open {
   display: block;
 }
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 
 
 .modal-left {

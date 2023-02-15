@@ -1,18 +1,30 @@
 import { galleryItemArray } from "./gallery-items.js";
-const shopPage = document.getElementById("shop-page");
 const shopCategories = document.querySelector(".shop-categories");
 const shopItemContainer = document.getElementById("shop-item-container");
 const shopCategoryHeader = document.getElementById("shop-category-header");
+
+const modal = document.getElementById("modal");
+
+const modalQuantityMinus = document.getElementById("modal-quantity-minus");
+const modalQuantityPlus = document.getElementById("modal-quantity-plus");
+const modalQuantity = document.getElementById("modal-quantity");
+const modalCloseButton = document.getElementById("modal-close-button");
+const modalImage = document.getElementById("modal-image");
+const modalInfoTitle = document.getElementById("modal-info-title");
+const modalInfoType = document.getElementById("modal-info-type");
+const modalInfoYear = document.getElementById("modal-info-year");
+const modalPrintSize = document.getElementById("modal-print-size");
+const modalAddItemToCart = document.getElementById("modal-add-item-to-cart");
+
 const categoryButtons = [...shopCategories.children];
-const shopItems = [...shopItemContainer.children];
-const shopItemModal = document.getElementById("modal");
-
-
+const modalTotalPrice = document.getElementById("modal-total-price");
 
 const cart = [];
-var currentTotal = 0.00;
+
+var currentTotal = 0.0;
 var currentQuantity = 0;
-var currentPrintSize = {};
+var currentPrintPrice = 0.0;
+var currentPrintSize = null;
 let currentCagtegory = "rabbit";
 
 const printSizes = [
@@ -50,51 +62,48 @@ const printSizes = [
   },
 ];
 
-const addItemToModal = (item) => {
-  const shopItemModalContent = document.getElementById("modal-content");
-  shopItemModal.classList.add("open");
-  shopItemModalContent.innerHTML = `
-  <div class="modal-left">
-
-    <div class="modal-image-container">
-        <img class="modal-image" src="${item.image}" alt="${item.title}" />
-    </div>
-
-    <div class="modal-info-container">
-        <h3 class="modal-info-title">${item.title}</h3>
-        <p class="modal-info-type">${item.type}</p>
-        <p class="modal-info-year">${item.year}</p>
-    </div>
-  </div>
-
-    <div class="modal-right">
-
-    <div class="modal-selection-container">
-    <label for="print-size" class="modal-selection-label">Print Size: </label>
-       <select name="modal-print-size" id="modal-print-size" class="modal-selection-input" value=${currentPrintSize.price}>
-    ${printSizes.map(
-      (size) =>
-        `<option class="modal-selection-input" value="${size.price}">${size.size} - $${size.price}</option>`
-    )}
-       </select>
-      </div>
-
-    <div class="modal-selection-container">
-      <label for="print-quantity" class="modal-selection-label">Quantity: </label>
-      <div class="modal-selection-input">
-          <button class="modal-selection-button" id="modal-quantity-minus">-</button>
-          <span id="modal-quantity">${currentQuantity}</span>
-          <button class="modal-selection-button" id="modal-quantity-plus">+</button>
-      </div>
-  </div>
-    <div class="modal-selection-container ">
-      <p class="modal-selection-label">Total:   </p>   <p id="modal-total-price">$${currentTotal} </p>
-    </div>
-    <button class="add-item-to-cart button">Add to cart</button>
-    <button class="close-modal-button" id="close-modal">&times;</button>
-  </div>
-    `;
+const updateCurrentTotal = () => {
+  currentTotal = (currentQuantity * currentPrintPrice).toFixed(2);
+  modalTotalPrice.innerHTML = `$${currentTotal}`;
+  console.log(`@updateCurrentTotal: ${currentTotal}`)
 };
+
+const addItemToModal = (item) => {
+  modal.classList.add("open"); //change modal class to open, display block
+
+  //set modal data from item
+  modalImage.src = item.image;
+  modalInfoTitle.innerHTML = item.title;
+  modalInfoType.innerHTML = item.type;
+  modalInfoYear.innerHTML = item.year;
+
+  //set current values
+  currentPrintPrice = printSizes[0].price;
+  currentPrintSize = printSizes[0].size;
+  currentQuantity = 1;
+  currentTotal = currentPrintPrice * currentQuantity;
+
+  modalQuantity.innerHTML = currentQuantity;
+  modalPrintSize.innerHTML = "";
+  modalTotalPrice.innerHTML = `$${currentTotal}`;
+
+  //attach print sizes
+  printSizes.forEach((size) => {
+    const option = document.createElement("option");
+    option.value = size.size;
+    option.innerHTML = `${size.size} - $${size.price}`;
+    modalPrintSize.appendChild(option);
+  });
+
+  modalAddItemToCart.addEventListener("click", (e) => {
+    handleAddItemToCart(e);
+  });
+};
+
+function addItemToCart(item) {
+  cart.push(item);
+  console.log(`@addItemToCart: ${item.title}`)
+}
 
 function makeShopItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
   const shopItem = document.createElement("div");
@@ -121,11 +130,9 @@ function makeShopItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
   return shopItem;
 }
 
-const makeAllItemsOfType = (type) => {
-  console.log(type)
+const makeAllItemsOfCatergory = (type) => {
   galleryItemArray.forEach((item) => {
     if (item.type === type) {
-      console.log(item.type)
       shopItemContainer.appendChild(
         makeShopItem(
           item.type,
@@ -139,6 +146,59 @@ const makeAllItemsOfType = (type) => {
       );
     }
   });
+  console.log(`@makeAllItemsOfCatergory: ${type}`);
+};
+
+// Event Listeners
+categoryButtons.forEach((categoryButton) => {
+  categoryButton.addEventListener("click", (e) => {
+    handeCatergoryButtonClick(e);
+  });
+});
+
+modalQuantityMinus.addEventListener("click", (e) => {
+  handleQuantityMinus(e);
+});
+modalQuantityPlus.addEventListener("click", (e) => {
+  handleQuantityPlus(e);
+});
+
+modalPrintSize.addEventListener("change", (e) => {
+  handlePrintSizeChange(e);
+});
+
+modalCloseButton.addEventListener("click", (e) => {
+  handleModalClose(e);
+});
+
+// Event Handlers
+const handleModalClose = (e) => {
+  console.log("@handleModalClose");
+  modal.classList.remove("open");
+};
+
+const handlePrintSizeChange = (e) => {
+  const size = e.target.value;
+  const sizeObject = printSizes.find((sizeObject) => sizeObject.size === size);
+  currentPrintPrice = sizeObject.price;
+  console.log(`@handlePrintSizeChange: ${e.target.value} x $${currentPrintPrice}`);
+  updateCurrentTotal();
+};
+
+const handleQuantityMinus = (e) => {
+  if (currentQuantity > 1) {
+    currentQuantity--;
+    modalQuantity.innerHTML = currentQuantity;
+  }
+  console.log(`@handleQuantityMinus: ${currentQuantity}`);
+  updateCurrentTotal();
+};
+
+const handleQuantityPlus = (e) => {
+  currentQuantity++;
+  modalQuantity.innerHTML = currentQuantity;
+  console.log(`@handleQuantityPlus: ${currentQuantity}`);
+  updateCurrentTotal();
 };
 
 const handeCatergoryButtonClick = (e) => {
@@ -150,49 +210,53 @@ const handeCatergoryButtonClick = (e) => {
   });
 
   button.classList.add("active");
-
   shopCategoryHeader.innerHTML = `shop ${category} prints`;
   shopItemContainer.innerHTML = "";
-  makeAllItemsOfType(category);
+  console.log(`@handeCatergoryButtonClick: ${category}`);
+  makeAllItemsOfCatergory(category);
 };
 
+//runs on every shop item
+const handleShopItemClick = (e) => {
+  // get item data
+  const shopItem = e.target.closest(".shop-item");
+  const shopItemTitle = shopItem.querySelector(".shop-item-title").textContent;
+  const shopItemType = shopItem.querySelector(".shop-item-type").textContent;
+  const shopItemYear = shopItem.querySelector(".shop-item-year").textContent;
+  const shopItemImage = shopItem.querySelector(".shop-item-image").src;
+  //make item object
+  const item = {
+    title: shopItemTitle,
+    type: shopItemType,
+    year: shopItemYear,
+    image: shopItemImage,
+  };
 
-//Event listeners
-categoryButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    categoryButtons.forEach((categoryButton) => {
-      categoryButton.classList.remove("active");
-    });
+  console.log(`@handleShopItemClick: ${shopItemTitle}`);
+  //open modal with item data
+  addItemToModal(item);
+};
 
-    button.classList.add("active");
-    const category = button.dataset.type;
-    shopCategoryHeader.innerHTML = `shop ${category} prints`;
+//takes all modal data into object and adds to cart
+const handleAddItemToCart = (e) => {
+  const modalData = {
+    title: modalInfoTitle.textContent,
+    type: modalInfoType.textContent,
+    year: modalInfoYear.textContent,
+    image: modalImage.src,
+    printSize: currentPrintSize,
+    quantity: currentQuantity,
+    totalPrice: currentTotal,
+  };
 
-    if (category != currentCagtegory) {
-      shopItemContainer.innerHTML = "";
-      currentCagtegory = category;
-      makeAllItemsOfType(currentCagtegory);
-    }
-  });
-});
+  addItemToCart(modalData);
+  console.log(`@handleAddItemToCart: ${cart.length} items in cart`)
+  handleModalClose(e);
+};
 
-shopItemModal.addEventListener("click", (e) => {
-  const closeModalButton = document.getElementById("close-modal");
-  if (closeModalButton.classList.contains("close-modal")) {
-    shopItemModal.classList.remove("open");
-  }
-
-  if (closeModalButton.classList.contains("add-item-to-cart")) {
-    console.log("item added to cart");
-    alert("item added to cart");
-
-    console.log(cart);
-  }
-});
-
-
+// Initialize
 const init = () => {
-  makeAllItemsOfType(currentCagtegory)
+  makeAllItemsOfCatergory(currentCagtegory);
 };
 
 init();
