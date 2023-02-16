@@ -1,0 +1,1432 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+li {
+  list-style: none;
+}
+
+i {
+  color: inherit;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: none;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #22222f;
+  color: #fafafa;
+}
+
+#header {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0c0d15;
+}
+#header nav {
+  justify-content: space-between;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+#header nav .nav-list {
+  display: flex;
+  font-weight: 600;
+  width: auto;
+  gap: 2rem;
+  margin: auto 1rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
+section {
+  margin-top: 64px;
+  padding: 0 10vw;
+  height: calc(100vh - 64px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1200px;
+}
+section .section-header {
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+  color: white;
+  background: #3b405f;
+  padding: 0 2rem;
+}
+section .section-header .section-header-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+section .section-content {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  min-height: calc(100vh - 64px - 40px);
+  align-items: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.button {
+  margin-top: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  color: #fafafa;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#shop-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.shop-categories {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.shop-categories .shop-category-button {
+  background-color: #3b405f;
+  font-weight: 600;
+  padding: 0.8rem calc(1rem + 2vw);
+  min-width: 200px;
+}
+.shop-categories .shop-category-button:hover {
+  background-color: blue;
+}
+.shop-categories .active {
+  background-color: #017ff0;
+  color: white;
+}
+
+#shop-category-header {
+  font-family: "Rajdhani", sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  padding: 0 2rem;
+  width: 100vw;
+  margin-top: 5vh;
+  text-transform: capitalize;
+}
+
+#shop-item-container {
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  align-items: flex-start;
+  padding-top: 1rem;
+}
+
+.shop-item {
+  width: 100%;
+  font-family: "Rajdhani", sans-serif;
+}
+.shop-item .shop-item-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  aspect-ratio: 1/1;
+}
+.shop-item .shop-item-info {
+  margin-top: 0.5rem;
+}
+.shop-item .shop-item-info .shop-item-year {
+  margin-top: 0.5rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal .modal-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+  width: clamp(400px, 80%, 800px);
+  margin: 10% auto;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  background-color: #3b405f;
+}
+.modal .modal-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  position: relative;
+}
+.modal .modal-left .modal-image-container {
+  width: clamp(180px, 100%, 300px);
+  box-shadow: 2px 8px 8px 0px #111;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: all 200ms;
+}
+.modal .modal-left .modal-image-container:active, .modal .modal-left .modal-image-container:focus {
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 80vh;
+  height: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal .modal-left .modal-image-container .modal-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.modal .modal-left .modal-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  width: 100%;
+  padding: 0.4rem;
+}
+.modal .modal-left .modal-info-container .modal-info-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.modal .modal-left .modal-info-container .modal-info-year {
+  font-size: 1rem;
+}
+.modal .modal-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.modal .modal-right .button {
+  background: #017ff0;
+  border: none;
+  outline: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  width: 100%;
+  cursor: pointer;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+.modal .modal-right .modal-selection-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  gap: 1rem;
+}
+.modal .modal-right .modal-selection-container .modal-selection-label {
+  width: 120px;
+}
+.modal .modal-right .modal-selection-container #modal-total-price {
+  width: 200px;
+}
+.modal .modal-right .modal-selection-container .modal-selection-input {
+  background: #fafafa;
+  color: #333333;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  border-radius: 999px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+}
+.modal .modal-right .modal-selection-container .modal-selection-button {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-weight: 800;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 2rem;
+}
+.modal #modal-close-button {
+  outline: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  content: "X";
+  cursor: pointer;
+}
+
+.cart-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 50%;
+  width: 80%;
+  transform: translate(50%, 0);
+  height: 100vh;
+  max-height: 100vh;
+  background: #444444;
+  font-family: "Rajdhani", sans-serif;
+}
+
+#cart-modal-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#cart-modal-list {
+  width: 80%;
+  padding: 0 1rem;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-color: #017ff0 #3b405f;
+  scrollbar-width: 2px;
+}
+
+.cart-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  background: #3b405f;
+}
+.cart-item .cart-item-left {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.cart-item .cart-item-middle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.cart-item .cart-item-right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 100%;
+  width: 100%;
+}
+
+.cart-item-image-container {
+  width: 140px;
+  aspect-ratio: 1/1;
+}
+.cart-item-image-container .cart-item-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.cart-item-info-container {
+  width: 100%;
+}
+
+.cart-item-selection-container {
+  width: 100%;
+}
+
+.cart-modal-remove-button {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 999px;
+  padding: 0.2rem 1rem;
+  font-family: "Rajdhani", sans-serif;
+  cursor: pointer;
+}
+
+#cart-modal-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 40%;
+  padding: 0 1rem;
+  margin-left: 2rem;
+  background: #3b405f;
+  position: sticky;
+  top: 2rem;
+  right: 0;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+#cart-modal-total #cart-modal-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+#cart-modal-total #cart-modal-summary #cart-modal-total-header {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+#cart-modal-total #cart-modal-summary p,
+#cart-modal-total #cart-modal-summary h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  justify-content: space-between;
+}
+#cart-modal-total #cart-modal-summary .big-total {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  font-weight: 600;
+}
+#cart-modal-total #cart-modal-total-checkout {
+  background: #017ff0;
+  border: none;
+  outline: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  border-radius: 16px;
+  padding: 0.2rem 1rem;
+  cursor: pointer;
+}
+
+.open {
+  display: block;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  color: inherit;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: none;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #22222f;
+  color: #fafafa;
+}
+
+#header {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0c0d15;
+}
+#header nav {
+  justify-content: space-between;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+#header nav .nav-list {
+  display: flex;
+  font-weight: 600;
+  width: auto;
+  gap: 2rem;
+  margin: auto 1rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
+section {
+  margin-top: 64px;
+  padding: 0 10vw;
+  height: calc(100vh - 64px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1200px;
+}
+section .section-header {
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+  color: white;
+  background: #3b405f;
+  padding: 0 2rem;
+}
+section .section-header .section-header-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+section .section-content {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  min-height: calc(100vh - 64px - 40px);
+  align-items: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.button {
+  margin-top: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  color: #fafafa;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  color: inherit;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: none;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #22222f;
+  color: #fafafa;
+}
+
+#header {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0c0d15;
+}
+#header nav {
+  justify-content: space-between;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+#header nav .nav-list {
+  display: flex;
+  font-weight: 600;
+  width: auto;
+  gap: 2rem;
+  margin: auto 1rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
+section {
+  margin-top: 64px;
+  padding: 0 10vw;
+  height: calc(100vh - 64px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1200px;
+}
+section .section-header {
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+  color: white;
+  background: #3b405f;
+  padding: 0 2rem;
+}
+section .section-header .section-header-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+section .section-content {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  min-height: calc(100vh - 64px - 40px);
+  align-items: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.button {
+  margin-top: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  color: #fafafa;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#home .section-content .home-portrait-container {
+  grid-column: 2/7;
+  grid-row: 2/10;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 2px 1px #fafafa;
+  width: 100%;
+}
+#home .section-content .home-portrait-container .home-portrait {
+  background: red;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#home .section-content .home-text-container {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  grid-column: 7/11;
+  grid-row: 2/9;
+  padding: 0 3vw;
+}
+#about .section-content {
+  margin-top: 5vh;
+  justify-content: center;
+  height: auto;
+}
+#about .section-content figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#about .about-text {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.25rem);
+  font-weight: 400;
+  padding: 1rem 2rem;
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.8rem;
+}
+#about .about-text::first-line {
+  font-size: 1.25rem;
+  font-family: "Lobster", cursive;
+}
+#about figcaption {
+  opacity: 0;
+}
+#about .about-image {
+  box-shadow: 0px 0px 2px 1px #fafafa;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#about .about-image-1 {
+  grid-column: 8/12;
+  grid-row: 1/5;
+}
+#about .about-text-1 {
+  grid-column: 2/8;
+  grid-row: 2/4;
+  text-align: right;
+}
+#about .about-image-2 {
+  grid-column: 2/6;
+  grid-row: 4/8;
+}
+#about .about-text-2 {
+  grid-column: 6/12;
+  grid-row: 5/7;
+}
+#about .about-image-3 {
+  grid-column: 8/12;
+  grid-row: 7/11;
+}
+#about .about-text-3 {
+  grid-column: 2/8;
+  grid-row: 8/12;
+  text-align: right;
+}
+
+#contact .section-content {
+  gap: 1rem;
+  width: 100%;
+  font-family: "Rajdhani", sans-serif;
+  margin-top: 10vh;
+}
+#contact .contact-text-block {
+  grid-column: 4/10;
+  grid-row: 2/4;
+  font-family: "Rajdhani", sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  font-weight: 400;
+}
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.25rem);
+  font-weight: 400;
+  margin-top: 5vh;
+  width: 100%;
+  grid-column: 4/10;
+  grid-row: 4/10;
+  font-family: "Rajdhani", sans-serif;
+  gap: 0.5rem;
+}
+#contact .contact-form .button {
+  align-self: flex-end;
+}
+#contact input,
+#contact textarea {
+  width: 100%;
+  height: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  color: #fafafa;
+  background: #3b405f;
+  border: none;
+  font-family: "Rajdhani", sans-serif;
+}
+#contact textarea {
+  height: 10rem;
+  resize: none;
+}
+
+#main-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#main-shop .shop-title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  font-weight: 700;
+  font-family: "Rajdhani", sans-serif;
+  align-self: flex-start;
+  padding: 0 3rem;
+  margin-top: 5vh;
+}
+#main-shop .section-content {
+  margin-top: 5vh;
+  width: 100%;
+  padding: 0 10vw;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+}
+#main-shop figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 200px;
+  aspect-ratio: 1/1.5;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 1px #fafafa;
+  transition: box-shadow 200ms, scale 200ms;
+}
+#main-shop figure:hover {
+  box-shadow: 0px 0px 4px 2px #fafafa;
+}
+#main-shop figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: scale 360ms;
+  object-fit: cover;
+}
+#main-shop figure img:hover {
+  scale: 1.1;
+}
+#main-shop figure .button {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.25rem);
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  background: #fafafa;
+  color: #333333;
+  font-weight: 700;
+  box-shadow: 0 4px 4px 2px rgba(68, 68, 68, 0.3137254902);
+}
+#main-shop figure figcaption {
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  #main-shop {
+    background: blue;
+  }
+  #main-shop .section-content {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto, 320px);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-indent: none;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  width: 100vw;
+  z-index: 10;
+  background: lightblue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 64px;
+}
+
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  padding: 0 1rem;
+}
+nav svg {
+  font-size: 24px;
+}
+nav .nav-list {
+  display: flex;
+}
+nav .social-list {
+  display: flex;
+}
+
+section {
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+section .section-header {
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+}
+section .section-header-title {
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  color: inherit;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: none;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #22222f;
+  color: #fafafa;
+}
+
+#header {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0c0d15;
+}
+#header nav {
+  justify-content: space-between;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+#header nav .nav-list {
+  display: flex;
+  font-weight: 600;
+  width: auto;
+  gap: 2rem;
+  margin: auto 1rem;
+  font-family: "Rajdhani", sans-serif;
+}
+
+section {
+  margin-top: 64px;
+  padding: 0 10vw;
+  height: calc(100vh - 64px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1200px;
+}
+section .section-header {
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+  color: white;
+  background: #3b405f;
+  padding: 0 2rem;
+}
+section .section-header .section-header-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+section .section-content {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  min-height: calc(100vh - 64px - 40px);
+  align-items: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.button {
+  margin-top: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  color: #fafafa;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#home .section-content .home-portrait-container {
+  grid-column: 2/7;
+  grid-row: 2/10;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 2px 1px #fafafa;
+  width: 100%;
+}
+#home .section-content .home-portrait-container .home-portrait {
+  background: red;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#home .section-content .home-text-container {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  grid-column: 7/11;
+  grid-row: 2/9;
+  padding: 0 3vw;
+}
+#about .section-content {
+  margin-top: 5vh;
+  justify-content: center;
+  height: auto;
+}
+#about .section-content figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#about .about-text {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.25rem);
+  font-weight: 400;
+  padding: 1rem 2rem;
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.8rem;
+}
+#about .about-text::first-line {
+  font-size: 1.25rem;
+  font-family: "Lobster", cursive;
+}
+#about figcaption {
+  opacity: 0;
+}
+#about .about-image {
+  box-shadow: 0px 0px 2px 1px #fafafa;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+#about .about-image-1 {
+  grid-column: 8/12;
+  grid-row: 1/5;
+}
+#about .about-text-1 {
+  grid-column: 2/8;
+  grid-row: 2/4;
+  text-align: right;
+}
+#about .about-image-2 {
+  grid-column: 2/6;
+  grid-row: 4/8;
+}
+#about .about-text-2 {
+  grid-column: 6/12;
+  grid-row: 5/7;
+}
+#about .about-image-3 {
+  grid-column: 8/12;
+  grid-row: 7/11;
+}
+#about .about-text-3 {
+  grid-column: 2/8;
+  grid-row: 8/12;
+  text-align: right;
+}
+
+#contact .section-content {
+  gap: 1rem;
+  width: 100%;
+  font-family: "Rajdhani", sans-serif;
+  margin-top: 10vh;
+}
+#contact .contact-text-block {
+  grid-column: 4/10;
+  grid-row: 2/4;
+  font-family: "Rajdhani", sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  font-weight: 400;
+}
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.25rem);
+  font-weight: 400;
+  margin-top: 5vh;
+  width: 100%;
+  grid-column: 4/10;
+  grid-row: 4/10;
+  font-family: "Rajdhani", sans-serif;
+  gap: 0.5rem;
+}
+#contact .contact-form .button {
+  align-self: flex-end;
+}
+#contact input,
+#contact textarea {
+  width: 100%;
+  height: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  color: #fafafa;
+  background: #3b405f;
+  border: none;
+  font-family: "Rajdhani", sans-serif;
+}
+#contact textarea {
+  height: 10rem;
+  resize: none;
+}
+
+#main-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+#main-shop .shop-title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  font-weight: 700;
+  font-family: "Rajdhani", sans-serif;
+  align-self: flex-start;
+  padding: 0 3rem;
+  margin-top: 5vh;
+}
+#main-shop .section-content {
+  margin-top: 5vh;
+  width: 100%;
+  padding: 0 10vw;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+}
+#main-shop figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 200px;
+  aspect-ratio: 1/1.5;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 1px #fafafa;
+  transition: box-shadow 200ms, scale 200ms;
+}
+#main-shop figure:hover {
+  box-shadow: 0px 0px 4px 2px #fafafa;
+}
+#main-shop figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: scale 360ms;
+  object-fit: cover;
+}
+#main-shop figure img:hover {
+  scale: 1.1;
+}
+#main-shop figure .button {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.25rem);
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  background: #fafafa;
+  color: #333333;
+  font-weight: 700;
+  box-shadow: 0 4px 4px 2px rgba(68, 68, 68, 0.3137254902);
+}
+#main-shop figure figcaption {
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  #main-shop {
+    background: blue;
+  }
+  #main-shop .section-content {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto, 320px);
+  }
+}
+* {
+  border: 1px solid white;
+}

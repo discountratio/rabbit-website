@@ -79,12 +79,13 @@ body {
 section {
   margin-top: 64px;
   padding: 0 10vw;
-  min-height: calc(100vh - 64px);
+  height: calc(100vh - 64px);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  width: 1200px;
 }
 section .section-header {
   position: sticky;
@@ -100,7 +101,7 @@ section .section-header {
 }
 section .section-header .section-header-title {
   font-family: "Rajdhani", sans-serif;
-  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
 }
 section .section-content {
@@ -118,7 +119,7 @@ section .section-content {
 .button {
   margin-top: 2rem;
   font-family: "Rajdhani", sans-serif;
-  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
   border-radius: 9999px;
   padding: 0.5rem 3rem;
@@ -162,7 +163,7 @@ section .section-content {
 #shop-category-header {
   font-family: "Rajdhani", sans-serif;
   font-family: "Outfit", sans-serif;
-  font-size: clamp(36px, 3vw, 3rem);
+  font-size: clamp(32px, 3vw, 3rem);
   font-weight: 700;
   padding: 0 2rem;
   width: 100vw;
@@ -491,7 +492,7 @@ section .section-content {
 }
 #cart-modal-total #cart-modal-summary #cart-modal-total-header {
   font-family: "Rajdhani", sans-serif;
-  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
 }
 #cart-modal-total #cart-modal-summary p,
@@ -505,7 +506,7 @@ section .section-content {
 }
 #cart-modal-total #cart-modal-summary .big-total {
   font-family: "Rajdhani", sans-serif;
-  font-size: clamp(24px, 1rem + 0.5vw, 2rem);
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
   font-weight: 600;
 }
@@ -522,4 +523,4 @@ section .section-content {
 
 .open {
   display: block;
-}/*# sourceMappingURL=shop.css.map */
+}

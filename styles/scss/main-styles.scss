@@ -1,38 +1,4 @@
-@import './shared-styles.scss';
-
-#header {
-  // Hide header and nav names on small screens
-  width: 100vw;
-  height: $header-height;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-  padding: 0 $header-padding;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: $color-primary-darker;
-
-  nav {
-    justify-content: space-between;
-    height: $section-header-height;
-    max-height: $section-header-height;
-    line-height: $section-header-height;
-    display: flex;
-    flex-direction: row;
-    width: auto;
-
-    .nav-list {
-      display: flex;
-      font-weight: 600;
-      width: auto;
-      gap: 2rem;
-      margin: auto 1rem;
-      font-family: $sans;
-    }
-  }
-}
+@import "./shared-styles.scss";
 
 #home {
   .section-content {

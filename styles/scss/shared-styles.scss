@@ -45,9 +45,9 @@ $font-family-small: $sans;
 //Font Sizes
 $font-size-icon: clamp(24px, 3.5vw, 48px);
 $font-size-huge: clamp(48px, 5vw, 4rem);
-$font-size-large: clamp(36px, 3vw, 3rem);
-$font-size-medium: clamp(24px, 1rem + 0.5vw, 2rem);
-$font-size-small: clamp(16px, 1vw, 1.5rem);
+$font-size-large: clamp(32px, 3vw, 3rem);
+$font-size-medium: clamp(20px, 1rem + 0.5vw, 2rem);
+$font-size-small: clamp(12px, (12px + 1vw) ,1.25rem);
 
 //Font mixins
 @mixin font-icon {
@@ -166,6 +166,7 @@ body {
   align-items: center;
   background-color: $background;
   color: $color-light;
+
 }
 
 
@@ -207,9 +208,11 @@ body {
 section {
     margin-top: $header-height; //prevents losing header under nav
     padding: 0 10vw;
-    min-height: calc(100vh - $header-height);
+    height: calc(100vh - $header-height);
     position: relative;
     @include flex-column();
+
+    width: 1200px;
   
     .section-header {
       position: sticky;

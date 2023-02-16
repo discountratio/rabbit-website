@@ -1,17 +1,23 @@
 const navLinks = [
   {
+    name: "Home",
+    href: "./#home",
+    icon: "fa-solid fa-home",
+  },
+
+  {
     name: "About",
-    href: "#about",
+    href: "./#about",
     icon: "fa-solid fa-user",
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "./#contact",
     icon: "fa-regular fa-envelope",
   },
   {
     name: "Shop",
-    href: "./shop.html",
+    href: "shop.html",
     icon: "fa-solid fa-bag-shopping",
   },
 ];
@@ -50,8 +56,6 @@ function createLogo() {
   logo.innerText = "Logo";
   return logo;
 }
-
-
 
 function initHeader() {
   header.appendChild(createLogo());
