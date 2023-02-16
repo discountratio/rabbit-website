@@ -1,5 +1,5 @@
 const imagePath = "../assets/images/";
-
+const imageType ='.webp'
 /*
    This section of code is used to generate the gallery items array.
     It exoports the array to be used in the gallery.js file.
@@ -145,8 +145,8 @@ function makeItemFromType(type, total) {
       randomName,
       randomSubtitle,
       randomYear,
-      `${imagePath}${type}-hq-${i}.png`,
-      `${imagePath}${type}-lq-${i}.png`,
+      `${imagePath}${type}-hq-${i}${imageType}`,
+      `${imagePath}${type}-lq-${i}${imageType}`,
       randomDescription(type, randomName, randomSubtitle, randomYear)
     );
     // console.log(`made item${i} of type ${type}`);
