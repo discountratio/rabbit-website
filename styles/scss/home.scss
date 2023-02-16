@@ -1,29 +1,18 @@
 @import "./shared/_shared-styles.scss";
 
 #home {
-  background-color: linear-gradient(45deg, blue, red);
-
-  .section-background{
-
-
-  }
+  padding-top: 5vh;
   .section-content {
-
-    margin: 5vh 5vw;      
-    padding: 2rem;
     @include flex-row;
     justify-content: center;
-    padding: 5vh 10vw;
     .home-portrait-container {
       overflow: hidden;
       box-shadow: 0px 0px 2px 1px $color-light;
-      width: clamp(360px, 40%, 800px);
-      
+      width: clamp(340px, 40%, 800px);
 
       .home-portrait {
         @include image-fill-center;
         vertical-align: middle;
-
       }
     }
 
@@ -31,15 +20,17 @@
       @include font-large;
       font-family: $sans;
       font-weight: 600;
-      width: clamp(240px, 40%, 400px);
-      padding: 0 2rem;
+      width: clamp(340px, 50%, 460px);
+      margin: 1rem 2rem;
     }
+  }
+  button{
+    background-color: $color-primary-light;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   #home {
-    background: red;
     .section-content {
       @include flex-column;
       align-items: center;
@@ -47,9 +38,8 @@
       .home-portrait-container {
       }
       .home-text-container {
-        margin: auto;
+        @include flex-column;
         .home-text {
-          width: 200px;
         }
       }
     }

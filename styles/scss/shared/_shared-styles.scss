@@ -44,10 +44,10 @@ $font-family-small: $sans;
 
 //Font Sizes
 $font-size-icon: clamp(24px, 3.5vw, 48px);
-$font-size-huge: clamp(48px, 5vw, 4rem);
-$font-size-large: clamp(32px, 3vw, 3rem);
+$font-size-huge: clamp(48px, 5vw, 3rem);
+$font-size-large: clamp(32px, 32px + 0.5vw, 2.3rem);
 $font-size-medium: clamp(20px, 1rem + 0.5vw, 2rem);
-$font-size-small: clamp(12px, (12px + 1vw), 1.25rem);
+$font-size-small: clamp(12px, (12px + 1vw), 1.4rem);
 
 //Font mixins
 @mixin font-icon {
@@ -166,8 +166,9 @@ body {
   align-items: center;
   justify-content: center;
   // background-color: $background;
+     background-image: linear-gradient( $color-primary-dark, $color-primary-light);
+
   color: $color-light;
-  overflow-x: hidden;
   scroll-snap-align: start;
 }
 
@@ -183,7 +184,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background: $color-primary-darker;
+  background: $background;;
 
   nav {
     @include flex-row;
@@ -206,23 +207,24 @@ header {
 
 //section default styles
 section {
-  margin-top: $header-height; //prevents losing header under nav
-  padding: 0 10vw;
-  height: calc(100vh - $header-height);
+  // margin-top: $header-height; //prevents losing header under nav
+  margin: 0 10vw;
   position: relative;
+  max-width: 1200px;
   @include flex-column;
 }
 .section-header {
   position: sticky;
   top: $header-height;
+  padding: 0 $header-padding;
   z-index: 7;
   height: $section-header-height;
   max-height: $section-header-height;
   line-height: $section-header-height;
   width: 100vw;
   color: white;
-  background: $color-primary;
-  padding: 0 $header-padding;
+  background: transparent;
+  // padding-top: $header-padding;
   .section-header-title {
     @include font-medium;
   }

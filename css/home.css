@@ -42,8 +42,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(#1e202d, #017ff0);
   color: #fafafa;
-  overflow-x: hidden;
   scroll-snap-align: start;
 }
 
@@ -59,7 +59,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background: #0c0d15;
+  background: #22222f;
 }
 header nav {
   display: flex;
@@ -86,10 +86,9 @@ header nav .nav-list {
 }
 
 section {
-  margin-top: 64px;
-  padding: 0 10vw;
-  height: calc(100vh - 64px);
+  margin: 0 10vw;
   position: relative;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,14 +98,14 @@ section {
 .section-header {
   position: sticky;
   top: 64px;
+  padding: 0 2rem;
   z-index: 7;
   height: 40px;
   max-height: 40px;
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: #3b405f;
-  padding: 0 2rem;
+  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Rajdhani", sans-serif;
@@ -154,22 +153,19 @@ figure img {
 }
 
 #home {
-  background-color: linear-gradient(45deg, blue, red);
+  padding-top: 5vh;
 }
 #home .section-content {
-  margin: 5vh 5vw;
-  padding: 2rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
   justify-content: center;
-  padding: 5vh 10vw;
 }
 #home .section-content .home-portrait-container {
   overflow: hidden;
   box-shadow: 0px 0px 2px 1px #fafafa;
-  width: clamp(360px, 40%, 800px);
+  width: clamp(340px, 40%, 800px);
 }
 #home .section-content .home-portrait-container .home-portrait {
   width: 100%;
@@ -182,18 +178,18 @@ figure img {
 }
 #home .section-content .home-text-container {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(32px, 3vw, 3rem);
+  font-size: clamp(32px, 32px + 0.5vw, 2.3rem);
   font-weight: 700;
   font-family: "Rajdhani", sans-serif;
   font-weight: 600;
-  width: clamp(240px, 40%, 400px);
-  padding: 0 2rem;
+  width: clamp(340px, 50%, 460px);
+  margin: 1rem 2rem;
+}
+#home button {
+  background-color: #017ff0;
 }
 
-@media (max-width: 600px) {
-  #home {
-    background: red;
-  }
+@media (max-width: 700px) {
   #home .section-content {
     display: flex;
     flex-direction: column;
@@ -203,9 +199,9 @@ figure img {
     justify-content: center;
   }
   #home .section-content .home-text-container {
-    margin: auto;
-  }
-  #home .section-content .home-text-container .home-text {
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 }

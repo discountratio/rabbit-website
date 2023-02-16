@@ -27,7 +27,6 @@ const itemAddToCartButton = document.getElementById("modal-add-item-to-cart");
 const cartList = document.getElementById("cart-modal-list");
 const cartItems = [...document.querySelectorAll(".cart-item")];
 const cartModalOpenButton = document.getElementById("open-cart-modal");
-const cartModalCloseButton = document.getElementById("cart-modal-close-button");
 const cartSubtotal = document.getElementById("cart-modal-total-subtotal");
 const cartTax = document.getElementById("cart-modal-total-tax");
 const cartTotal = document.getElementById("cart-modal-total-total");
@@ -299,14 +298,17 @@ function itemModalStuff() {
 
 function cartModalStuff() {
   // Event Listeners & handlers ---------------------------------------------------
-  cartModalCloseButton.addEventListener("click", (e) => {
-    cartModal.classList.remove("open");
-  });
+
+  const toggleCartModalOpen = () => {
+    cartModal.classList.contains("open")
+      ? cartModal.classList.remove("open")
+      : cartModal.classList.add("open");
+  };
+
 
   cartModalOpenButton.addEventListener("click", (e) => {
     console.log(`@cartModalOpenButton: ${cartItems.length} items in cart`);
-    cartModal.classList.add("open");
-    console.log(cartModal);
+    toggleCartModalOpen();
     renderCartItems();
     updateCartTotals();
   });
@@ -340,7 +342,7 @@ function cartModalStuff() {
     </div>
 
       <button class="cart-modal-remove-button">
-    remove
+     &times;
       </button>
 
     </div>
@@ -399,7 +401,10 @@ function cartModalStuff() {
     cartTotal.innerHTML = `$${total}`;
   };
 
-  cartModalTotalCheckout.addEventListener("click", handleCartCheckout);
+  cartModalTotalCheckout.addEventListener('click', (e) => {
+    handleCartCheckout();
+  });
+  
 
   const handleCartCheckout = () => {
     console.log("@handleCartCheckout");

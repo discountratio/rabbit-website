@@ -42,8 +42,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(#1e202d, #017ff0);
   color: #fafafa;
-  overflow-x: hidden;
   scroll-snap-align: start;
 }
 
@@ -59,7 +59,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background: #0c0d15;
+  background: #22222f;
 }
 header nav {
   display: flex;
@@ -86,10 +86,9 @@ header nav .nav-list {
 }
 
 section {
-  margin-top: 64px;
-  padding: 0 10vw;
-  height: calc(100vh - 64px);
+  margin: 0 10vw;
   position: relative;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,14 +98,14 @@ section {
 .section-header {
   position: sticky;
   top: 64px;
+  padding: 0 2rem;
   z-index: 7;
   height: 40px;
   max-height: 40px;
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: #3b405f;
-  padding: 0 2rem;
+  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Rajdhani", sans-serif;
@@ -159,6 +158,31 @@ figure img {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 10vh;
+}
+
+#header {
+  background: #1e202d;
+  height: 5vh;
+}
+
+#open-cart-modal {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  z-index: 9999;
+}
+#open-cart-modal:hover {
+  background-color: #017ff0;
 }
 
 .shop-categories {
@@ -168,24 +192,38 @@ figure img {
   justify-content: center;
   width: 100%;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 .shop-categories .shop-category-button {
   background-color: #3b405f;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.4rem);
+  font-weight: 400;
   font-weight: 600;
-  padding: 0.8rem calc(1rem + 2vw);
-  min-width: 200px;
+  padding: 0.2rem 0.8rem;
+  min-width: 120px;
 }
 .shop-categories .shop-category-button:hover {
-  background-color: blue;
+  background-color: #017ff0;
 }
 .shop-categories .active {
   background-color: #017ff0;
-  color: white;
+}
+
+#shop-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  margin-top: 1rem;
 }
 
 #shop-category-header {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(32px, 3vw, 3rem);
+  font-size: clamp(32px, 32px + 0.5vw, 2.3rem);
   font-weight: 700;
   font-family: "Rajdhani", sans-serif;
   padding: 0 2rem;
@@ -195,16 +233,24 @@ figure img {
 
 #shop-item-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  align-items: flex-start;
+  justify-content: center;
+  padding: 0 3vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: auto;
 }
 
 .shop-item {
   width: 100%;
   font-family: "Rajdhani", sans-serif;
 }
-.shop-item .shop-item-image {
+.shop-item .shop-item-image-container {
+  overflow: hidden;
+  padding: 0.5rem;
+}
+.shop-item .shop-item-image-container .shop-item-image {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -212,6 +258,7 @@ figure img {
   -o-object-position: center;
      object-position: center;
   aspect-ratio: 1/1;
+  transition: all 200ms;
 }
 .shop-item .shop-item-info {
   margin-top: 0.5rem;
@@ -219,17 +266,21 @@ figure img {
 .shop-item .shop-item-info .shop-item-year {
   margin-top: 0.5rem;
 }
+.shop-item:hover .shop-item-image {
+  transform: scale(1.1);
+}
 
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 0%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
+  transition: all 200ms;
 }
 .modal .modal-content {
   display: flex;
@@ -267,7 +318,7 @@ figure img {
 }
 .modal .modal-left .modal-image-container:active, .modal .modal-left .modal-image-container:focus {
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
@@ -293,6 +344,7 @@ figure img {
   position: absolute;
   width: 100%;
   padding: 0.4rem;
+  text-shadow: 1px 1px 4px black;
 }
 .modal .modal-left .modal-info-container .modal-info-title {
   font-weight: 600;
@@ -386,16 +438,16 @@ figure img {
 
 .cart-modal {
   display: none;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 50%;
-  width: 80%;
-  transform: translate(50%, 0);
-  height: 100vh;
-  max-height: 100vh;
-  background: #444444;
+  z-index: 999;
+  width: 100%;
+  height: 95%;
+  background: #1e202d;
+  padding: 1rem 0 1rem 1rem;
   font-family: "Rajdhani", sans-serif;
+  overflow: hidden;
+  position: fixed;
+  top: 5%;
+  left: 0%;
 }
 
 #cart-modal-content {
@@ -405,8 +457,8 @@ figure img {
   justify-content: center;
   justify-content: space-between;
   height: 100%;
-  margin: 0 auto;
   position: relative;
+  padding-bottom: 4rem;
 }
 
 #cart-modal-list {
@@ -422,9 +474,20 @@ figure img {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  font-size: 1.25rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.4rem);
+  font-weight: 400;
   padding: 0.5rem 1rem;
-  background: #3b405f;
+  background: #1e202d;
+}
+.cart-item:not(:last-child):after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #fafafa;
 }
 .cart-item .cart-item-left {
   display: flex;
@@ -452,7 +515,7 @@ figure img {
 }
 
 .cart-item-image-container {
-  width: 140px;
+  width: clamp(64px, 10vw, 128px);
   aspect-ratio: 1/1;
 }
 .cart-item-image-container .cart-item-image {
@@ -479,10 +542,14 @@ figure img {
   outline: none;
   border: none;
   font-weight: 500;
-  font-size: 1rem;
   border-radius: 999px;
-  padding: 0.2rem 1rem;
   font-family: "Rajdhani", sans-serif;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 32px;
+  background: transparent;
+  color: white;
   cursor: pointer;
 }
 
@@ -494,7 +561,7 @@ figure img {
   width: 40%;
   padding: 0 1rem;
   margin-left: 2rem;
-  background: #3b405f;
+  background: #1e202d;
   position: sticky;
   top: 2rem;
   right: 0;
@@ -543,4 +610,40 @@ figure img {
 
 .open {
   display: block;
+  z-index: 999;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  #header {
+    font-family: "Rajdhani", sans-serif;
+    font-size: clamp(12px, 12px + 1vw, 1.4rem);
+    font-weight: 400;
+    padding: 0 0;
+  }
+  #header .logo {
+    display: none;
+    width: 0px;
+  }
+  .cart-modal {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
+  }
+  #cart-modal-content {
+    flex-direction: column;
+  }
+  #cart-modal-list {
+    width: 100%;
+    height: 80%;
+  }
+  #cart-modal-total {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
 }

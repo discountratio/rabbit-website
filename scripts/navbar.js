@@ -20,6 +20,7 @@ const navLinks = [
     href: "shop.html",
     icon: "fa-solid fa-bag-shopping",
   },
+
 ];
 const header = document.getElementById("header");
 
@@ -40,7 +41,10 @@ function createNavLinks() {
     a.appendChild(span);
     li.appendChild(a);
     navList.appendChild(li);
+
+
   });
+
   return navList;
 }
 
@@ -51,9 +55,9 @@ function createNavbar() {
 }
 
 function createLogo() {
-  const logo = document.createElement("div");
+  const logo = document.createElement("i");
   logo.classList.add("logo");
-  logo.innerText = "Logo";
+  logo.innerHTML = `<i class="fa-solid fa-dragon"></i>`
   return logo;
 }
 

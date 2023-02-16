@@ -42,8 +42,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(#1e202d, #017ff0);
   color: #fafafa;
-  overflow-x: hidden;
   scroll-snap-align: start;
 }
 
@@ -59,7 +59,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background: #0c0d15;
+  background: #22222f;
 }
 header nav {
   display: flex;
@@ -86,10 +86,9 @@ header nav .nav-list {
 }
 
 section {
-  margin-top: 64px;
-  padding: 0 10vw;
-  height: calc(100vh - 64px);
+  margin: 0 10vw;
   position: relative;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,14 +98,14 @@ section {
 .section-header {
   position: sticky;
   top: 64px;
+  padding: 0 2rem;
   z-index: 7;
   height: 40px;
   max-height: 40px;
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: #3b405f;
-  padding: 0 2rem;
+  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Rajdhani", sans-serif;
@@ -159,13 +158,13 @@ figure img {
   margin-top: 10vh;
 }
 #contact .contact-text-block {
-  grid-column: 4/10;
+  grid-column: 3/11;
   grid-row: 2/4;
   font-family: "Rajdhani", sans-serif;
   font-family: "Outfit", sans-serif;
-  font-size: clamp(32px, 3vw, 3rem);
+  font-size: clamp(32px, 32px + 0.5vw, 2.3rem);
   font-weight: 700;
-  font-weight: 400;
+  font-weight: 600;
 }
 #contact .contact-form {
   display: flex;
@@ -173,12 +172,12 @@ figure img {
   align-items: center;
   justify-content: flex-start;
   font-family: "Rajdhani", sans-serif;
-  font-size: clamp(12px, 12px + 1vw, 1.25rem);
+  font-size: clamp(12px, 12px + 1vw, 1.4rem);
   font-weight: 400;
   margin-top: 5vh;
   width: 100%;
-  grid-column: 4/10;
-  grid-row: 4/10;
+  grid-column: 3/11;
+  grid-row: 5/10;
   font-family: "Rajdhani", sans-serif;
   gap: 0.5rem;
 }

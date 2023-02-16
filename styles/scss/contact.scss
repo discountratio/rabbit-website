@@ -7,11 +7,11 @@
       margin-top: 10vh;
     }
     .contact-text-block {
-      grid-column: 4/10;
+      grid-column: 3/11;
       grid-row: 2/4;
       font-family: $sans;
       @include font-large;
-      font-weight: 400;
+      font-weight: 600;
     }
   
     .contact-form {
@@ -19,8 +19,8 @@
       @include font-small;
       margin-top: 5vh;
       width: 100%;
-      grid-column: 4/10;
-      grid-row: 4/10;
+      grid-column: 3/11;
+      grid-row: 5/10;
       font-family: $sans;
       gap: 0.5rem;
   
