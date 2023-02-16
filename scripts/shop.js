@@ -169,7 +169,9 @@ function makeShopItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
     <img
       class="shop-item-image"
       src="${lqSrc}"
-      alt="${title}" />
+      alt="${title}"
+      loading="lazy"
+      />
   </div>
 
   <div class="shop-item-info-container">
