@@ -1,9 +1,7 @@
+@import './shared/shared-styles.scss';
+@import './home.scss';
+@import './about.scss';
+@import './contact.scss';
+@import './body-shop.scss';
 @import './shop.scss';
-@import './shared-styles.scss';
-@import './layout.scss';
-@import './main-styles.scss';
 
-// Path: styles\scss\shared-styles.scss
-*{
-    border: 1px solid white;
-}

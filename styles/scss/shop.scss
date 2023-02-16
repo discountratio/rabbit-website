@@ -1,13 +1,14 @@
-@import "./shared-styles.scss";
+@import './shared/_shared-styles.scss';
+
+
 #shop-page {
   @include flex-column;
   width: 100%;
 }
 
 .shop-categories {
-  width: 100%;
   @include flex-row;
-  flex-wrap: wrap;
+  width: 100%;
   justify-content: space-evenly;
   .shop-category-button {
     background-color: $color-primary;
@@ -24,28 +25,26 @@
   }
 }
 
+
 #shop-category-header {
-  font-family: $sans;
   @include font-large;
+  font-family: $sans;
   padding: 0 $header-padding;
   width: 100vw;
-  margin-top: 5vh;
   text-transform: capitalize;
 }
 #shop-item-container {
-  margin-top: 5vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   align-items: flex-start;
-  padding-top: 1rem;
 }
 
 .shop-item {
   width: 100%;
   font-family: $sans;
   .shop-item-image {
-    @include image-fill-center();
+    @include image-fill-center;
     aspect-ratio: 1/1;
   }
   .shop-item-info {

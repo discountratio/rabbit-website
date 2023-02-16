@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura:wght@100;200;300;400;500;600;700;800;900&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+li {
+  list-style: none;
+}
+
+i {
+  color: inherit;
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: none;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fafafa;
+  overflow-x: hidden;
+  scroll-snap-align: start;
+}
+
+header {
+  width: 100vw;
+  height: 64px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0c0d15;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+header nav .nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  width: auto;
+  gap: 2rem;
+  margin: auto 1rem;
+}
+
+section {
+  margin-top: 64px;
+  padding: 0 10vw;
+  height: calc(100vh - 64px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.section-header {
+  position: sticky;
+  top: 64px;
+  z-index: 7;
+  height: 40px;
+  max-height: 40px;
+  line-height: 40px;
+  width: 100vw;
+  color: white;
+  background: #3b405f;
+  padding: 0 2rem;
+}
+.section-header .section-header-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+}
+
+.section-content {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  margin-top: 5vh;
+  min-height: calc(100vh - 64px - 40px);
+  align-items: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.button {
+  margin-top: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  background: #333333;
+  white-space: nowrap;
+  font-weight: 700;
+  box-shadow: 0 4px 4px 2px rgba(68, 68, 68, 0.3137254902);
+  color: #fafafa;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+#home {
+  background-color: linear-gradient(45deg, blue, red);
+}
+#home .section-content {
+  margin: 5vh 5vw;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: center;
+  padding: 5vh 10vw;
+}
+#home .section-content .home-portrait-container {
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 1px #fafafa;
+  width: clamp(360px, 40%, 800px);
+}
+#home .section-content .home-portrait-container .home-portrait {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  vertical-align: middle;
+}
+#home .section-content .home-text-container {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 3vw, 3rem);
+  font-weight: 700;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  width: clamp(240px, 40%, 400px);
+  padding: 0 2rem;
+}
+
+@media (max-width: 600px) {
+  #home {
+    background: red;
+  }
+  #home .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+  }
+  #home .section-content .home-text-container {
+    margin: auto;
+  }
+  #home .section-content .home-text-container .home-text {
+    width: 200px;
+  }
+}

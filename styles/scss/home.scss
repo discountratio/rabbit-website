@@ -1,0 +1,57 @@
+@import "./shared/_shared-styles.scss";
+
+#home {
+  background-color: linear-gradient(45deg, blue, red);
+
+  .section-background{
+
+
+  }
+  .section-content {
+
+    margin: 5vh 5vw;      
+    padding: 2rem;
+    @include flex-row;
+    justify-content: center;
+    padding: 5vh 10vw;
+    .home-portrait-container {
+      overflow: hidden;
+      box-shadow: 0px 0px 2px 1px $color-light;
+      width: clamp(360px, 40%, 800px);
+      
+
+      .home-portrait {
+        @include image-fill-center;
+        vertical-align: middle;
+
+      }
+    }
+
+    .home-text-container {
+      @include font-large;
+      font-family: $sans;
+      font-weight: 600;
+      width: clamp(240px, 40%, 400px);
+      padding: 0 2rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  #home {
+    background: red;
+    .section-content {
+      @include flex-column;
+      align-items: center;
+      justify-content: center;
+      .home-portrait-container {
+      }
+      .home-text-container {
+        margin: auto;
+        .home-text {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
