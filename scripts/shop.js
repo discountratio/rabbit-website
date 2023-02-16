@@ -168,7 +168,7 @@ function makeShopItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
     <div class="shop-item-image-container">
     <img
       class="shop-item-image"
-      src="${hqSrc}"
+      src="${lqSrc}"
       alt="${title}" />
   </div>
 
