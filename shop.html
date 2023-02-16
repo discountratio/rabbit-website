@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="./styles/main-styles/shop.css"
-      type="text/css" />
-      <script src="./scripts/gallery-items.js" type="module" defer></script>
+    <link rel="stylesheet" href="./css/main.css" type="text/css" />
+    <script src="./scripts/gallery-items.js" type="module" defer></script>
     <script src="./scripts/shop.js" type="module" defer></script>
+    <script src="./scripts/navbar.js" defer></script>
+    <script
+    src="https://kit.fontawesome.com/582ae40cce.js"
+    crossorigin="anonymous"></script>
     <title>Penelope Shop</title>
   </head>
   <body>
+    <header id="header"></header>
+    <div id="open-cart-modal" class=""> <i class="fas fa-cart-shopping"></i> Cart</div>
     <div id="shop-page">
-      <div id="shop-categories">
+
+      <div id="shop-categories" class="shop-categories">
         <button
           class="shop-category-button button"
           id="shop-category-button-rabbit"
@@ -24,52 +28,117 @@
         <button
           class="shop-category-button button"
           id="shop-category-button-shoe"
-          data-type="shoe"
-          >
+          data-type="shoe">
           Shoes
         </button>
         <button
           class="shop-category-button button"
           id="shop-category-button-camera"
-          data-type="camera"
-          >
+          data-type="camera">
           Cameras
         </button>
         <button
           class="shop-category-button button"
           id="shop-category-button-portrait"
-          data-type="portrait"
-          >
+          data-type="portrait">
           Portraits
         </button>
         <button
           class="shop-category-button button"
           id="shop-category-button-dragon"
-          data-type="dragon"
-          >
+          data-type="dragon">
           Dragons
         </button>
       </div>
 
-      <h2 id="shop-category-header">Shop Rabbit Prints</h2>
+      <div id="shop-header">
+        <span id="shop-category-header">Shop Rabbit Prints</span>
+     
+      </div>
       <section id="shop-item-container" class="section-content">
-        <!-- <div class="shop-item">
-          <div class="shop-item-image-container">
-            <img
-              class="shop-item-image"
-              src="./assets/images/rabbit-hq-1.png"
-              alt="rabbit-1" />
-          </div>
-          <div class="shop-item-info">
-            <h3 class="shop-item-title">Bartholamew</h3>
-            <p class="shop-item-type">Rabbit</p>
-            <p class="shop-item-year">2020</p>
-          </div>
-        </div> end shop-item -->
-
-  
-
+        <!-- Shop items created in shop.js -->
       </section>
+
+      <div id="item-modal" class="item-modal modal">
+        <div class="modal-content" id="modal-content">
+          <div class="modal-left">
+            <div class="modal-image-container">
+              <img class="modal-image" id="modal-image" src="" alt="" />
+            </div>
+
+            <div class="modal-info-container">
+              <h3 id="modal-info-title"></h3>
+              <p id="modal-info-type"></p>
+              <p id="modal-info-year"></p>
+            </div>
+          </div>
+
+          <div class="modal-right">
+            <div class="modal-selection-container">
+              <label for="print-size" class="modal-selection-label"
+                >Print Size:
+              </label>
+              <select
+                name="modal-print-size"
+                id="modal-print-size"
+                class="modal-selection-input">
+                <option
+                  class="modal-selection-input"
+                  value="${size.price}"></option>
+              </select>
+            </div>
+
+            <div class="modal-selection-container">
+              <label for="print-quantity" class="modal-selection-label"
+                >Quantity:
+              </label>
+              <div class="modal-selection-input">
+                <button
+                  class="modal-selection-button"
+                  id="modal-quantity-minus">
+                  -
+                </button>
+                <span id="modal-quantity"></span>
+                <button class="modal-selection-button" id="modal-quantity-plus">
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="modal-selection-container">
+              <p class="modal-selection-label">Total:</p>
+              <p id="modal-total-price"></p>
+            </div>
+            <button class="add-item-to-cart button" id="modal-add-item-to-cart">
+              Add to cart
+            </button>
+            <button class="close-modal-button" id="modal-close-button">
+              &times;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="cart-modal" class="cart-modal">
+        <h2>Items</h2>
+
+        <div id="cart-modal-content">
+          <ul id="cart-modal-list">
+            <!-- Cart items created in shop.js -->
+          </ul>
+          <div id="cart-modal-total">
+            <h3 id="cart-modal-total-header">Order Summary</h3>
+            <div id="cart-modal-summary">
+              <p>Subtotal: <span id="cart-modal-total-subtotal">$0.00</span></p>
+              <p>Tax: <span id="cart-modal-total-tax">$0.00</span></p>
+              <p>Shipping: <span id="cart-modal-total-shipping">$0.00</span></p>
+              <h3 class="big-total">
+                Total: <span id="cart-modal-total-total"> $0.00</span>
+              </h3>
+            </div>
+            <button id="cart-modal-total-checkout">Checkout</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,13 @@
+{
+    "livePreview.defaultPreviewPath": "/shop.html",
+
+    
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/css"
+    }
+  ],
+}
+
