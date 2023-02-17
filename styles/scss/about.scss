@@ -1,23 +1,36 @@
 @import "./shared/_shared-styles.scss";
 
 #about {
-  height: auto;
   .section-content {
-    height: auto;
+    grid-template-rows: repeat(11, 1fr)
   }
 
   .about-image {
     aspect-ratio: 1/1;
     width: 100%;
+    max-width: 40vw;
     padding: 1rem;
-    img {
-      box-shadow: 0px 0px 2px 1px $color-light;
 
+    img {
       @include image-fill-center;
+
       vertical-align: middle;
     }
   }
+  .about-text {
+    @include font-small;
+    font-family: $sans;
+    display: block;
+    height: 100%;
 
+    &::first-letter {
+      font-size: 1.5rem;
+    }
+    &::first-line {
+      @include font-medium;
+      font-family: $font-fancy6;
+    }
+  }
   .about-image-1 {
     grid-column: 8/12;
     grid-row: 1/5;
@@ -43,22 +56,9 @@
   }
   .about-text-3 {
     grid-column: 2/8;
-    grid-row: 8/12;
+    grid-row: 8/11;
     text-align: right;
-  }
-
-  .about-text {
-    @include font-small;
-    padding: 1rem 2rem;
-    display: block;
-    font-family: $sans;
-    &::first-letter {
-      font-size: 1.5rem;
-    }
-    &::first-line {
-      @include font-medium;
-      font-family: $font-fancy6;
-    }
+    text-justify: top;
   }
 }
 
@@ -74,17 +74,6 @@
       padding: 5vw;
       overflow: scroll;
       overflow-x: hidden;
-    }
-
-    figure {
-    }
-
-    p {
-      width: 400px;
-    }
-
-    .about-image {
-      width: 400px;
     }
 
     .about-text-1,

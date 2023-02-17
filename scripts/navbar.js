@@ -55,10 +55,18 @@ function createNavbar() {
 }
 
 function createLogo() {
+  const logoLink = document.createElement("a");
+  logoLink.href = "./index.html";
+  logoLink.classList.add("logo-link");
+
   const logo = document.createElement("i");
   logo.classList.add("logo");
-  logo.innerHTML = `<i class="fa-solid fa-dragon"></i>`
-  return logo;
+  logo.innerHTML = `<i class="fa-solid fa-dragon"></i>`;
+  logoLink.appendChild(logo);
+  return logoLink;
+
+
+  // logo.innerHTML = `<i class="fa-solid fa-dragon"></i>`
 }
 
 function initHeader() {

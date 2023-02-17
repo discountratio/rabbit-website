@@ -11,7 +11,8 @@
       src="https://kit.fontawesome.com/582ae40cce.js"
       crossorigin="anonymous"></script>
     <script src="./scripts/navbar.js" defer></script>
-    <link rel="stylesheet" href="./css/editedCss/main.css" type="text/css" />
+    <script src="./scripts/shop.js" defer></script>
+    <link rel="stylesheet" href="./css/main.css" type="text/css" />
 
     <title>Penelope Park</title>
   </head>
@@ -40,12 +41,10 @@
 
         <div class="home-text-container">
           <p class="home-text">
-            <span class="home-text-name">Penelope Park</span> is a <br />
-            Korean interdisciplinary <br />
-            artist that specializes <br />
-            in paintings of ceramics.
+            <span class="home-text-name">Penelope Park</span> is a Korean
+             artist that specializes in paintings of ceramics.
           </p>
-          <button class="button">Shop Now</button>
+          <div class="custom-link"><a href="./shop.html"> Shop Now </a></div>
         </div>
 
         <!-- END Home-cards -->
@@ -70,6 +69,7 @@
             "
             alt="" />
         </figure>
+
         <p class="about-text about-text-1">
           Penelope Park is an artist whose work is inspired by the Korean
           tradition of porcelain painting. She has exhibited her work in
@@ -86,6 +86,7 @@
             "
             alt="" />
         </figure>
+
         <p class="about-text about-text-2">
           Penelope was born in Montreal and grew up in Toronto. At 17, she went
           to Korea to live with her grandmother for three years, where she
@@ -109,7 +110,7 @@
           full-time career and enrolled at Sheridan College's School of Art &
           Design in Oakville, Ontario. After graduating with a Bachelor of Fine
           Arts degree (BFA), Penelope relocated back to Montreal where she
-          currently lives with her husband, who works as an architect.
+          currently lives with her husband.
         </p>
       </div>
     </section>
@@ -123,9 +124,9 @@
       <div class="section-header">
         <h2 class="section-header-title">Shop</h2>
       </div>
-      <h2 class="shop-title">Categories</h2>
+      <!-- <h2 class="shop-title">Categories</h2> -->
       <div class="section-content shop-content">
-        <figure class="shop-image-container shop-image-3">
+        <div class="body-shop-container">
           <img
             src="./assets/images/rabbit-lq-12.webp"
             srcset="
@@ -133,10 +134,9 @@
               ./assets/images/rabbit-hq-12.webp 3x
             "
             alt="" />
-          <figcaption>Shop Rabbits</figcaption>
-        </figure>
-
-        <figure class="shop-image-container shop-image-2">
+          <span class="body-shop-value" value="rabbit">Shop Rabbits</span>
+        </div>
+        <div class="body-shop-container">
           <img
             src="./assets/images/shoe-lq-5.webp"
             srcset="
@@ -144,10 +144,10 @@
               ./assets/images/shoe-hq-5.webp 3x
             "
             alt="" />
-          <figcaption>Shop Shoes</figcaption>
-        </figure>
 
-        <figure class="shop-image-container shop-image-4">
+          <span class="body-shop-value" value="shoe"" >Shop Shoes</span>
+        </div>
+        <div class="body-shop-container">
           <img
             src="./assets/images/camera-lq-2.webp"
             srcset="
@@ -155,21 +155,19 @@
               ./assets/images/camera-hq-2.webp 3x
             "
             alt="" />
-          <figcaption>Shop Cameras</figcaption>
-        </figure>
-
-        <figure class="shop-image-container shop-image-5">
+          <span class="body-shop-value" value="camera" >Shop Cameras</span>
+        </div>
+        <div class="body-shop-container">
           <img
-            src="./assets/images/portrait-lq-3.webp"
+            src="./assets/images/portrait-lq-4.webp"
             srcset="
-              ./assets/images/portrait-hq-3.webp 2x,
-              ./assets/images/portrait-hq-3.webp 3x
+              ./assets/images/portrait-hq-4.webp 2x,
+              ./assets/images/portrait-hq-4.webp 3x
             "
             alt="" />
-          <figcaption>Shop Portraits</figcaption>
-        </figure>
-
-        <figure class="shop-image-container shop-image-1">
+          <span  class="body-shop-value" value="portrait">Shop Portraits</span>
+        </div>
+        <div class="body-shop-container">
           <img
             src="./assets/images/dragon-lq-2.webp"
             srcset="
@@ -177,9 +175,24 @@
               ./assets/images/dragon-hq-2.webp 3x
             "
             alt="" />
-          <figcaption>Shop Dragons</figcaption>
-        </figure>
+          <span  class="body-shop-value" value="dragon">Shop Dragons</span>
+        </div>
       </div>
+
+      <script>
+          const bodyShopContainer = document.querySelectorAll('.body-shop-container');
+          const bodyShopValue = document.querySelectorAll('.body-shop-value');
+
+          bodyShopContainer.forEach((container, index) => {
+            container.addEventListener('click', () => {
+              const value = bodyShopValue[index].getAttribute('value');
+              localStorage.setItem('bodyShopCategory', value);
+              window.location.href = './shop.html';
+            });
+          });
+
+
+      </script>
     </section>
 
     <!--Contact  -->
@@ -190,17 +203,16 @@
       </div>
       <div class="section-content contact-content">
         <p class="contact-text-block">
-          Would you like to work with Penelope or feature her work in your
-          gallery? Get in touch.
+          Would you like to work with Penelope
+           or feature her work in your gallery?<br>
+           Get in touch.
         </p>
         <form
           class="contact-form"
           action="https://formspree.io/f/xnqoqzjy"
           method="POST">
           <input type="text" name="name" id="name" placeholder="Name" />
-
           <input type="email" name="email" id="email" placeholder="Email" />
-
           <textarea
             name="message"
             id="message"
@@ -211,5 +223,9 @@
       </div>
     </section>
     <!-- END Contact -->
+
+    <footer> 
+      Cheeseburgers in paradise
+    </footer>
   </body>
 </html>

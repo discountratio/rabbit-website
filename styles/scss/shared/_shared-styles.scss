@@ -7,6 +7,7 @@
 
 $cursive: "Satisfy", cursive;
 $sans: "Rajdhani", sans-serif;
+$font-bold: 'Outfit', sans-serif;
 
 $bold: 700;
 $normal: 400;
@@ -27,7 +28,7 @@ $font-family-small: $sans;
 //Font Sizes
 $font-size-icon: clamp(24px, 3.5vw, 48px);
 $font-size-huge: clamp(48px, 5vw, 3rem);
-$font-size-large: clamp(32px, 32px + 0.5vw, 2.3rem);
+$font-size-large: clamp(28px, 28px + 0.5vw, 2.3rem);
 $font-size-medium: clamp(20px, 1rem + 0.5vw, 2rem);
 $font-size-small: clamp(12px, (12px + 1vw), 1.4rem);
 
@@ -170,6 +171,7 @@ header {
 
   nav {
     @include flex-row;
+    @include font-medium();
     height: $section-header-height;
     max-height: $section-header-height;
     line-height: $section-header-height;
@@ -183,6 +185,13 @@ header {
       width: auto;
       gap: 2rem;
       margin: auto 1rem;
+      li{
+        cursor: pointer;
+        transition: $transition-medium;
+        &:hover {
+          color: $color-primary-light;
+        }
+      }
     }
   }
 }
@@ -192,12 +201,12 @@ section {
   // margin-top: $header-height; //prevents losing header under nav
   margin: 0 10vw;
   position: relative;
-  max-width: 1200px;
+  width: clamp(600px, 80%, 1000px);
   @include flex-column;
 }
 .section-header {
   position: sticky;
-  top: $header-height;
+  top: $section-header-height;
   padding: 0 $header-padding;
   z-index: 7;
   height: $section-header-height;
@@ -205,19 +214,21 @@ section {
   line-height: $section-header-height;
   width: 100vw;
   color: white;
-  background: transparent;
+  // background: transparent;
+background: black;
   // padding-top: $header-padding;
   .section-header-title {
-    @include font-medium;
+    @include font-large;
   }
 }
 
 .section-content {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
-  margin-top: 5vh;
-  min-height: calc(100vh - $header-height - $section-header-height);
+  height: auto;
+  margin: 5vh 0;
+  // background: coral;
+
+  // min-height: calc(100vh - $header-height - $section-header-height);
   align-items: center;
   justify-items: center;
   display: grid;
@@ -248,3 +259,5 @@ figure {
     @include image-fill-center;
   }
 }
+
+

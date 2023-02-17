@@ -1,5 +1,6 @@
 import { galleryItemArray } from "./gallery-items.js";
 
+
 // Page elements -------------------------------------------------------------------
 const shopCategories = document.querySelector(".shop-categories");
 const shopItemContainer = document.getElementById("shop-item-container");
@@ -37,11 +38,14 @@ const cartModalTotalCheckout = document.getElementById(
 // Page variables -----------------------------------------------------------------
 
 //default values
+// var bodyShopCategory = "dragon";
+
+
 var currentTotal = 0.0;
 var currentQuantity = 0;
 var currentPrintPrice = 0.0;
 var currentPrintSize = null;
-let currentCagtegory = "rabbit";
+let currentCategory = 'rabbit';
 let cart = [];
 const categoryArray = ["rabbit", "shoe", "camera", "portrait", "dragon"];
 const printSizes = [
@@ -78,6 +82,41 @@ const printSizes = [
     price: 40.99,
   },
 ];
+
+
+// Page event listeners ------------------------------------------------------------
+
+
+
+
+function loadCategoryFromLocalStorage(){
+  const categoryFromLocalStorage = localStorage.getItem("bodyShopCategory");
+  if (categoryFromLocalStorage) {
+    currentCategory = categoryFromLocalStorage;
+    shopCategoryHeader.innerHTML = `shop ${currentCategory} prints`;
+    shopItemContainer.innerHTML = "";
+    console.log(`@handleCategoryButton: ${categoryFromLocalStorage}`);
+  }
+  console.log(categoryFromLocalStorage);
+  return categoryFromLocalStorage;
+};
+
+
+
+
+
+// if (categoryFromLocalStorage) {
+//   currentCategory = categoryFromLocalStorage;
+//   shopCategoryHeader.innerHTML = `shop ${currentCategory} prints`;
+//   shopItemContainer.innerHTML = "";
+//   console.log(`@handleCategoryButton: ${categoryFromLocalStorage}`);
+
+//   renderAllShopItemsOfType(categoryFromLocalStorage);
+// }
+
+
+
+
 
 // Page functions -------------------------------------------------------------------
 function saveCartToLocalStorage() {
@@ -128,7 +167,8 @@ const handleCategoryButton = (e) => {
   });
 
   button.classList.add("active");
-  shopCategoryHeader.innerHTML = `shop ${category} prints`;
+  currentCategory = category;
+  shopCategoryHeader.innerHTML = `shop ${currentCategory} prints`;
   shopItemContainer.innerHTML = "";
   console.log(`@handleCategoryButton: ${category}`);
   renderAllShopItemsOfType(category);
@@ -295,7 +335,7 @@ function itemModalStuff() {
     saveCartToLocalStorage();
     console.log(`@itemAddToCart: ${item.title}`);
   }
-  renderAllShopItemsOfType(currentCagtegory);
+  renderAllShopItemsOfType(currentCategory);
 }
 
 function cartModalStuff() {
@@ -422,7 +462,15 @@ function cartModalStuff() {
 
 // Initialize
 const init = () => {
-  loadCartFromLocalStorage ? loadCartFromLocalStorage() : null;
+  loadCartFromLocalStorage();
+  currentCategory = loadCategoryFromLocalStorage();
+  categoryButtons.forEach((button) => {
+    if(button.dataset.type === currentCategory) {
+      button.classList.add('active');
+    }
+  });
+
+
   itemModalStuff();
   cartModalStuff();
 };

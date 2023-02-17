@@ -1,15 +1,15 @@
-@import './shared/shared-styles.scss';
-@import './home.scss';
-@import './about.scss';
-@import './contact.scss';
-@import './body-shop.scss';
-@import './shop.scss';
+@import "./shared/shared-styles.scss";
+@import "./home.scss";
+@import "./about.scss";
+@import "./contact.scss";
+@import "./body-shop.scss";
+@import "./shop.scss";
 
-section{
-    &:nth-child(even){
-        // background-image: linear-gradient(45deg, $color-primary-light, $color-primary-dark);
-    }
-    &:nth-child(odd){
-        // background-image: linear-gradient(45deg,$color-primary-dark, $color-primary-light);
-    }
+section {
+  &:nth-child(even) {
+    // background-image: linear-gradient(45deg, $color-primary-light, $color-primary-dark);
+  }
+  &:nth-child(odd) {
+    // background-image: linear-gradient(45deg,$color-primary-dark, $color-primary-light);
+  }
 }

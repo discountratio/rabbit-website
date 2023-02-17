@@ -1,9 +1,9 @@
 @import "./shared/_shared-styles.scss";
 
 #home {
-  padding-top: 5vh;
   .section-content {
     @include flex-row;
+    margin-top: 10vh;
     justify-content: center;
     .home-portrait-container {
       overflow: hidden;
@@ -20,12 +20,25 @@
       @include font-large;
       font-family: $sans;
       font-weight: 600;
-      width: clamp(340px, 50%, 460px);
+      width: clamp(340px, 40%, 460px);
       margin: 1rem 2rem;
     }
   }
-  button{
-    background-color: $color-primary-light;
+  .custom-link {
+    @include font-large;
+    margin-top: 2rem;
+    cursor: pointer;
+    border: 3px solid white;
+    width: fit-content;
+    padding: 0.25rem 1rem;
+    background: transparent;
+    color: $color-light;
+    transition: all $transition-medium;
+    &:hover {
+      color: $color-primary-light;
+      background: $color-light;
+      border: 3px solid $color-light;
+    }
   }
 }
 

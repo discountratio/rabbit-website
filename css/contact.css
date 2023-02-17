@@ -58,6 +58,9 @@ header nav {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
   height: 40px;
   max-height: 40px;
   line-height: 40px;
@@ -76,11 +79,18 @@ header nav .nav-list {
   gap: 2rem;
   margin: auto 1rem;
 }
+header nav .nav-list li {
+  cursor: pointer;
+  transition: 300ms;
+}
+header nav .nav-list li:hover {
+  color: #017ff0;
+}
 
 section {
   margin: 0 10vw;
   position: relative;
-  max-width: 1200px;
+  width: clamp(600px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +99,7 @@ section {
 
 .section-header {
   position: sticky;
-  top: 64px;
+  top: 40px;
   padding: 0 2rem;
   z-index: 7;
   height: 40px;
@@ -97,20 +107,18 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
+  background: black;
 }
 .section-header .section-header-title {
-  font-family: "Rajdhani", sans-serif;
-  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
-  font-weight: 400;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
+  font-weight: 700;
 }
 
 .section-content {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
-  margin-top: 5vh;
-  min-height: calc(100vh - 64px - 40px);
+  height: auto;
+  margin: 5vh 0;
   align-items: center;
   justify-items: center;
   display: grid;
@@ -145,18 +153,23 @@ figure img {
 }
 
 #contact .section-content {
-  gap: 1rem;
   font-family: "Rajdhani", sans-serif;
-  margin-top: 10vh;
+  height: auto;
+  min-height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 }
 #contact .contact-text-block {
-  grid-column: 3/11;
-  grid-row: 2/4;
   font-family: "Rajdhani", sans-serif;
+  width: clamp(300px, 50vw, 600px);
   font-family: "Outfit", sans-serif;
-  font-size: clamp(32px, 32px + 0.5vw, 2.3rem);
+  font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
   font-weight: 700;
   font-weight: 600;
+  height: 100%;
+  padding: 1rem;
 }
 #contact .contact-form {
   display: flex;
@@ -166,29 +179,44 @@ figure img {
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(12px, 12px + 1vw, 1.4rem);
   font-weight: 400;
-  margin-top: 5vh;
-  width: 100%;
-  grid-column: 3/11;
-  grid-row: 5/10;
+  height: 100%;
+  width: clamp(300px, 50vw, 600px);
   font-family: "Rajdhani", sans-serif;
   gap: 0.5rem;
+  padding: 1rem;
 }
 #contact .contact-form .button {
   align-self: flex-end;
 }
 #contact input,
 #contact textarea {
-  width: 100%;
-  height: 2rem;
   font-family: "Rajdhani", sans-serif;
-  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-size: clamp(12px, 12px + 1vw, 1.4rem);
   font-weight: 400;
+  font-family: "Rajdhani", sans-serif;
+  height: 2rem;
   color: #fafafa;
   background: #3b405f;
   border: none;
-  font-family: "Rajdhani", sans-serif;
+  outline: none;
+  width: 100%;
+  text-indent: 0.5rem;
+  padding: 0.25rem;
 }
 #contact textarea {
-  height: 10rem;
+  height: 8rem;
   resize: none;
+}
+
+@media (max-width: 768px) {
+  #contact .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+  }
 }

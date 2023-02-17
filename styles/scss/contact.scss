@@ -2,27 +2,31 @@
 
 #contact {
     .section-content {
-      gap: 1rem;
       font-family: $sans;
-      margin-top: 10vh;
+      // justify-content: start;
+      // align-items: start;
+      height: auto;
+      min-height:auto;
+      @include flex-row;
     }
     .contact-text-block {
-      grid-column: 3/11;
-      grid-row: 2/4;
       font-family: $sans;
+      width: clamp(300px, 50vw, 600px);      
       @include font-large;
       font-weight: 600;
+      height: 100%;
+      padding: 1rem;
+
     }
   
     .contact-form {
       @include flex-column;
       @include font-small;
-      margin-top: 5vh;
-      width: 100%;
-      grid-column: 3/11;
-      grid-row: 5/10;
+      height: 100%;
+      width: clamp(300px, 50vw, 600px);    
       font-family: $sans;
       gap: 0.5rem;
+      padding: 1rem;
   
       .button {
         align-self: flex-end;
@@ -31,18 +35,38 @@
   
     input,
     textarea {
-      width: 100%;
+      @include font-small;
+      font-family: $sans;
       height: 2rem;
-      @include font-medium;
+
       color: $color-light;
       background: $color-primary;
       border: none;
-      font-family: $sans;
+      outline: none;
+      width: 100%;
+      text-indent: 0.5rem;
+      padding: 0.25rem;
     }
   
     textarea {
-      height: 10rem;
+      height: 8rem;
       resize: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #contact {
+      .section-content {
+        @include flex-column;
+        .contact-text-block{
+          // font-family: $font-bold;
+          // font-weight: 600;
+        }
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        min-height: 100vh;
+      }
     }
   }
   

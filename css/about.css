@@ -58,6 +58,9 @@ header nav {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
   height: 40px;
   max-height: 40px;
   line-height: 40px;
@@ -76,11 +79,18 @@ header nav .nav-list {
   gap: 2rem;
   margin: auto 1rem;
 }
+header nav .nav-list li {
+  cursor: pointer;
+  transition: 300ms;
+}
+header nav .nav-list li:hover {
+  color: #017ff0;
+}
 
 section {
   margin: 0 10vw;
   position: relative;
-  max-width: 1200px;
+  width: clamp(600px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +99,7 @@ section {
 
 .section-header {
   position: sticky;
-  top: 64px;
+  top: 40px;
   padding: 0 2rem;
   z-index: 7;
   height: 40px;
@@ -97,20 +107,18 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
+  background: black;
 }
 .section-header .section-header-title {
-  font-family: "Rajdhani", sans-serif;
-  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
-  font-weight: 400;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
+  font-weight: 700;
 }
 
 .section-content {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
-  margin-top: 5vh;
-  min-height: calc(100vh - 64px - 40px);
+  height: auto;
+  margin: 5vh 0;
   align-items: center;
   justify-items: center;
   display: grid;
@@ -144,19 +152,16 @@ figure img {
      object-position: center;
 }
 
-#about {
-  height: auto;
-}
 #about .section-content {
-  height: auto;
+  grid-template-rows: repeat(11, 1fr);
 }
 #about .about-image {
   aspect-ratio: 1/1;
   width: 100%;
+  max-width: 40vw;
   padding: 1rem;
 }
 #about .about-image img {
-  box-shadow: 0px 0px 2px 1px #fafafa;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -164,6 +169,23 @@ figure img {
   -o-object-position: center;
      object-position: center;
   vertical-align: middle;
+}
+#about .about-text {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.4rem);
+  font-weight: 400;
+  font-family: "Rajdhani", sans-serif;
+  display: block;
+  height: 100%;
+}
+#about .about-text::first-letter {
+  font-size: 1.5rem;
+}
+#about .about-text::first-line {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  font-family: "Lobster", cursive;
 }
 #about .about-image-1 {
   grid-column: 8/12;
@@ -188,25 +210,9 @@ figure img {
 }
 #about .about-text-3 {
   grid-column: 2/8;
-  grid-row: 8/12;
+  grid-row: 8/11;
   text-align: right;
-}
-#about .about-text {
-  font-family: "Rajdhani", sans-serif;
-  font-size: clamp(12px, 12px + 1vw, 1.4rem);
-  font-weight: 400;
-  padding: 1rem 2rem;
-  display: block;
-  font-family: "Rajdhani", sans-serif;
-}
-#about .about-text::first-letter {
-  font-size: 1.5rem;
-}
-#about .about-text::first-line {
-  font-family: "Rajdhani", sans-serif;
-  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
-  font-weight: 400;
-  font-family: "Lobster", cursive;
+  text-justify: top;
 }
 
 @media (max-width: 700px) {
@@ -224,12 +230,6 @@ figure img {
     padding: 5vw;
     overflow: scroll;
     overflow-x: hidden;
-  }
-  #about p {
-    width: 400px;
-  }
-  #about .about-image {
-    width: 400px;
   }
   #about .about-text-1,
   #about .about-text-2,

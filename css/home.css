@@ -58,6 +58,9 @@ header nav {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
   height: 40px;
   max-height: 40px;
   line-height: 40px;
@@ -76,11 +79,18 @@ header nav .nav-list {
   gap: 2rem;
   margin: auto 1rem;
 }
+header nav .nav-list li {
+  cursor: pointer;
+  transition: 300ms;
+}
+header nav .nav-list li:hover {
+  color: #017ff0;
+}
 
 section {
   margin: 0 10vw;
   position: relative;
-  max-width: 1200px;
+  width: clamp(600px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +99,7 @@ section {
 
 .section-header {
   position: sticky;
-  top: 64px;
+  top: 40px;
   padding: 0 2rem;
   z-index: 7;
   height: 40px;
@@ -97,20 +107,18 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
+  background: black;
 }
 .section-header .section-header-title {
-  font-family: "Rajdhani", sans-serif;
-  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
-  font-weight: 400;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
+  font-weight: 700;
 }
 
 .section-content {
   width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
-  margin-top: 5vh;
-  min-height: calc(100vh - 64px - 40px);
+  height: auto;
+  margin: 5vh 0;
   align-items: center;
   justify-items: center;
   display: grid;
@@ -144,14 +152,12 @@ figure img {
      object-position: center;
 }
 
-#home {
-  padding-top: 5vh;
-}
 #home .section-content {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  margin-top: 10vh;
   justify-content: center;
 }
 #home .section-content .home-portrait-container {
@@ -170,15 +176,31 @@ figure img {
 }
 #home .section-content .home-text-container {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(32px, 32px + 0.5vw, 2.3rem);
+  font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
   font-weight: 700;
   font-family: "Rajdhani", sans-serif;
   font-weight: 600;
-  width: clamp(340px, 50%, 460px);
+  width: clamp(340px, 40%, 460px);
   margin: 1rem 2rem;
 }
-#home button {
-  background-color: #017ff0;
+#home .custom-link {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
+  font-weight: 700;
+  margin-top: 2rem;
+  cursor: pointer;
+  border: 3px solid white;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.25rem 1rem;
+  background: transparent;
+  color: #fafafa;
+  transition: all 300ms;
+}
+#home .custom-link:hover {
+  color: #017ff0;
+  background: #fafafa;
+  border: 3px solid #fafafa;
 }
 
 @media (max-width: 700px) {
