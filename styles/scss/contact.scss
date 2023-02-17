@@ -3,11 +3,13 @@
 #contact {
     .section-content {
       font-family: $sans;
-      // justify-content: start;
-      // align-items: start;
+      justify-content: start;
+      align-items: start;
       height: auto;
       min-height:auto;
       @include flex-row;
+      // align-items: center;
+      // justify-content: center;
     }
     .contact-text-block {
       font-family: $sans;
@@ -39,8 +41,10 @@
       font-family: $sans;
       height: 2rem;
 
-      color: $color-light;
-      background: $color-primary;
+      // color: $color-light;
+      // background: $color-primary;
+      background: $color-light;
+      color: $color-dark;
       border: none;
       outline: none;
       width: 100%;
@@ -62,8 +66,6 @@
           // font-family: $font-bold;
           // font-weight: 600;
         }
-        justify-content: space-evenly;
-        align-items: center;
         height: 100%;
         min-height: 100vh;
       }

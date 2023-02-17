@@ -1,6 +1,5 @@
 import { galleryItemArray } from "./gallery-items.js";
 
-
 // Page elements -------------------------------------------------------------------
 const shopCategories = document.querySelector(".shop-categories");
 const shopItemContainer = document.getElementById("shop-item-container");
@@ -40,12 +39,11 @@ const cartModalTotalCheckout = document.getElementById(
 //default values
 // var bodyShopCategory = "dragon";
 
-
 var currentTotal = 0.0;
 var currentQuantity = 0;
 var currentPrintPrice = 0.0;
 var currentPrintSize = null;
-let currentCategory = 'rabbit';
+let currentCategory = "rabbit";
 let cart = [];
 const categoryArray = ["rabbit", "shoe", "camera", "portrait", "dragon"];
 const printSizes = [
@@ -83,13 +81,21 @@ const printSizes = [
   },
 ];
 
-
 // Page event listeners ------------------------------------------------------------
 
+document.addEventListener("click", (e) => {
+  // let clickInside = itemModal.contains(e.target)
+  // if (clickInside) {
+  //   // itemModal.classList.add('open');
+  //   console.log('clicked inside');
+  // }
+  // else {
+  //   // itemModal.classList.remove('open');
+  //   console.log('clicked outside');
+  // }
+});
 
-
-
-function loadCategoryFromLocalStorage(){
+function loadCategoryFromLocalStorage() {
   const categoryFromLocalStorage = localStorage.getItem("bodyShopCategory");
   if (categoryFromLocalStorage) {
     currentCategory = categoryFromLocalStorage;
@@ -99,11 +105,47 @@ function loadCategoryFromLocalStorage(){
   }
   console.log(categoryFromLocalStorage);
   return categoryFromLocalStorage;
-};
+}
 
+function addedToCartScreen() {
+  const addedToCart = document.getElementById("added-to-cart");
+  console.log(addedToCart);
+  console.log("added-to-cart");
+  addedToCart.classList.add("open");
 
+  // addedToCart.innerHTML = addAnimationToStringCharacters("YEEHAW", "letter-bounce");
+  addedToCart.innerHTML = `Added to cart <br/>
+<span class='added-to-cart-checkmark'>✓</span>
+`;
 
+  setTimeout(() => {
+    addedToCart.classList.remove("open");
+  }, 500);
+}
 
+function cartCheckoutScreen () {
+  const cartCheckout = document.getElementById("cart-checkout-screen");
+  console.log(cartCheckout);
+  cartCheckout.classList.add("open");
+  cartCheckout.innerHTML =  
+  `Order on the way! <br/>
+  <span class='added-to-cart-checkmark'>✓</span>
+  `;
+  setTimeout(() => {
+    cartCheckout.classList.remove("open");
+  }, 1000);
+  console.log('CHECKER OUT BOYS')
+}
+
+function addAnimationToStringCharacters(string, animation) {
+  const stringArray = string.split("");
+  const stringArrayWithAnimation = stringArray.map((character, index) => {
+    return `<span style=animation: ${animation} ${
+      { index } * 100
+    } ms ease-in-out>${character}</span>`;
+  });
+  return stringArrayWithAnimation.join("");
+}
 
 // if (categoryFromLocalStorage) {
 //   currentCategory = categoryFromLocalStorage;
@@ -113,10 +155,6 @@ function loadCategoryFromLocalStorage(){
 
 //   renderAllShopItemsOfType(categoryFromLocalStorage);
 // }
-
-
-
-
 
 // Page functions -------------------------------------------------------------------
 function saveCartToLocalStorage() {
@@ -216,8 +254,8 @@ function makeShopItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
 
   <div class="shop-item-info-container">
     <h3 class="shop-item-title">${title}</h3>
-    <p class="shop-item-type">${type}</p>
-    <p class="shop-item-year">${date}</p>
+    <p class="shop-item-type">${type} - <span class="shop-item-year">${date}</span> </p>
+
   </div>
     `;
 
@@ -260,6 +298,8 @@ function itemModalStuff() {
   itemAddToCartButton.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
+    e.target.innerHTML = "Added to Cart";
+
     handleItemAddToCart(e);
   });
 
@@ -333,6 +373,7 @@ function itemModalStuff() {
   function itemAddToCart(item) {
     cart.push(item);
     saveCartToLocalStorage();
+    addedToCartScreen();
     console.log(`@itemAddToCart: ${item.title}`);
   }
   renderAllShopItemsOfType(currentCategory);
@@ -342,11 +383,15 @@ function cartModalStuff() {
   // Event Listeners & handlers ---------------------------------------------------
 
   const toggleCartModalOpen = () => {
-    cartModal.classList.contains("open")
-      ? cartModal.classList.remove("open")
-      : cartModal.classList.add("open");
-  };
+    if (cartModal.classList.contains("open")) {
+      cartModalOpenButton.innerHTML = "View Cart";
+      cartModal.classList.remove("open");
+    } else {
 
+      cartModalOpenButton.innerHTML = "Close Cart";
+      cartModal.classList.add("open");
+    }
+  };
 
   cartModalOpenButton.addEventListener("click", (e) => {
     console.log(`@cartModalOpenButton: ${cartItems.length} items in cart`);
@@ -443,18 +488,18 @@ function cartModalStuff() {
     cartTotal.innerHTML = `$${total}`;
   };
 
-  cartModalTotalCheckout.addEventListener('click', (e) => {
+  cartModalTotalCheckout.addEventListener("click", (e) => {
     handleCartCheckout();
   });
-  
 
   const handleCartCheckout = () => {
     console.log("@handleCartCheckout");
     cart = [];
     updateCartTotals();
     saveCartToLocalStorage();
-    closeCartModal();
     renderCartItems();
+    toggleCartModalOpen();
+    cartCheckoutScreen();
   };
 
   renderCartItems();
@@ -465,11 +510,10 @@ const init = () => {
   loadCartFromLocalStorage();
   currentCategory = loadCategoryFromLocalStorage();
   categoryButtons.forEach((button) => {
-    if(button.dataset.type === currentCategory) {
-      button.classList.add('active');
+    if (button.dataset.type === currentCategory) {
+      button.classList.add("active");
     }
   });
-
 
   itemModalStuff();
   cartModalStuff();

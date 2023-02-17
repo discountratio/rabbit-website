@@ -11,6 +11,7 @@
       src="https://kit.fontawesome.com/582ae40cce.js"
       crossorigin="anonymous"></script>
     <script src="./scripts/navbar.js" defer></script>
+    <script src="./scripts/footer.js" defer></script>
     <script src="./scripts/shop.js" defer></script>
     <link rel="stylesheet" href="./css/main.css" type="text/css" />
 
@@ -41,8 +42,8 @@
 
         <div class="home-text-container">
           <p class="home-text">
-            <span class="home-text-name">Penelope Park</span> is a Korean
-             artist that specializes in paintings of ceramics.
+            <span class="home-text-name">Penelope Park</span> is a Korean artist
+            that specializes in paintings of ceramics.
           </p>
           <div class="custom-link"><a href="./shop.html"> Shop Now </a></div>
         </div>
@@ -145,7 +146,7 @@
             "
             alt="" />
 
-          <span class="body-shop-value" value="shoe"" >Shop Shoes</span>
+          <span class="body-shop-value" value="shoe">Shop Shoes</span>
         </div>
         <div class="body-shop-container">
           <img
@@ -155,7 +156,7 @@
               ./assets/images/camera-hq-2.webp 3x
             "
             alt="" />
-          <span class="body-shop-value" value="camera" >Shop Cameras</span>
+          <span class="body-shop-value" value="camera">Shop Cameras</span>
         </div>
         <div class="body-shop-container">
           <img
@@ -165,7 +166,7 @@
               ./assets/images/portrait-hq-4.webp 3x
             "
             alt="" />
-          <span  class="body-shop-value" value="portrait">Shop Portraits</span>
+          <span class="body-shop-value" value="portrait">Shop Portraits</span>
         </div>
         <div class="body-shop-container">
           <img
@@ -175,23 +176,23 @@
               ./assets/images/dragon-hq-2.webp 3x
             "
             alt="" />
-          <span  class="body-shop-value" value="dragon">Shop Dragons</span>
+          <span class="body-shop-value" value="dragon">Shop Dragons</span>
         </div>
       </div>
 
       <script>
-          const bodyShopContainer = document.querySelectorAll('.body-shop-container');
-          const bodyShopValue = document.querySelectorAll('.body-shop-value');
+        const bodyShopContainer = document.querySelectorAll(
+          ".body-shop-container"
+        );
+        const bodyShopValue = document.querySelectorAll(".body-shop-value");
 
-          bodyShopContainer.forEach((container, index) => {
-            container.addEventListener('click', () => {
-              const value = bodyShopValue[index].getAttribute('value');
-              localStorage.setItem('bodyShopCategory', value);
-              window.location.href = './shop.html';
-            });
+        bodyShopContainer.forEach((container, index) => {
+          container.addEventListener("click", () => {
+            const value = bodyShopValue[index].getAttribute("value");
+            localStorage.setItem("bodyShopCategory", value);
+            window.location.href = "./shop.html";
           });
-
-
+        });
       </script>
     </section>
 
@@ -203,9 +204,9 @@
       </div>
       <div class="section-content contact-content">
         <p class="contact-text-block">
-          Would you like to work with Penelope
-           or feature her work in your gallery?<br>
-           Get in touch.
+          Would you like to work with Penelope or feature her work in your
+          gallery?<br />
+          Get in touch.
         </p>
         <form
           class="contact-form"
@@ -224,8 +225,19 @@
     </section>
     <!-- END Contact -->
 
-    <footer> 
-      Cheeseburgers in paradise
+    <footer id="footer">
+      <div class="footer-left">
+        Kevin Riley created this website <br>using HTML, CSS, and JavaScript. <br>
+        &copy; 2020 Kevin Riley
+      </div>
+
+      <div class="footer-right">
+        <p>
+          <h3>Contact</h3>
+          <p> <a href="mailto: discountratio@gmail.com">discountratio@gmail.com</a></p>
+          <p> <a href="linkedin.com/rileykevin">linkedIn.com/rileykevin</a> </p>
+        </p>
+      </div>
     </footer>
   </body>
 </html>

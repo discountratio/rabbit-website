@@ -153,6 +153,8 @@ body {
 
   color: $color-light;
   scroll-snap-align: start;
+  scroll-behavior: smooth;
+  
 }
 
 header {
@@ -214,8 +216,8 @@ section {
   line-height: $section-header-height;
   width: 100vw;
   color: white;
-  // background: transparent;
-background: black;
+  background: transparent;
+// background: black;
   // padding-top: $header-padding;
   .section-header-title {
     @include font-large;
@@ -260,4 +262,29 @@ figure {
   }
 }
 
+#footer{
+    min-height: 20vh;
 
+
+  width: 100%;
+  background: $color-primary;
+  @include font-small;
+@include flex-row;
+justify-content: space-between;
+padding: 2vw 5vw;
+align-items: center;
+  .footer-left{
+    font-weight: 600;
+  }
+  .footer-right{
+    @include flex-column;
+    text-align: right;
+
+
+
+    p, h3{
+      width: 100%;
+      }
+
+  }
+}

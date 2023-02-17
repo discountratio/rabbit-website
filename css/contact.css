@@ -37,6 +37,7 @@ body {
   background-image: linear-gradient(#1e202d, #017ff0);
   color: #fafafa;
   scroll-snap-align: start;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -107,7 +108,7 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: black;
+  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -152,8 +153,39 @@ figure img {
      object-position: center;
 }
 
+#footer {
+  min-height: 20vh;
+  width: 100%;
+  background: #3b405f;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(12px, 12px + 1vw, 1.4rem);
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 2vw 5vw;
+  align-items: center;
+}
+#footer .footer-left {
+  font-weight: 600;
+}
+#footer .footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: right;
+}
+#footer .footer-right p, #footer .footer-right h3 {
+  width: 100%;
+}
+
 #contact .section-content {
   font-family: "Rajdhani", sans-serif;
+  justify-content: start;
+  align-items: start;
   height: auto;
   min-height: auto;
   display: flex;
@@ -195,8 +227,8 @@ figure img {
   font-weight: 400;
   font-family: "Rajdhani", sans-serif;
   height: 2rem;
-  color: #fafafa;
-  background: #3b405f;
+  background: #fafafa;
+  color: #333333;
   border: none;
   outline: none;
   width: 100%;
@@ -214,8 +246,6 @@ figure img {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    justify-content: space-evenly;
-    align-items: center;
     height: 100%;
     min-height: 100vh;
   }
