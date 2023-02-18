@@ -17,7 +17,7 @@
   user-select: none;
   cursor: pointer;
   z-index: 999;
-  border: 2px solid white;
+  // border: 2px solid white;
   border-bottom: none;
   padding: 0.1rem 0.5rem;
   height: 100%;
@@ -319,6 +319,8 @@ color: $color-primary-light;
   @include font-small;
   padding: 0.5rem 1rem;
   background: $color-primary-dark;
+  align-items: center;
+  justify-content: center;
   &:not(:last-child):after {
     content: "";
     position: absolute;
@@ -334,11 +336,13 @@ color: $color-primary-light;
     // background: lightcoral;
     height: 100%;
     width: 100%;
+    
   }
 
   .cart-item-middle {
     @include flex-row;
     // background: lightgreen;
+    height: 100%;
     padding: 0.5rem;
   }
   .cart-item-right {
@@ -350,7 +354,7 @@ color: $color-primary-light;
   }
 }
 .cart-item-image-container {
-  width: clamp(64px, 10vw, 128px);
+  width: clamp(64px, 100%, 128px);
   aspect-ratio: 1/1;
   .cart-item-image {
     @include image-fill-center();

@@ -1415,7 +1415,6 @@ figure img {
           user-select: none;
   cursor: pointer;
   z-index: 999;
-  border: 2px solid white;
   border-bottom: none;
   padding: 0.1rem 0.5rem;
   height: 100%;
@@ -1741,6 +1740,8 @@ figure img {
   font-weight: 400;
   padding: 0.5rem 1rem;
   background: #1e202d;
+  align-items: center;
+  justify-content: center;
 }
 .cart-item:not(:last-child):after {
   content: "";
@@ -1764,6 +1765,7 @@ figure img {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  height: 100%;
   padding: 0.5rem;
 }
 .cart-item .cart-item-right {
@@ -1777,7 +1779,7 @@ figure img {
 }
 
 .cart-item-image-container {
-  width: clamp(64px, 10vw, 128px);
+  width: clamp(64px, 100%, 128px);
   aspect-ratio: 1/1;
 }
 .cart-item-image-container .cart-item-image {
