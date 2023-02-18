@@ -5,9 +5,8 @@
       font-family: $sans;
       justify-content: start;
       align-items: start;
-      height: auto;
-      min-height:auto;
-      @include flex-row;
+      margin: 10vh 0;
+      @include flex-column;
       // align-items: center;
       // justify-content: center;
     }

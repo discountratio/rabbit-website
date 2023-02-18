@@ -57,7 +57,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -65,7 +65,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -123,7 +123,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -193,7 +192,8 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
@@ -238,7 +238,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -246,7 +246,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -304,7 +304,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -374,7 +373,8 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
@@ -385,12 +385,13 @@ figure img {
   justify-content: center;
   margin-top: 10vh;
   justify-content: center;
-  height: 80vh;
+  height: 90vh;
 }
 #home .section-content .home-portrait-container {
   overflow: hidden;
   box-shadow: 0px 0px 2px 1px #fafafa;
-  width: clamp(340px, 40%, 800px);
+  width: clamp(340px, 60vw, 500px);
+  aspect-ratio: 1/1.5;
 }
 #home .section-content .home-portrait-container .home-portrait {
   width: 100%;
@@ -403,11 +404,12 @@ figure img {
 }
 #home .section-content .home-text-container {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
-  font-weight: 700;
-  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(40px, 5vw, 2.5rem);
+  font-weight: 800;
+  font-family: 700;
   font-weight: 600;
   width: clamp(340px, 40%, 460px);
+  aspect-ratio: 2/1;
   margin: 1rem 2rem;
 }
 #home .custom-link {
@@ -444,6 +446,9 @@ figure img {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
+    font-weight: 700;
   }
 }
 li {
@@ -487,7 +492,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -495,7 +500,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -553,7 +558,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -623,7 +627,8 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
@@ -632,8 +637,7 @@ figure img {
 }
 #about .about-image {
   aspect-ratio: 1/1;
-  width: 100%;
-  max-width: 40vw;
+  width: clamp(300px, 100%, 40vw);
   padding: 1rem;
 }
 #about .about-image img {
@@ -652,6 +656,7 @@ figure img {
   font-family: "Rajdhani", sans-serif;
   display: block;
   height: 100%;
+  padding: 1rem;
 }
 #about .about-text::first-letter {
   font-size: 1.5rem;
@@ -703,8 +708,6 @@ figure img {
     width: auto;
     margin: auto;
     padding: 5vw;
-    overflow: scroll;
-    overflow-x: hidden;
   }
   #about .about-text-1,
   #about .about-text-2,
@@ -753,7 +756,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -761,7 +764,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -819,7 +822,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -889,7 +891,8 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
@@ -897,12 +900,11 @@ figure img {
   font-family: "Rajdhani", sans-serif;
   justify-content: start;
   align-items: start;
-  height: auto;
-  min-height: auto;
+  margin: 10vh 0;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 #contact .contact-text-block {
   font-family: "Rajdhani", sans-serif;
@@ -1002,7 +1004,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -1010,7 +1012,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -1068,7 +1070,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -1138,10 +1139,19 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
+#main-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+}
 #main-shop .shop-title {
   font-family: "Outfit", sans-serif;
   font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
@@ -1157,27 +1167,28 @@ figure img {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
 }
 #main-shop .body-shop-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  flex: 0 1 80px;
   position: relative;
-  width: 40px;
-  max-width: 100px;
-  height: 60vh;
+  cursor: pointer;
+  height: 600px;
   overflow: hidden;
   transition: all 300ms;
-  flex-grow: 1;
-  flex-shrink: 2;
+  padding: 0.5rem;
 }
 #main-shop .body-shop-container:hover, #main-shop .body-shop-container:focus, #main-shop .body-shop-container:active {
-  flex-grow: 3;
-  max-width: 30vw;
-}
-#main-shop .body-shop-container:hover span, #main-shop .body-shop-container:focus span, #main-shop .body-shop-container:active span {
-  transform: rotate(0deg);
+  flex: 1 1 500px;
+  padding: 1rem;
+  aspect-ratio: 1/1;
 }
 #main-shop .body-shop-container img {
   width: 100%;
@@ -1190,12 +1201,12 @@ figure img {
   object-fit: cover;
 }
 #main-shop .body-shop-container span {
-  position: absolute;
-  left: 0;
-  bottom: top;
   font-family: "Outfit", sans-serif;
   font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
   font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 0;
   writing-mode: vertical-rl;
   text-shadow: 0px 0px 4px #333333;
   transition: all 300ms;
@@ -1242,7 +1253,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -1250,7 +1261,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -1308,7 +1319,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -1378,7 +1388,8 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
@@ -1392,11 +1403,6 @@ figure img {
   height: 100vh;
 }
 
-#header {
-  background: transparent;
-  height: 5vh;
-}
-
 #open-cart-modal {
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(20px, 1rem + 0.5vw, 2rem);
@@ -1405,13 +1411,19 @@ figure img {
   white-space: nowrap;
   text-align: center;
   position: fixed;
-  top: 8px;
-  right: 8px;
+  top: 4px;
+  right: 4px;
+  width: 200px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   cursor: pointer;
   z-index: 999;
+  border: 2px solid white;
+  padding: 0.1rem 0.5rem;
 }
 #open-cart-modal:hover {
-  background-color: #017ff0;
+  color: #017ff0;
 }
 
 .shop-categories {
@@ -1465,7 +1477,7 @@ figure img {
 
 #shop-item-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(1px, 240px));
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(20px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
@@ -1876,12 +1888,31 @@ figure img {
     display: none;
     width: 0px;
   }
-  .cart-modal {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    padding: 0;
+  .modal {
+    background: rgba(0, 0, 0, 0.3137254902);
+    height: 40vh;
+    width: 100vw;
+  }
+  .modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    margin: auto;
+  }
+  .modal .modal-content .modal-left {
+    align-items: center;
+  }
+  .modal .modal-content .modal-info-container {
+    align-items: center;
+    background: blue;
   }
   #cart-modal-content {
     flex-direction: column;
@@ -1909,7 +1940,7 @@ figure img {
   display: none;
   color: #017ff0;
   font-family: "Outfit", sans-serif;
-  font-size: clamp(48px, 5vw, 3rem);
+  font-size: clamp(40px, 5vw, 2.5rem);
   font-weight: 800;
   text-align: center;
   padding-top: 30vh;
@@ -1926,7 +1957,7 @@ figure img {
   display: none;
   color: #017ff0;
   font-family: "Outfit", sans-serif;
-  font-size: clamp(48px, 5vw, 3rem);
+  font-size: clamp(40px, 5vw, 2.5rem);
   font-weight: 800;
   text-align: center;
   padding-top: 30vh;

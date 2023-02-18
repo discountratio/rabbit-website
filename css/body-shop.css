@@ -42,7 +42,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -50,7 +50,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -108,7 +108,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -178,10 +177,19 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
+#main-shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
+}
 #main-shop .shop-title {
   font-family: "Outfit", sans-serif;
   font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
@@ -197,27 +205,28 @@ figure img {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
 }
 #main-shop .body-shop-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  flex: 0 1 80px;
   position: relative;
-  width: 40px;
-  max-width: 100px;
-  height: 60vh;
+  cursor: pointer;
+  height: 600px;
   overflow: hidden;
   transition: all 300ms;
-  flex-grow: 1;
-  flex-shrink: 2;
+  padding: 0.5rem;
 }
 #main-shop .body-shop-container:hover, #main-shop .body-shop-container:focus, #main-shop .body-shop-container:active {
-  flex-grow: 3;
-  max-width: 30vw;
-}
-#main-shop .body-shop-container:hover span, #main-shop .body-shop-container:focus span, #main-shop .body-shop-container:active span {
-  transform: rotate(0deg);
+  flex: 1 1 500px;
+  padding: 1rem;
+  aspect-ratio: 1/1;
 }
 #main-shop .body-shop-container img {
   width: 100%;
@@ -230,12 +239,12 @@ figure img {
   object-fit: cover;
 }
 #main-shop .body-shop-container span {
-  position: absolute;
-  left: 0;
-  bottom: top;
   font-family: "Outfit", sans-serif;
   font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
   font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 0;
   writing-mode: vertical-rl;
   text-shadow: 0px 0px 4px #333333;
   transition: all 300ms;

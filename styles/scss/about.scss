@@ -7,9 +7,11 @@
 
   .about-image {
     aspect-ratio: 1/1;
-    width: 100%;
-    max-width: 40vw;
+    width: clamp(300px, 100%, 40vw);
+    // width: 100%;
+    // max-width: 40vw;
     padding: 1rem;
+    // box-shadow: 2px 2px 1px 1px $color-light;
 
     img {
       @include image-fill-center;
@@ -22,7 +24,7 @@
     font-family: $sans;
     display: block;
     height: 100%;
-
+    padding: 1rem;
     &::first-letter {
       font-size: 1.5rem;
     }
@@ -72,8 +74,8 @@
       width: auto;
       margin: auto;
       padding: 5vw;
-      overflow: scroll;
-      overflow-x: hidden;
+      // overflow: scroll;
+      // overflow-x: hidden;
     }
 
     .about-text-1,

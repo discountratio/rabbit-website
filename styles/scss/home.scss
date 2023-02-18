@@ -5,12 +5,12 @@
     @include flex-row;
     margin-top: 10vh;
     justify-content: center;
-    height: 80vh;
+    height: 90vh;
     .home-portrait-container {
       overflow: hidden;
       box-shadow: 0px 0px 2px 1px $color-light;
-      width: clamp(340px, 40%, 800px);
-
+      width: clamp(340px, 60vw, 500px);
+      aspect-ratio: 1/1.5;
       .home-portrait {
         @include image-fill-center;
         vertical-align: middle;
@@ -18,10 +18,11 @@
     }
 
     .home-text-container {
-      @include font-large;
-      font-family: $sans;
+      @include font-huge;
+      font-family: $bold;
       font-weight: 600;
       width: clamp(340px, 40%, 460px);
+      aspect-ratio: 2/1;
       margin: 1rem 2rem;
     }
   }
@@ -50,9 +51,11 @@
       align-items: center;
       justify-content: center;
       .home-portrait-container {
+
       }
       .home-text-container {
         @include flex-column;
+        @include font-large;
         .home-text {
         }
       }

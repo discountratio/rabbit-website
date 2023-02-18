@@ -7,7 +7,7 @@
 
 $cursive: "Satisfy", cursive;
 $sans: "Rajdhani", sans-serif;
-$font-bold: 'Outfit', sans-serif;
+$font-bold: "Outfit", sans-serif;
 
 $bold: 700;
 $normal: 400;
@@ -27,7 +27,7 @@ $font-family-small: $sans;
 
 //Font Sizes
 $font-size-icon: clamp(24px, 3.5vw, 48px);
-$font-size-huge: clamp(48px, 5vw, 3rem);
+$font-size-huge: clamp(40px, 5vw, 2.5rem);
 $font-size-large: clamp(28px, 28px + 0.5vw, 2.3rem);
 $font-size-medium: clamp(20px, 1rem + 0.5vw, 2rem);
 $font-size-small: clamp(12px, (12px + 1vw), 1.4rem);
@@ -149,17 +149,16 @@ body {
   align-items: center;
   justify-content: center;
   // background-color: $background;
-     background-image: linear-gradient( $color-primary-dark, $color-primary-light);
+  background-image: linear-gradient($color-primary-dark, $color-primary-light);
 
   color: $color-light;
   scroll-snap-align: start;
   scroll-behavior: smooth;
-  
 }
 
 header {
   width: 100vw;
-  height: $header-height;
+  height: $section-header-height;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -167,9 +166,9 @@ header {
   align-items: center;
   padding: 0 $header-padding;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
-  background: $background;;
+  background: $background;
 
   nav {
     @include flex-row;
@@ -180,6 +179,10 @@ header {
     width: 100vw;
     justify-content: space-between;
     padding: 0 1rem;
+    // background: $color-primary-dark;
+
+    // background: green;
+
     .nav-list {
       @include flex-row;
       font-family: $sans;
@@ -187,7 +190,7 @@ header {
       width: auto;
       gap: 2rem;
       margin: auto 1rem;
-      li{
+      li {
         cursor: pointer;
         transition: $transition-medium;
         &:hover {
@@ -216,8 +219,8 @@ section {
   line-height: $section-header-height;
   width: 100vw;
   color: white;
-  background: transparent;
-// background: black;
+  // background: transparent;
+  // background: black;
   // padding-top: $header-padding;
   .section-header-title {
     @include font-large;
@@ -262,29 +265,26 @@ figure {
   }
 }
 
-#footer{
-    min-height: 20vh;
-
+#footer {
+  min-height: 20vh;
 
   width: 100%;
   background: $color-primary;
   @include font-small;
-@include flex-row;
-justify-content: space-between;
-padding: 2vw 5vw;
-align-items: center;
-  .footer-left{
+  @include flex-row;
+  justify-content: space-between;
+  padding: 2vw 5vw;
+  align-items: center;
+  .footer-left {
     font-weight: 600;
   }
-  .footer-right{
+  .footer-right {
     @include flex-column;
     text-align: right;
 
-
-
-    p, h3{
+    p,
+    h3 {
       width: 100%;
-      }
-
+    }
   }
 }

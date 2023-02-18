@@ -42,7 +42,7 @@ body {
 
 header {
   width: 100vw;
-  height: 64px;
+  height: 40px;
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -50,7 +50,7 @@ header {
   align-items: center;
   padding: 0 2rem;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   background: #22222f;
 }
@@ -108,7 +108,6 @@ section {
   line-height: 40px;
   width: 100vw;
   color: white;
-  background: transparent;
 }
 .section-header .section-header-title {
   font-family: "Outfit", sans-serif;
@@ -178,7 +177,8 @@ figure img {
   justify-content: flex-start;
   text-align: right;
 }
-#footer .footer-right p, #footer .footer-right h3 {
+#footer .footer-right p,
+#footer .footer-right h3 {
   width: 100%;
 }
 
@@ -192,11 +192,6 @@ figure img {
   height: 100vh;
 }
 
-#header {
-  background: transparent;
-  height: 5vh;
-}
-
 #open-cart-modal {
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(20px, 1rem + 0.5vw, 2rem);
@@ -205,13 +200,19 @@ figure img {
   white-space: nowrap;
   text-align: center;
   position: fixed;
-  top: 8px;
-  right: 8px;
+  top: 4px;
+  right: 4px;
+  width: 200px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   cursor: pointer;
   z-index: 999;
+  border: 2px solid white;
+  padding: 0.1rem 0.5rem;
 }
 #open-cart-modal:hover {
-  background-color: #017ff0;
+  color: #017ff0;
 }
 
 .shop-categories {
@@ -265,7 +266,7 @@ figure img {
 
 #shop-item-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(1px, 240px));
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(20px, 1rem + 0.5vw, 2rem);
   font-weight: 400;
@@ -676,12 +677,31 @@ figure img {
     display: none;
     width: 0px;
   }
-  .cart-modal {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    padding: 0;
+  .modal {
+    background: rgba(0, 0, 0, 0.3137254902);
+    height: 40vh;
+    width: 100vw;
+  }
+  .modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    margin: auto;
+  }
+  .modal .modal-content .modal-left {
+    align-items: center;
+  }
+  .modal .modal-content .modal-info-container {
+    align-items: center;
+    background: blue;
   }
   #cart-modal-content {
     flex-direction: column;
@@ -709,7 +729,7 @@ figure img {
   display: none;
   color: #017ff0;
   font-family: "Outfit", sans-serif;
-  font-size: clamp(48px, 5vw, 3rem);
+  font-size: clamp(40px, 5vw, 2.5rem);
   font-weight: 800;
   text-align: center;
   padding-top: 30vh;
@@ -726,7 +746,7 @@ figure img {
   display: none;
   color: #017ff0;
   font-family: "Outfit", sans-serif;
-  font-size: clamp(48px, 5vw, 3rem);
+  font-size: clamp(40px, 5vw, 2.5rem);
   font-weight: 800;
   text-align: center;
   padding-top: 30vh;
