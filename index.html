@@ -219,6 +219,21 @@
             name="body"
             id="body"
             placeholder="What an opportunity"></textarea>
+              <script> 
+              const SubmitEmail = () => {
+                var name = document.getElementById("name").value;
+                var body = document.getElementById("body").value;
+                var subject = document.getElementById("subject").value;
+                var yourMessage = `Hi Penelope, my name is ${name} and I would like to work with you. ${body}`;
+                var url = `mailto:discountratio@gmail.com
+                ?subject=${Uri.EscapeDataString(subject)}
+                &body=${Uri.EscapeDataString(yourMessage)}`;  
+              }
+              
+
+
+              </script>
+
 
           <button class="button" type="submit">Send</button>
         </form>

@@ -83,18 +83,6 @@ const printSizes = [
 
 // Page event listeners ------------------------------------------------------------
 
-document.addEventListener("click", (e) => {
-  // let clickInside = itemModal.contains(e.target)
-  // if (clickInside) {
-  //   // itemModal.classList.add('open');
-  //   console.log('clicked inside');
-  // }
-  // else {
-  //   // itemModal.classList.remove('open');
-  //   console.log('clicked outside');
-  // }
-});
-
 function loadCategoryFromLocalStorage() {
   const categoryFromLocalStorage = localStorage.getItem("bodyShopCategory");
   if (categoryFromLocalStorage) {
@@ -112,7 +100,6 @@ function addedToCartScreen() {
   console.log(addedToCart);
   console.log("added-to-cart");
   addedToCart.classList.add("open");
-
   // addedToCart.innerHTML = addAnimationToStringCharacters("YEEHAW", "letter-bounce");
   addedToCart.innerHTML = `Added to cart <br/>
 <span class='added-to-cart-checkmark'>✓</span>
@@ -254,7 +241,8 @@ function makeShopItem(type, title, subtitle, date, hqSrc, lqSrc, description) {
 
   <div class="shop-item-info-container">
     <h3 class="shop-item-title">${title}</h3>
-    <p class="shop-item-type">${type} - <span class="shop-item-year">${date}</span> </p>
+    <p class="shop-item-type">${type}</p>
+    <p class="shop-item-year">${date}</p>
 
   </div>
     `;

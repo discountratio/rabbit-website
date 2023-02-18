@@ -14,15 +14,14 @@
   font-weight: 600;
   white-space: nowrap;
   text-align: center;
-  position: fixed;
-  top: 4px;
-  right: 4px;
-  width: 200px;
   user-select: none;
   cursor: pointer;
   z-index: 999;
   border: 2px solid white;
+  border-bottom: none;
   padding: 0.1rem 0.5rem;
+  height: 100%;
+  
   &:hover {
 color: $color-primary-light;
   }
@@ -57,14 +56,16 @@ color: $color-primary-light;
   position: relative;
   margin-top: 1rem;
   background: transparent;
-  box-shadow: 0px 2px 2px black;
+  box-shadow: 0px 2px 2px $color-light;
+  padding: 0 $header-padding;
+  width: 100vw;
+  justify-content: space-between;
+
 }
 
 #shop-category-header {
   @include font-large;
   font-family: $sans;
-  padding: 0 $header-padding;
-  width: 100vw;
   text-transform: capitalize;
 }
 
@@ -116,24 +117,24 @@ color: $color-primary-light;
 }
 
 .modal {
-  display: none; //default
+  display: none; 
   position: fixed;
   z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
-  height: 0%;
+  height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 200ms;
 
   .modal-content {
     @include flex-row;
+    gap: 2rem;
     position: relative;
-    //justify-content: space-between;
     align-items: center;
     font-family: $sans;
-    width: clamp(400px, 80%, 800px);
+    width: clamp(540px, 80%, 800px);
     margin: 10% auto;
     padding: 0.5rem 1rem;
     border-radius: 16px;
@@ -148,8 +149,8 @@ color: $color-primary-light;
     font-size: 1.25rem;
     position: relative;
     .modal-image-container {
-      width: clamp(180px, 100%, 300px);
-      // box-shadow: 2px 8px 8px 0px #111;
+      width: clamp(240px, 100%, 300px);
+      box-shadow: 2px 8px 8px 0px #111;
       aspect-ratio: 1/1;
       border-radius: 16px;
       overflow: hidden;
@@ -177,31 +178,34 @@ color: $color-primary-light;
       @include flex-column;
       align-items: flex-start;
       position: absolute;
-      width: 100%;
-      padding: 0.4rem;
-      text-shadow: 1px 1px 4px black;
-
+      padding: 0.8rem;
+      text-shadow: 2px 2px 4px black;
+      // background: orange;
+      width: clamp(220px, 70%, 320px);
+      @include font-medium;
+      font-weight: 800;
       .modal-info-title {
-        font-weight: 600;
+        // font-weight: 600;
         font-size: 1.25rem;
       }
       .modal-info-type {
       }
       .modal-info-year {
         font-size: 1rem;
+
       }
     }
   }
 
   .modal-right {
     @include flex-column;
-    width: 100%;
-    gap: 1rem;
+    width: clamp(220px, 100%, 320px);
+    // background: green;
+    gap: 0.5rem;
     align-items: flex-start;
     font-size: 1.25rem;
     padding: 1rem;
     margin-top: 1rem;
-
     .button {
       background: $color-primary-light;
       border: none;
@@ -217,7 +221,7 @@ color: $color-primary-light;
     .modal-selection-container {
       @include flex-row;
       width: 100%;
-      height: 40px;
+      height: 32px;
       justify-content: space-between;
       align-items: center;
       white-space: nowrap;
@@ -228,7 +232,7 @@ color: $color-primary-light;
       }
 
       #modal-total-price {
-        width: 200px;
+        width: 180px
       }
       .modal-selection-input {
         @include flex-row;
@@ -280,13 +284,13 @@ color: $color-primary-light;
   display: none;
   z-index: 999;
   width: 100%;
-  height: 95%;
+  height: 80%;
   background: $color-primary-dark;
   padding: 1rem 0 1rem 1rem;
   font-family: $sans;
   overflow: hidden;
   position: fixed;
-  top: 5%;
+  top: 20%;
   left: 0%;
 }
 
@@ -451,18 +455,21 @@ color: $color-primary-light;
       @include flex-column;
       position: fixed;
       bottom: 0;
+      right: 0;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       height: 80vh;
-      width: 100vw;
+      width: 80vw;
       justify-content: center;
       margin: auto;
       .modal-left{
         align-items: center;
       }
       .modal-info-container{
-        align-items: center;
-        background: blue;
+        // align-items: center;
+        // background: blue;
+        // width: fit-content;
+        
       }
     }
 

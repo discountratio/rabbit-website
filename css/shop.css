@@ -199,17 +199,15 @@ figure img {
   font-weight: 600;
   white-space: nowrap;
   text-align: center;
-  position: fixed;
-  top: 4px;
-  right: 4px;
-  width: 200px;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   cursor: pointer;
   z-index: 999;
   border: 2px solid white;
+  border-bottom: none;
   padding: 0.1rem 0.5rem;
+  height: 100%;
 }
 #open-cart-modal:hover {
   color: #017ff0;
@@ -251,7 +249,10 @@ figure img {
   position: relative;
   margin-top: 1rem;
   background: transparent;
-  box-shadow: 0px 2px 2px black;
+  box-shadow: 0px 2px 2px #fafafa;
+  padding: 0 2rem;
+  width: 100vw;
+  justify-content: space-between;
 }
 
 #shop-category-header {
@@ -259,8 +260,6 @@ figure img {
   font-size: clamp(28px, 28px + 0.5vw, 2.3rem);
   font-weight: 700;
   font-family: "Rajdhani", sans-serif;
-  padding: 0 2rem;
-  width: 100vw;
   text-transform: capitalize;
 }
 
@@ -317,7 +316,7 @@ figure img {
   left: 0;
   top: 0;
   width: 100%;
-  height: 0%;
+  height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 200ms;
@@ -327,10 +326,11 @@ figure img {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  gap: 2rem;
   position: relative;
   align-items: center;
   font-family: "Rajdhani", sans-serif;
-  width: clamp(400px, 80%, 800px);
+  width: clamp(540px, 80%, 800px);
   margin: 10% auto;
   padding: 0.5rem 1rem;
   border-radius: 16px;
@@ -348,7 +348,8 @@ figure img {
   position: relative;
 }
 .modal .modal-left .modal-image-container {
-  width: clamp(180px, 100%, 300px);
+  width: clamp(240px, 100%, 300px);
+  box-shadow: 2px 8px 8px 0px #111;
   aspect-ratio: 1/1;
   border-radius: 16px;
   overflow: hidden;
@@ -381,12 +382,15 @@ figure img {
   justify-content: flex-start;
   align-items: flex-start;
   position: absolute;
-  width: 100%;
-  padding: 0.4rem;
-  text-shadow: 1px 1px 4px black;
+  padding: 0.8rem;
+  text-shadow: 2px 2px 4px black;
+  width: clamp(220px, 70%, 320px);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(20px, 1rem + 0.5vw, 2rem);
+  font-weight: 400;
+  font-weight: 800;
 }
 .modal .modal-left .modal-info-container .modal-info-title {
-  font-weight: 600;
   font-size: 1.25rem;
 }
 .modal .modal-left .modal-info-container .modal-info-year {
@@ -397,8 +401,8 @@ figure img {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
-  gap: 1rem;
+  width: clamp(220px, 100%, 320px);
+  gap: 0.5rem;
   align-items: flex-start;
   font-size: 1.25rem;
   padding: 1rem;
@@ -421,7 +425,7 @@ figure img {
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  height: 40px;
+  height: 32px;
   justify-content: space-between;
   align-items: center;
   white-space: nowrap;
@@ -431,7 +435,7 @@ figure img {
   width: 120px;
 }
 .modal .modal-right .modal-selection-container #modal-total-price {
-  width: 200px;
+  width: 180px;
 }
 .modal .modal-right .modal-selection-container .modal-selection-input {
   display: flex;
@@ -486,13 +490,13 @@ figure img {
   display: none;
   z-index: 999;
   width: 100%;
-  height: 95%;
+  height: 80%;
   background: #1e202d;
   padding: 1rem 0 1rem 1rem;
   font-family: "Rajdhani", sans-serif;
   overflow: hidden;
   position: fixed;
-  top: 5%;
+  top: 20%;
   left: 0%;
 }
 
@@ -689,19 +693,16 @@ figure img {
     justify-content: flex-start;
     position: fixed;
     bottom: 0;
+    right: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     height: 80vh;
-    width: 100vw;
+    width: 80vw;
     justify-content: center;
     margin: auto;
   }
   .modal .modal-content .modal-left {
     align-items: center;
-  }
-  .modal .modal-content .modal-info-container {
-    align-items: center;
-    background: blue;
   }
   #cart-modal-content {
     flex-direction: column;

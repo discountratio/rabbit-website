@@ -15,10 +15,7 @@
   </head>
   <body>
     <header id="header"></header>
-    <div id="open-cart-modal" class="">
-      <!-- <i class="fas fa-cart-shopping"></i> -->
-      View Cart
-    </div>
+
     <div id="shop-page">
       <div id="shop-categories" class="shop-categories">
         <button
@@ -54,13 +51,18 @@
       </div>
 
       <div id="shop-header">
-        <span id="shop-category-header">Shop Rabbit Prints</span>
+        <h2 id="shop-category-header"></h2>
+        <div id="open-cart-modal" class="">
+          <!-- <i class="fas fa-cart-shopping"></i> -->
+          View Cart
+        </div>
       </div>
 
       <section id="shop-item-container" class="">
         <!-- Shop items created in shop.js -->
       </section>
 
+      <!-- Modal layout, content is added in shop.js -->
       <div id="item-modal" class="item-modal modal">
         <div class="modal-content" id="modal-content">
           <div class="modal-left">
@@ -84,9 +86,7 @@
                 name="modal-print-size"
                 id="modal-print-size"
                 class="modal-selection-input">
-                <option
-                  class="modal-selection-input"
-                  value="${size.price}"></option>
+                <option class="modal-selection-input" value=""></option>
               </select>
             </div>
 
@@ -120,13 +120,13 @@
         </div>
       </div>
 
+      <!-- Cart items created in shop.js -->
+
       <div id="cart-modal" class="cart-modal">
         <h2>Items</h2>
 
         <div id="cart-modal-content">
-          <ul id="cart-modal-list">
-            <!-- Cart items created in shop.js -->
-          </ul>
+          <ul id="cart-modal-list"></ul>
           <div id="cart-modal-total">
             <h3 id="cart-modal-total-header">Order Summary</h3>
             <div id="cart-modal-summary">
@@ -143,13 +143,11 @@
       </div>
     </div>
 
-    <div id="added-to-cart" class="added-to-cart">
-        <!-- <h2 class="added-to-cart-title">Added to cart</h2> -->
-    </div>
-
+    <!-- added to cart success flash -->
+    <div id="added-to-cart" class="added-to-cart"></div>
+    <!-- cart checkout success flash -->
     <div id="cart-checkout-screen" class="cart-checkout-screen">
-    <!--  -->
+      <!--  -->
     </div>
-    
   </body>
 </html>
