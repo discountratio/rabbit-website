@@ -45,7 +45,19 @@
             <span class="home-text-name">Penelope Park</span> is a Korean artist
             that specializes in paintings of ceramics.
           </p>
-          <div class="custom-link"><a href="./shop.html"> Shop Now </a></div>
+          <div class="custom-link" id="shop-now-button" ><a href="./shop.html"> Shop Now </a></div>
+          <script>
+            const shopNowButton = document.getElementById(
+              "shop-now-button"
+            )
+              shopNowButton.addEventListener("click", () => {
+                localStorage.setItem("bodyShopCategory", 'rabbit');
+                window.location.href = "./shop.html";
+              })
+            
+          
+          </script>
+      
         </div>
 
         <!-- END Home-cards -->
@@ -183,7 +195,6 @@
           ".body-shop-container"
         );
         const bodyShopValue = document.querySelectorAll(".body-shop-value");
-
         bodyShopContainer.forEach((container, index) => {
           container.addEventListener("click", () => {
             const value = bodyShopValue[index].getAttribute("value");

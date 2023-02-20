@@ -23,7 +23,7 @@
 
   .body-shop-container {
     @include flex-column;
-    flex: 0 1 80px;
+    flex: 0 1 clamp(80px, 20vw, 360px);
     position: relative;
     cursor: pointer;
     height: 600px;

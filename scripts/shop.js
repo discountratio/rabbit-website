@@ -183,6 +183,9 @@ categoryButtons.forEach((categoryButton) => {
   });
 });
 
+
+
+
 const handleCategoryButton = (e) => {
   const button = e.target;
   const category = button.dataset.type;
@@ -198,6 +201,8 @@ const handleCategoryButton = (e) => {
   console.log(`@handleCategoryButton: ${category}`);
   renderAllShopItemsOfType(category);
 };
+
+
 
 const addShopItemToShop = (item) => {
   itemModal.classList.add("open");
