@@ -106,7 +106,7 @@ header nav .nav-list li:hover {
 section {
   margin: 0 10vw;
   position: relative;
-  width: clamp(600px, 80%, 1000px);
+  width: clamp(320px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -287,7 +287,7 @@ header nav .nav-list li:hover {
 section {
   margin: 0 10vw;
   position: relative;
-  width: clamp(600px, 80%, 1000px);
+  width: clamp(320px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -541,7 +541,7 @@ header nav .nav-list li:hover {
 section {
   margin: 0 10vw;
   position: relative;
-  width: clamp(600px, 80%, 1000px);
+  width: clamp(320px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -637,7 +637,7 @@ figure img {
 }
 #about .about-image {
   aspect-ratio: 1/1;
-  width: clamp(300px, 100%, 40vw);
+  width: clamp(400px, 100%, 40vw);
   padding: 1rem;
 }
 #about .about-image img {
@@ -656,7 +656,9 @@ figure img {
   font-family: "Rajdhani", sans-serif;
   display: block;
   height: 100%;
-  padding: 1rem;
+  padding: 2vw;
+  text-shadow: 2px 2px 2px black;
+  font-weight: 600;
 }
 #about .about-text::first-letter {
   font-size: 1.5rem;
@@ -805,7 +807,7 @@ header nav .nav-list li:hover {
 section {
   margin: 0 10vw;
   position: relative;
-  width: clamp(600px, 80%, 1000px);
+  width: clamp(320px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1053,7 +1055,7 @@ header nav .nav-list li:hover {
 section {
   margin: 0 10vw;
   position: relative;
-  width: clamp(600px, 80%, 1000px);
+  width: clamp(320px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1302,7 +1304,7 @@ header nav .nav-list li:hover {
 section {
   margin: 0 10vw;
   position: relative;
-  width: clamp(600px, 80%, 1000px);
+  width: clamp(320px, 80%, 1000px);
   display: flex;
   flex-direction: column;
   align-items: center;

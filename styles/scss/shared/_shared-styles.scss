@@ -206,7 +206,7 @@ section {
   // margin-top: $header-height; //prevents losing header under nav
   margin: 0 10vw;
   position: relative;
-  width: clamp(600px, 80%, 1000px);
+  width: clamp(320px, 80%, 1000px);
   @include flex-column;
 }
 .section-header {
